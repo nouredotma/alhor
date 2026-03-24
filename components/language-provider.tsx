@@ -30,7 +30,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   // Load language from localStorage on mount
   useEffect(() => {
     const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    if (storedLanguage && (storedLanguage === "ar" || storedLanguage === "fr")) {
+    if (storedLanguage && (storedLanguage === "ar" || storedLanguage === "fr" || storedLanguage === "es")) {
       setLanguageState(storedLanguage as Language)
     }
     setIsHydrated(true)

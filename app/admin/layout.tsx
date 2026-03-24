@@ -1,7 +1,7 @@
 import type React from "react";
 
 export const metadata = {
-  title: "Admin | Univers Instrument Service",
+  title: "Admin | Alhor Parfum",
   robots: { index: false, follow: false },
 };
 

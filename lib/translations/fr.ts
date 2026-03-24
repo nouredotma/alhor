@@ -24,18 +24,18 @@ export const fr: TranslationKeys = {
 
   // Footer
   footer: {
-    brandDescription: "Univers Instrument Service - Votre partenaire de confiance pour des services d'équipement et de maintenance à Agadir, au Maroc.",
+    brandDescription: "Alhor Parfum Orientales - Votre destination pour les parfums les plus raffinés, l'oud et les senteurs de luxe à Casablanca, au Maroc.",
     explore: "Liens Rapides",
     contactTitle: "Contact",
     phone: "Téléphone",
     email: "E-mail",
     address: "Adresse",
-    addressLine1: "Bloc B, N 255 Hay assaka Tikiouine",
-    addressLine2: "Agadir",
-    addressLine3: "Maroc, 80000",
+    addressLine1: "22 Rue 8",
+    addressLine2: "Casablanca",
+    addressLine3: "Maroc, 20220",
     paySafely: "Payez en toute sécurité",
     paymentSecure: "Le paiement est crypté et transmis de manière sécurisée avec un protocole SSL.",
-    copyright: "© 2026 Univers Instrument Service. Tous droits réservés.",
+    copyright: "© 2026 Alhor Parfum Orientales. Tous droits réservés.",
     terms: "Conditions générales",
     privacyPolicy: "Politique de confidentialité",
     products: "Produits",
@@ -55,13 +55,13 @@ export const fr: TranslationKeys = {
 
   // Hero Section
   hero: {
-    title: "Votre Partenaire en Excellence Scientifique",
+    title: "Découvrez l'Excellence des Parfums Orientaux",
     subtitles: [
-      "Équipement de Laboratoire de Haute Précision.",
-      "Maintenance Après-Vente Fiable.",
-      "Solutions Techniques de Confiance."
+      "Les fragrances orientales les plus authentiques.",
+      "Une sélection raffinée d'Oud et d'Encens.",
+      "Des senteurs luxueuses pour tous les goûts."
     ],
-    phoneButton: "0666-166945",
+    phoneButton: "06 69 03 42 06",
     productsButton: "Découvrir NOS Produits",
   },
 
@@ -108,8 +108,8 @@ export const fr: TranslationKeys = {
 
   // Our Best Products Section
   bestOffers: {
-    sectionTitle: "Meilleures Ventes",
-    sectionDescription: "Équipement de laboratoire de haute qualité et instruments scientifiques pour vos besoins de recherche.",
+    sectionTitle: "Nos Meilleures Ventes",
+    sectionDescription: "Une sélection de nos parfums les plus prisés et appréciés.",
     badge: {
       product: "Meilleure Vente",
       tours: "Meilleur Tour !",
@@ -277,8 +277,8 @@ export const fr: TranslationKeys = {
     ourStory: "Notre Histoire",
     heroTitle: "Univers",
     heroTitleHighlight: "Instruments",
-    heroDescription1: "Notre objectif principal est d'aider les chercheurs et les scientifiques à accroître leur efficacité et leur productivité.",
-    heroDescription2: "Univers Instruments est un fournisseur d'équipement de laboratoire et d'instruments analytiques pour les laboratoires scientifiques, de R&D et d'enseignement. Nous proposons à nos clients des produits neufs et d'occasion pour répondre à tous leurs besoins et exigences, tout en tenant compte de leurs objectifs.",
+    heroDescription1: "Notre objectif principal est d'offrir les parfums orientaux les plus raffinés et des senteurs de luxe à nos clients.",
+    heroDescription2: "Alhor Parfum Orientales est votre destination privilégiée pour les parfums, l'oud et l'encens à Casablanca. Nous proposons une sélection soigneusement choisie pour satisfaire tous les goûts.",
     startJourney: "Contactez-nous",
     countries: "Produits",
     travelers: "Clients",
@@ -317,11 +317,11 @@ export const fr: TranslationKeys = {
     visitUs: "Visitez-nous",
     workingHours: "Heures d'ouverture",
     workingDays: "Lun - Dim",
-    workingTime: "8h00 - 20h00",
+    workingTime: "10h00 - 22h00",
     letsTalk: "Parlons",
-    readyToPlan: "Prêt à moderniser votre",
-    adventure: "Laboratoire ?",
-    contactDescription: "Que vous ayez besoin d'instruments analytiques de haute précision, de mobilier de laboratoire ou d'un support technique expert, notre équipe de spécialistes est là pour vous aider.",
+    readyToPlan: "Prêt à découvrir votre",
+    adventure: "Parfum Préféré ?",
+    contactDescription: "Que vous recherchiez un oud luxueux, des parfums orientaux authentiques ou des cadeaux raffinés, notre équipe est là pour vous aider à choisir ce qui convient à votre style.",
     whyChooseUs: "Pourquoi Nous Choisir ?",
     whyChooseUsItems: {
       localExpertise: "Expertise technique & support expert",
@@ -330,7 +330,7 @@ export const fr: TranslationKeys = {
       bestPrice: "Instrumentation de haute qualité",
     },
     responseTime: "Temps de réponse moyen :",
-    under2Hours: "Moins de 2 heures",
+    under2Hours: "Moins d'une heure",
     formLabels: {
       fullName: "Nom Complet *",
       phoneNumber: "Numéro de Téléphone",
@@ -361,13 +361,13 @@ export const fr: TranslationKeys = {
   // Terms Page
   terms: {
     pageTitle: "Conditions Générales",
-    intro: "Veuillez lire attentivement nos conditions générales. En utilisant Univers Instrument Service, vous reconnaissez et acceptez toutes les conditions décrites ci-dessous. Cliquez sur chaque section pour la développer et en savoir plus.",
+    intro: "Veuillez lire attentivement nos conditions générales. En utilisant les services d'Alhor Parfum, vous reconnaissez et acceptez toutes les conditions décrites ci-dessous. Cliquez sur chaque section pour la développer et en savoir plus.",
     sections: {
       introduction: "Introduction",
-      introductionContent: "Les conditions générales de vente suivantes régissent toutes les transactions effectuées via Univers Instrument Service. Toute commande passée suppose l'acceptation inconditionnelle et irrévocable de ces conditions par le client.",
+      introductionContent: "Les conditions générales de vente suivantes régissent toutes les transactions effectuées via Alhor Parfum. Toute commande passée suppose l'acceptation inconditionnelle et irrévocable de ces conditions par le client.",
       object: "Objet",
-      objectContent: "Ce contrat définit les droits et obligations des parties dans le cadre de la vente de services par Univers Instrument Service. Nous fournissons une plateforme complète pour réserver des services d'équipement et de maintenance à Agadir.",
-      objectSubContent: "Morocco Telecommerce est un service de gestion des transactions et une marque déposée de Morocco Telecommerce SA.",
+      objectContent: "Ce contrat définit les droits et obligations des parties dans le cadre de la vente de services par Alhor Parfum. Nous fournissons une plateforme complète pour réserver des services de parfumerie et d'arômes à Casablanca.",
+      objectSubContent: "La sécurité des transactions est assurée par notre plateforme.",
       paymentMethod: "Méthode de Paiement",
       paymentMethodContent: "Nous acceptons les méthodes de paiement suivantes :",
       paymentMethodItems: {
@@ -379,13 +379,13 @@ export const fr: TranslationKeys = {
       paymentSecurity: "Sécurité des Paiements",
       paymentSecurityContent: "Tous les paiements sont sécurisés par Morocco Telecommerce avec un cryptage complet et une protection contre la fraude. Lors du paiement par carte de crédit, les conditions de protection contre la fraude de votre émetteur de carte s'appliquent. Vous garantissez avoir l'autorisation d'utiliser le mode de paiement choisi.",
       proofOfTransactions: "Preuve des Transactions",
-      proofOfTransactionsContent: "Toutes les données de transaction enregistrées sur notre plateforme pour le compte de Univers Instrument Service constituent une preuve officielle de toutes les transactions commerciales entre vous et notre société.",
+      proofOfTransactionsContent: "Toutes les données de transaction enregistrées sur notre plateforme pour le compte de Alhor Parfum constituent une preuve officielle de toutes les transactions commerciales entre vous et notre société.",
       cancellationRefunds: "Annulation et Remboursements",
       cancellationRefundsContent: "Les politiques d'annulation varient selon le type de tour et les conditions de réservation. Veuillez consulter la politique d'annulation spécifique à votre réservation. Les demandes de remboursement doivent être soumises dans les 48 heures suivant la confirmation de réservation.",
       liability: "Responsabilité",
-      liabilityContent: "Univers Instrument Service n'est pas responsable des circonstances indépendantes de notre volonté.",
+      liabilityContent: "Alhor Parfum n'est pas responsable des circonstances indépendantes de notre volonté.",
       intellectualProperty: "Propriété Intellectuelle",
-      intellectualPropertyContent: "Tout le contenu de notre site web, y compris les images, les descriptions et la marque, est la propriété de Univers Instrument Service et protégé par le droit d'auteur.",
+      intellectualPropertyContent: "Tout le contenu de notre site web, y compris les images, les descriptions et la marque, est la propriété de Alhor Parfum et protégé par le droit d'auteur.",
     },
     questionsTitle: "Questions sur Nos Conditions ?",
     questionsDescription: "Si vous avez des questions ou des préoccupations concernant ces conditions générales, n'hésitez pas à nous contacter.",
@@ -486,7 +486,7 @@ export const fr: TranslationKeys = {
       address: "Adresse",
       workingHours: "Heures d'Ouverture",
       workingDays: "Lundi - Dimanche",
-      workingTime: "8h00 - 20h00",
+      workingTime: "10h00 - 22h00",
       callNow: "Appeler Maintenant",
       sendEmail: "Envoyer un E-mail",
       viewMap: "Voir la Carte",
@@ -536,7 +536,7 @@ export const fr: TranslationKeys = {
         paymentInfo: "Informations de Paiement",
         totalPrice: "Prix Total",
         note: "Note",
-        footerText: "Merci d'avoir choisi Univers Instrument Service. Veuillez présenter ce bon (numérique ou imprimé).",
+        footerText: "Merci d'avoir choisi Alhor Parfum Orientales. Veuillez présenter ce bon.",
         contactUs: "Contactez-nous",
       }
     },

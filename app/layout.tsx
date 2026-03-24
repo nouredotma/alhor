@@ -14,44 +14,40 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://universinstrument.com"),
+  metadataBase: new URL("https://alhorparfum.com"),
   title: {
-    default:
-      "Univers Instrument Service | Professional Scientific & Laboratory Equipment in Morocco",
-    template: "%s | Univers Instrument Service",
+    default: "متجر الحر للعطور الشرقية | Alhor Parfum — Finest Oriental Scents in Casablanca",
+    template: "%s | متجر الحر للعطور الشرقية",
   },
   description:
-    "Univers Instrument — Leading supplier of professional scientific instruments, laboratory equipment, calibration tools, and maintenance services in Agadir, Morocco. Quality equipment for research, industry, and education.",
+    "متجر الحر للعطور الشرقية (Alhor Parfum) — متخصص في أرقى العطور الشرقية، العود، والروائح الفاخرة في الدار البيضاء، المغرب. نتميز بالجودة العالية والروائح الراقية.",
   keywords: [
-    "Univers Instrument Service",
-    "Univers Instrument Service",
-    "scientific instruments Morocco",
-    "laboratory equipment Agadir",
-    "calibration tools Morocco",
-    "equipment maintenance Agadir",
-    "pH meter Morocco",
-    "measuring instruments",
-    "industrial equipment Morocco",
-    "lab equipment supplier",
-    "instruments de laboratoire Maroc",
-    "équipement scientifique Agadir",
-    "matériel de mesure Maroc",
+    "متجر الحر للعطور الشرقية",
+    "Alhor Parfum",
+    "oriental perfumes Casablanca",
+    "oriental scents Morocco",
+    "oud Casablanca",
+    "luxury perfumes Morocco",
+    "عطور شرقية الدار البيضاء",
+    "متجر عود المغرب",
+    "روائح فاخرة",
+    "Alhor fragrances",
   ],
   authors: [
     {
-      name: "Univers Instrument Service",
-      url: "https://universinstrument.com",
+      name: "متجر الحر للعطور الشرقية",
+      url: "https://alhorparfum.com",
     },
   ],
-  creator: "Univers Instrument Service",
-  publisher: "Univers Instrument Service",
+  creator: "متجر الحر للعطور الشرقية",
+  publisher: "متجر الحر للعطور الشرقية",
   formatDetection: {
     email: true,
     address: true,
     telephone: true,
   },
-  category: "Scientific Equipment",
-  classification: "Scientific Instruments & Laboratory Equipment Supplier",
+  category: "Perfume Store",
+  classification: "Oriental Perfumes & Fragrances Store",
   icons: {
     icon: [
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
@@ -62,46 +58,46 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Univers Instrument Service | Professional Scientific & Laboratory Equipment",
+    title: "متجر الحر للعطور الشرقية | Alhor Parfum",
     description:
-      "Leading supplier of professional scientific instruments, laboratory equipment, calibration tools, and maintenance services in Agadir, Morocco.",
-    url: "https://universinstrument.com",
-    siteName: "Univers Instrument Service",
+      "متجر الحر للعطور الشرقية متخصص في أرقى العطور الشرقية، العود، والروائح الفاخرة في الدار البيضاء، المغرب.",
+    url: "https://alhorparfum.com",
+    siteName: "متجر الحر للعطور الشرقية",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Univers Instrument Service — Scientific & Laboratory Equipment in Morocco",
+        alt: "متجر الحر للعطور الشرقية — Finest Oriental Scents",
         type: "image/jpeg",
       },
       {
         url: "/favicon.png",
         width: 512,
         height: 512,
-        alt: "Univers Instrument Service Logo",
+        alt: "Alhor Parfum Logo",
       },
     ],
-    locale: "en_US",
-    alternateLocale: ["fr_FR", "ar_MA"],
+    locale: "ar_MA",
+    alternateLocale: ["fr_FR", "es_ES"],
     type: "website",
     countryName: "Morocco",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Univers Instrument Service | Scientific & Laboratory Equipment",
+    title: "متجر الحر للعطور الشرقية | Alhor Parfum",
     description:
-      "Leading supplier of professional scientific instruments, laboratory equipment, and maintenance services in Agadir, Morocco.",
+      "أرقى العطور الشرقية والعود في الدار البيضاء، المغرب.",
     images: ["/og-image.jpg"],
-    creator: "@universinstrument",
-    site: "@universinstrument",
+    creator: "@alhorparfum",
+    site: "@alhorparfum",
   },
   alternates: {
-    canonical: "https://universinstrument.com",
+    canonical: "https://alhorparfum.com",
     languages: {
-      "en-US": "https://universinstrument.com",
-      "fr-FR": "https://universinstrument.com/fr",
-      "ar-MA": "https://universinstrument.com/ar",
+      "ar-MA": "https://alhorparfum.com/ar",
+      "fr-FR": "https://alhorparfum.com/fr",
+      "es-ES": "https://alhorparfum.com/es",
     },
   },
   robots: {
@@ -118,14 +114,12 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
   },
   other: {
-    "geo.region": "MA-AGD",
-    "geo.placename": "Agadir",
-    "geo.position": "30.427755;-9.598107",
-    ICBM: "30.427755, -9.598107",
+    "geo.region": "MA-CAS",
+    "geo.placename": "Casablanca",
+    "geo.position": "33.5731;-7.5898",
+    ICBM: "33.5731, -7.5898",
   },
 };
 
@@ -135,33 +129,33 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["Organization", "Store"],
-      "@id": "https://universinstrument.com/#organization",
-      name: "Univers Instrument Service",
-      url: "https://universinstrument.com",
+      "@id": "https://alhorparfum.com/#organization",
+      name: "متجر الحر للعطور الشرقية | Alhor Parfum",
+      url: "https://alhorparfum.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://universinstrument.com/favicon.png",
+        url: "https://alhorparfum.com/favicon.png",
         width: 512,
         height: 512,
       },
-      image: "https://universinstrument.com/og-image.jpg",
+      image: "https://alhorparfum.com/og-image.jpg",
       description:
-        "Univers Instrument Service — Leading supplier of professional scientific instruments, laboratory equipment, calibration tools, and maintenance services in Agadir, Morocco.",
+        "متجر الحر للعطور الشرقية متخصص في أرقى العطور الشرقية، العود، والروائح الفاخرة في الدار البيضاء، المغرب.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Bloc B, N 255 Hay assaka Tikiouine",
-        addressLocality: "Agadir",
-        addressRegion: "Souss-Massa",
-        postalCode: "80000",
+        streetAddress: "22 Rue 8",
+        addressLocality: "Casablanca",
+        addressRegion: "Casablanca-Settat",
+        postalCode: "20220",
         addressCountry: "MA",
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 30.427755,
-        longitude: -9.598107,
+        latitude: 33.5731,
+        longitude: -7.5898,
       },
-      telephone: "+212666166945",
-      email: "uis.instruments@gmail.com",
+      telephone: "+212669034206",
+      email: "alhorparfum@gmail.com",
       priceRange: "$$",
       openingHoursSpecification: [
         {
@@ -172,51 +166,52 @@ const jsonLd = {
             "Wednesday",
             "Thursday",
             "Friday",
+            "Saturday",
+            "Sunday",
           ],
-          opens: "08:00",
-          closes: "18:00",
+          opens: "10:00",
+          closes: "22:00",
         },
       ],
       sameAs: [
-        "https://www.facebook.com/universinstrument/",
-        "https://www.linkedin.com/in/univers-instrument-service-b81575267/",
+        "https://www.facebook.com/Mohamedaminefakih/",
+        "https://www.instagram.com/alhor_oud_parfums_orientales/",
+        "https://www.tiktok.com/@matjar.elhor/",
       ],
       areaServed: {
         "@type": "Country",
         name: "Morocco",
       },
-      knowsLanguage: ["en", "fr", "ar"],
+      knowsLanguage: ["ar", "fr", "es"],
     },
     {
       "@type": "WebSite",
-      "@id": "https://universinstrument.com/#website",
-      url: "https://universinstrument.com",
-      name: "Univers Instrument",
-      description:
-        "Professional scientific instruments, laboratory equipment, and maintenance services in Morocco",
+      "@id": "https://alhorparfum.com/#website",
+      url: "https://alhorparfum.com",
+      name: "متجر الحر للعطور الشرقية",
+      description: "أرقى العطور الشرقية والروائح الفاخرة في المغرب",
       publisher: {
-        "@id": "https://universinstrument.com/#organization",
+        "@id": "https://alhorparfum.com/#organization",
       },
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
-          urlTemplate:
-            "https://universinstrument.com/search?q={search_term_string}",
+          urlTemplate: "https://alhorparfum.com/search?q={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },
-      inLanguage: ["en-US", "fr-FR", "ar-MA"],
+      inLanguage: ["ar-MA", "fr-FR", "es-ES"],
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://universinstrument.com/#breadcrumb",
+      "@id": "https://alhorparfum.com/#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://universinstrument.com",
+          item: "https://alhorparfum.com",
         },
       ],
     },
@@ -245,14 +240,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
 
         {/* Theme color for mobile browsers */}
-        <meta name="theme-color" content="#c4a47c" />
-        <meta name="msapplication-TileColor" content="#c4a47c" />
+        <meta name="theme-color" content="#FFCC00" />
+        <meta name="msapplication-TileColor" content="#FFCC00" />
 
         {/* Additional SEO meta tags */}
-        <meta name="application-name" content="Univers Instrument Service" />
+        <meta name="application-name" content="متجر الحر للعطور الشرقية" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Univers Instrument Service" />
+        <meta name="apple-mobile-web-app-title" content="Alhor Parfum" />
         <meta name="mobile-web-app-capable" content="yes" />
 
         {/* JSON-LD Structured Data */}

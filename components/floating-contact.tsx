@@ -17,7 +17,7 @@ const WhatsAppIcon = () => (
 )
 
 export default function FloatingContact() {
-  const whatsappNumber = "0666166945"
+  const whatsappNumber = "212669034206"
 
   return (
     <div className="fixed bottom-2 right-2 z-50 flex flex-col gap-3 items-end">

@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <img
           src="/5.png"
-          alt="Univers Instrument Service"
+          alt="Alhor Parfum"
           className="w-full h-full object-cover select-none"
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -74,7 +74,7 @@ export default function Hero() {
               className="flex-1 sm:flex-none h-10 sm:h-12 px-1 sm:px-8 rounded-md bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border-2 border-white/20 transition-all duration-300 font-light text-xs sm:text-base shadow-lg font-fauna"
               asChild
             >
-              <a href="tel:0666166945">
+              <a href="tel:0669034206">
                 <motion.span
                   animate={{ rotate: [-10, 10, -10], x: [-1, 1, -1] }}
                   transition={{ 

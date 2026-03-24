@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
         <div className="text-center mb-6">
           <Image
             src="/whitelogo.png"
-            alt="Univers Instrument Service"
+            alt="Alhor Parfum"
             width={180}
             height={60}
             className="mx-auto mb-3 object-contain"
@@ -122,7 +122,7 @@ export default function AdminLoginPage() {
 
         {/* Footer */}
         <p className="text-center text-[11px] text-white/25 mt-6">
-          Univers Instrument Service — Admin
+          Alhor Parfum — Admin
         </p>
       </div>
     </div>

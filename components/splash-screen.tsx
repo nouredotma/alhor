@@ -58,7 +58,7 @@ export default function SplashScreen() {
         <Image
           className="splash-image"
           src="/loaderimage.png"
-          alt="Univers Instrument Service"
+          alt="Alhor Parfum"
           width={200}
           height={200}
           priority
@@ -75,7 +75,7 @@ export default function SplashScreen() {
             perspective: "600px",
           }}
         >
-          {["UNIVERS", "INSTRUMENT", "SERVICE"].map((word, i) => (
+          {["ALHOR", "PARFUM", "ORIENTALES"].map((word, i) => (
             <div
               key={word}
               className="splash-word-row"

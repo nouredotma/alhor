@@ -5,15 +5,15 @@ import { Printer, X, ZoomIn, ZoomOut } from "lucide-react";
 
 // ── Company info ──────────────────────────────────────────────────────────────
 const COMPANY = {
-  nom: "Univers Instrument Service",
-  adresse: "C/O Bloc B, N°255 Hay Assaka Tikiouine, Agadir",
-  tp: "48701752",
-  rc: "42667",
-  iif: "45615062",
-  ice: "002372001000029",
-  tel: "+212 661 494 662",
-  fixe: "+212 528 210 909",
-  email: "uis.instruments@gmail.com",
+  nom: "Alhor Parfum Orientales",
+  adresse: "22 Rue 8, Casablanca 20220",
+  tp: "—",
+  rc: "—",
+  iif: "—",
+  ice: "—",
+  tel: "06 69 03 42 06",
+  fixe: "—",
+  email: "alhorparfum@gmail.com",
   logo: "/logo.png",
 };
 

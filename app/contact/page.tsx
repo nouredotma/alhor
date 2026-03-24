@@ -45,20 +45,20 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: t.contact.callUs,
-      value: "0666-166945",
-      action: "tel:0666166945",
+      value: "06 69 03 42 06",
+      action: "tel:0669034206",
     },
     {
       icon: Mail,
       title: t.contact.emailUs,
-      value: "uis.instruments@gmail.com",
-      action: "mailto:uis.instruments@gmail.com",
+      value: "alhorparfum@gmail.com",
+      action: "mailto:alhorparfum@gmail.com",
     },
     {
       icon: MapPin,
       title: t.contact.visitUs,
-      value: "Bloc B, N 255 Hay assaka Tikiouine",
-      subValue: "Agadir, Morocco 80000",
+      value: "22 Rue 8, Casablanca",
+      subValue: "Casablanca, Morocco 20220",
     },
     {
       icon: Clock,
@@ -280,7 +280,7 @@ export default function ContactPage() {
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl md:text-2xl font-bold text-foreground font-fauna">{t.contact.ourLocation}</h2>
               <a
-                href="https://maps.google.com/?q=Rue+Bani+marine,+Marrakech"
+                href="https://www.google.com/maps/place/%D9%85%D8%AA%D8%AC%D8%B1+%D8%A7%D9%84%D8%AD%D8%B1+%D9%84%D9%84%D8%B9%D8%B7%D9%88%D8%B1+%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xaaeedce220e7fe48?sa=X&ved=1t:2428&ictx=111&cshid=1774377594152"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-primary hover:text-primary/80 font-medium flex items-center gap-1 transition-colors"
@@ -291,7 +291,7 @@ export default function ContactPage() {
             </div>
             <div className="rounded-xl overflow-hidden border border-border shadow-sm h-72 md:h-80">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3440.07662588147!2d-9.5298453!3d30.4049876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3c80ca86a87cb%3A0xc3b5ed7f12e86bf4!2sHay%20Assaka%20Tikiouine%2C%20Agadir!5e0!3m2!1sen!2sma!4v1709400000000!5m2!1sen!2sma"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.566210187685!2d-7.672775100000001!3d33.564645299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d329ad6984c7%3A0xaaeedce220e7fe48!2z2YXYqtis2LEg2KfZhNit2LEg2YTZhNi52LfZiNixINin2YTYtNix2YLZitip!5e0!3m2!1sfr!2sma!4v1774377811975!5m2!1sfr!2sma"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
