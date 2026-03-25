@@ -3,7 +3,6 @@
 import { animate, motion, useMotionValue } from 'framer-motion';
 import React, { CSSProperties, useEffect, useState } from 'react';
 import useMeasure from '@/lib/hooks/use-measure';
-import Link from "next/link"
 import Image from "next/image"
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -136,26 +135,45 @@ function BlurredInfiniteSlider({
     );
 }
 
-const PARTNER_ITEMS = [
-  { type: 'image' as const, src: "/p1.png", alt: "Atago" },
+export const BANNER1_ITEMS = [
+  { type: 'image' as const, src: "/banner/b1.webp", alt: "Perfume bottle" },
   { type: 'text' as const, content: "Alhor Parfum" },
-  { type: 'image' as const, src: "/p2.jpeg", alt: "Testo" },
-  { type: 'text' as const, content: "Essence Pure" },
-  { type: 'image' as const, src: "/p3.png", alt: "Merck" },
+  { type: 'image' as const, src: "/banner/b2.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Essence Royale" },
+  { type: 'image' as const, src: "/banner/b3.webp", alt: "Perfume bottle" },
   { type: 'text' as const, content: "Luxury Scent" },
-  { type: 'image' as const, src: "/p4.jpeg", alt: "Palintest" },
+  { type: 'image' as const, src: "/banner/b4.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Pure Oud" },
+  { type: 'image' as const, src: "/banner/b5.webp", alt: "Perfume bottle" },
   { type: 'text' as const, content: "Authentic Oils" },
-  { type: 'image' as const, src: "/p5.jpeg", alt: "Ika" },
-  { type: 'text' as const, content: "Premium Quality" },
 ];
 
-export default function Partners() {
-    const [computedGap, setComputedGap] = useState<number>(20);
+export const BANNER2_ITEMS = [
+  { type: 'image' as const, src: "/banner/b6.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Premium Quality" },
+  { type: 'image' as const, src: "/banner/b7.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Collection Privée" },
+  { type: 'image' as const, src: "/banner/b8.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Fine Fragrance" },
+  { type: 'image' as const, src: "/banner/b9.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Organic Oils" },
+  { type: 'image' as const, src: "/banner/b10.webp", alt: "Perfume bottle" },
+  { type: 'text' as const, content: "Gold Essence" },
+];
+
+type BannerProps = {
+    items: typeof BANNER1_ITEMS;
+    reverse?: boolean;
+    speed?: number;
+}
+
+export default function Banner({ items, reverse = false, speed = 40 }: BannerProps) {
+    const [computedGap, setComputedGap] = useState<number>(10);
 
     useEffect(() => {
         const calc = () => {
             // match Tailwind's `md` breakpoint (768px)
-            setComputedGap(window.innerWidth < 768 ? 20 : 40);
+            setComputedGap(window.innerWidth < 768 ? 10 : 20);
         };
         calc();
         window.addEventListener('resize', calc);
@@ -168,24 +186,25 @@ export default function Partners() {
                 <div className="w-full py-2 min-w-0">
                     <BlurredInfiniteSlider
                         speedOnHover={20}
-                        speed={40}
+                        speed={speed}
                         gap={computedGap}
-                        fadeWidth={100}
+                        fadeWidth={30}
+                        reverse={reverse}
                     >
-                        {PARTNER_ITEMS.map((item, index) => (
-                            <div key={index} className="flex items-center justify-center px-1 group/logo whitespace-nowrap">
+                        {items.map((item, index) => (
+                            <div key={index} className="flex items-center justify-center px-0 group/logo whitespace-nowrap">
                                 {item.type === 'image' ? (
-                                    <div className="relative h-8 w-8 md:h-12 md:w-24 items-center justify-center flex">
+                                    <div className="relative h-10 w-10 md:h-16 md:w-24 items-center justify-center flex">
                                         <Image
                                             src={item.src}
                                             alt={item.alt}
                                             fill
                                             className="object-contain"
-                                            sizes="96px"
+                                            sizes="(max-width: 768px) 40px, 96px"
                                         />
                                     </div>
                                 ) : (
-                                    <div className="h-8 md:h-12 flex items-center justify-center px-2">
+                                    <div className="h-10 md:h-16 flex items-center justify-center px-2">
                                         <span className="text-xs md:text-base font-fauna tracking-wider text-neutral-400 font-bold transition-colors duration-300 group-hover/logo:text-gold-600">
                                             {item.content}
                                         </span>

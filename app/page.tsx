@@ -2,7 +2,7 @@
 
 import Header from "@/components/header"
 import Hero from "@/components/hero"
-import Partners from "@/components/partners"
+import Banner, { BANNER1_ITEMS, BANNER2_ITEMS } from "@/components/banner"
 import OurPerfumes from "@/components/our-perfumes"
 import Testimonials from "@/components/testimonials"
 import Footer from "@/components/footer"
@@ -14,8 +14,9 @@ export default function HomePage() {
     <main className="w-full">
       <Header />
       <Hero />
-      <Partners />
+      <Banner items={BANNER1_ITEMS} />
       <OurPerfumes />
+      <Banner items={BANNER2_ITEMS} reverse={true} />
       <Testimonials />
       <Footer />
       <FloatingContact />

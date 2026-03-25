@@ -488,10 +488,6 @@ export const fr: TranslationKeys = {
     },
   },
 
-    partners: {
-      title: "Nos Partenaires",
-      description: "Approuvés par les leaders de l'industrie",
-    },
 
   // Blog Page
   blog: {

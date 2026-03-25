@@ -22,7 +22,7 @@ export default function Footer() {
     <footer className="w-full text-white rounded-t-2xl md:rounded-t-4xl" style={{ backgroundColor: 'var(--color-bg-dark)' }}>
       {/* Main Footer */}
       <div className="max-w-full mx-auto px-4 md:px-12 pt-14 pb-10">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 lg:gap-8">
           {/* Brand Section */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
             <a href="/" className="inline-block">
@@ -32,7 +32,7 @@ export default function Footer() {
                 className="h-14 w-auto object-contain"
               />
             </a>
-            <p className="text-xs sm:text-sm font-light leading-relaxed" style={{ color: 'var(--neutral-300)' }}>
+            <p className="text-xs sm:text-sm font-light leading-relaxed text-neutral-300">
               {t.footer.brandDescription}
             </p>
             <div className="flex items-center gap-3 pt-1">
@@ -41,8 +41,7 @@ export default function Footer() {
                 aria-label="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold-400 transition-colors duration-200"
-                style={{ color: 'var(--neutral-300)' }}
+                className="text-neutral-300 hover:text-white transition-colors duration-200"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -52,8 +51,7 @@ export default function Footer() {
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold-400 transition-colors duration-200"
-                style={{ color: 'var(--neutral-300)' }}
+                className="text-neutral-300 hover:text-white transition-colors duration-200"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -63,8 +61,7 @@ export default function Footer() {
                 aria-label="TikTok"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold-400 transition-colors duration-200"
-                style={{ color: 'var(--neutral-300)' }}
+                className="text-neutral-300 hover:text-white transition-colors duration-200"
               >
                 <svg
                   className="w-5 h-5"
@@ -79,44 +76,43 @@ export default function Footer() {
             </div>
           </div>
 
-          
+          {/* Combined Links Column for Desktop */}
+          <div className="col-span-2 lg:col-span-1 contents lg:flex lg:flex-col lg:gap-y-10">
+            {/* perfumes List */}
+            <div className="space-y-2 lg:space-y-4">
+              <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
+                {t.footer.perfumes}
+              </h4>
+              <nav className="flex flex-col lg:flex-row lg:flex-wrap lg:gap-x-6 gap-y-2.5">
+                {perfumeLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className="text-xs sm:text-sm font-light text-neutral-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
 
-          {/* perfumes List */}
-          <div>
-            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
-              {t.footer.perfumes}
-            </h4>
-            <nav className="space-y-2.5">
-              {perfumeLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
-                  style={{ color: 'var(--neutral-300)' }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
-              {t.footer.explore}
-            </h4>
-            <nav className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
-                  style={{ color: 'var(--neutral-300)' }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
+            {/* Quick Links */}
+            <div className="space-y-2 lg:space-y-4">
+              <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
+                {t.footer.explore}
+              </h4>
+              <nav className="flex flex-col lg:flex-row lg:flex-wrap lg:gap-x-6 gap-y-2.5">
+                {quickLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-xs sm:text-sm font-light text-neutral-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
           </div>
 
           {/* Contact Info */}
@@ -134,7 +130,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4" style={{ color: 'var(--gold-400)' }} />
                   <span className="text-xs sm:text-sm font-medium text-white">{t.footer.phone}</span>
                 </div>
-                <span className="text-xs sm:text-sm font-light pl-6 group-hover:text-white transition-colors" style={{ color: 'var(--neutral-300)' }}>06 69 03 42 06</span>
+                <span className="text-xs sm:text-sm font-light pl-6 text-neutral-300 group-hover:text-white transition-colors">06 69 03 42 06</span>
               </a>
 
               <a 
@@ -146,7 +142,7 @@ export default function Footer() {
                   <Mail className="w-4 h-4" style={{ color: 'var(--gold-400)' }} />
                   <span className="text-xs sm:text-sm font-medium text-white">{t.footer.email}</span>
                 </div>
-                <span className="text-xs sm:text-sm font-light pl-6 group-hover:text-white transition-colors break-all" style={{ color: 'var(--neutral-300)' }}>alhorparfum@gmail.com</span>
+                <span className="text-xs sm:text-sm font-light pl-6 text-neutral-300 group-hover:text-white transition-colors break-all">alhorparfum@gmail.com</span>
               </a>
 
               <div 
@@ -157,7 +153,7 @@ export default function Footer() {
                   <MapPin className="w-4 h-4" style={{ color: 'var(--gold-400)' }} />
                   <span className="text-xs sm:text-sm font-medium text-white">{t.footer.address}</span>
                 </div>
-                <p className="text-xs sm:text-sm font-light pl-6 group-hover:text-white transition-colors" style={{ color: 'var(--neutral-300)' }}>
+                <p className="text-xs sm:text-sm font-light pl-6 text-neutral-300 group-hover:text-white transition-colors">
                   {t.footer.addressLine1}, {t.footer.addressLine2}, {t.footer.addressLine3}
                 </p>
               </div>
@@ -168,7 +164,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid var(--dark-700)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4 text-[10px] sm:text-sm font-light text-center sm:text-left" style={{ color: 'var(--neutral-500)' }}>
             <p>{t.footer.copyright}</p>
             <p>

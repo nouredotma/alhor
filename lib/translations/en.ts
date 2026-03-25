@@ -486,10 +486,6 @@ export const en = {
     },
   },
 
-    partners: {
-      title: "Our Partners",
-      description: "Trusted by industry leaders",
-    },
 
   // Blog Page
   blog: {
