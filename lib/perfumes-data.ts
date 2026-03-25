@@ -31,7 +31,7 @@ export interface Perfume {
 }
 
 // Single image used across all perfumes for demonstration
-const PERFUME_IMAGE = "https://images.unsplash.com/photo-1628950749921-ace26a06e307?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+const PERFUME_IMAGE = "/p1.png"
 
 export const perfumes: Perfume[] = [
   {
@@ -148,7 +148,7 @@ export const perfumes: Perfume[] = [
     price: 165,
     oldPrice: 195,
     stock: 12,
-    isBest: false,
+    isBest: true,
     translations: {
       en: {
         name: "Midnight Rose",
@@ -214,7 +214,7 @@ export const perfumes: Perfume[] = [
     price: 130,
     oldPrice: 150,
     stock: 10,
-    isBest: false,
+    isBest: true,
     translations: {
       en: {
         name: "Jasmine Mystique",
@@ -280,7 +280,7 @@ export const perfumes: Perfume[] = [
     price: 110,
     oldPrice: 135,
     stock: 30,
-    isBest: false,
+    isBest: true,
     translations: {
       en: {
         name: "Vanilla Gold",
@@ -295,6 +295,138 @@ export const perfumes: Perfume[] = [
         longDescription:
           "Une riche tapisserie de vanille dorée et d'ambre doux, entrelacée de bois fumés. Un parfum véritablement grandiose et enveloppant, conçu pour les hommes et les femmes en quête d'un parfum quotidien opulent et doux.",
         ingredients: "Alcohol Denat., Fragrance (Parfum), Eau (Aqua), Coumarin, Eugenol, Benzyl Benzoate.",
+      },
+    },
+  },
+  {
+    id: "prod-9",
+    name: "Royal Oud",
+    brand: "Alhor Elite",
+    volume: "100ml",
+    shortDescription: "A majestic blend of rare Cambodian Oud and Bulgarian Rose.",
+    longDescription:
+      "Royal Oud is the pinnacle of luxury, combining the deep, woody resonance of aged Cambodian Oud with the delicate, honeyed sweetness of Bulgarian Rose. A fragrance designed for those who command presence and appreciate the finer details of oriental perfumery.",
+    ingredients: "Alcohol Denat., Aquilaria Agallocha (Oud) Oil, Rosa Damascena Flower Oil, Santalum Album (Sandalwood) Oil, Ambergris, Benzyl Salicylate.",
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
+    category: "unisex",
+    price: 245,
+    oldPrice: 290,
+    stock: 12,
+    isBest: true,
+    translations: {
+      en: {
+        name: "Royal Oud",
+        shortDescription: "A majestic blend of rare Cambodian Oud and Bulgarian Rose.",
+        longDescription:
+          "Royal Oud is the pinnacle of luxury, combining the deep, woody resonance of aged Cambodian Oud with the delicate, honeyed sweetness of Bulgarian Rose. A fragrance designed for those who command presence and appreciate the finer details of oriental perfumery.",
+        ingredients: "Alcohol Denat., Aquilaria Agallocha (Oud) Oil, Rosa Damascena Flower Oil, Santalum Album (Sandalwood) Oil, Ambergris, Benzyl Salicylate.",
+      },
+      fr: {
+        name: "Oud Royal",
+        shortDescription: "Un mélange majestueux de Oud cambodgien rare et de Rose bulgare.",
+        longDescription:
+          "Oud Royal est le summum du luxe, combinant la résonance boisée profonde du Oud cambodgien vieilli avec la douceur délicate et miellée de la Rose bulgare. Un parfum conçu pour ceux qui imposent leur présence et apprécient les détails les plus fins de la parfumerie orientale.",
+        ingredients: "Alcool Dénat., Huile d'Aquilaria Agallocha (Oud), Huile de fleur de Rosa Damascena, Huile de Santalum Album (Santal), Ambre gris, Salicylate de benzyle.",
+      },
+    },
+  },
+  {
+    id: "prod-10",
+    name: "Desert Rose",
+    brand: "Alhor Elite",
+    volume: "50ml",
+    shortDescription: "A delicate floral scent inspired by the golden Saharan dunes.",
+    longDescription:
+      "Desert Rose captures the ethereal beauty of a flower blooming in the heart of the desert. With top notes of saffron and heart notes of damask rose, it settles into a warm base of vanilla and white musk, perfect for the modern woman.",
+    ingredients: "Alcohol Denat., Fragrance (Parfum), Saffron Extract, Rose absolute, Vanilla Planifolia, White Musk.",
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
+    category: "women",
+    price: 95,
+    oldPrice: 120,
+    stock: 45,
+    isBest: false,
+    translations: {
+      en: {
+        name: "Desert Rose",
+        shortDescription: "A delicate floral scent inspired by the golden Saharan dunes.",
+        longDescription:
+          "Desert Rose captures the ethereal beauty of a flower blooming in the heart of the desert. With top notes of saffron and heart notes of damask rose, it settles into a warm base of vanilla and white musk, perfect for the modern woman.",
+        ingredients: "Alcohol Denat., Fragrance (Parfum), Saffron Extract, Rose absolute, Vanilla Planifolia, White Musk.",
+      },
+      fr: {
+        name: "Rose du Désert",
+        shortDescription: "Un parfum floral délicat inspiré par les dunes dorées du Sahara.",
+        longDescription:
+          "Rose du Désert capture la beauté éthérée d'une fleur s'épanouissant au cœur du désert. Avec des notes de tête de safran et des notes de cœur de rose de Damas, il s'installe dans une base chaude de vanille et de musc blanc, parfait pour la femme moderne.",
+        ingredients: "Alcool Dénat., Parfum, Extrait de safran, Absolu de rose, Vanille Planifolia, Musc blanc.",
+      },
+    },
+  },
+  {
+    id: "prod-11",
+    name: "Midnight Musk",
+    brand: "Alhor Elite",
+    volume: "100ml",
+    shortDescription: "A deep, mysterious musk with notes of leather and tobacco.",
+    longDescription:
+      "Midnight Musk is a bold statement of masculinity and intrigue. It opens with sharp citrus and moves into a complex heart of leather and black pepper, finishing with a long-lasting, heavy musk that lingers long after the sun goes down.",
+    ingredients: "Alcohol Denat., Fragrance (Parfum), Musk Ketone, Leather Accord, Tobacco Absolute, Black Pepper Oil.",
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
+    category: "men",
+    price: 130,
+    oldPrice: 160,
+    stock: 20,
+    isBest: false,
+    translations: {
+      en: {
+        name: "Midnight Musk",
+        shortDescription: "A deep, mysterious musk with notes of leather and tobacco.",
+        longDescription:
+          "Midnight Musk is a bold statement of masculinity and intrigue. It opens with sharp citrus and moves into a complex heart of leather and black pepper, finishing with a long-lasting, heavy musk that lingers long after the sun goes down.",
+        ingredients: "Alcohol Denat., Fragrance (Parfum), Musk Ketone, Leather Accord, Tobacco Absolute, Black Pepper Oil.",
+      },
+      fr: {
+        name: "Musc de Minuit",
+        shortDescription: "Un musc profond et mystérieux avec des notes de cuir et de tabac.",
+        longDescription:
+          "Musc de Minuit est une déclaration audacieuse de masculinité et d'intrigue. Il s'ouvre sur des agrumes vifs et évolue vers un cœur complexe de cuir et de poivre noir, se terminant par un musc lourd et durable qui subsiste longtemps après le coucher du soleil.",
+        ingredients: "Alcool Dénat., Parfum, Cétone de musc, Accord cuir, Absolu de tabac, Huile de poivre noir.",
+      },
+    },
+  },
+  {
+    id: "prod-12",
+    name: "Atlas Cedar",
+    brand: "Alhor Elite",
+    volume: "100ml",
+    shortDescription: "A fresh, woody fragrance capturing the essence of the High Atlas.",
+    longDescription:
+      "Inspired by the crisp air and ancient forests of Morocco's High Atlas Mountains, Atlas Cedar combines refreshing bergamot with the noble strength of cedarwood and patchouli. A clean, invigorating scent for the adventurous soul.",
+    ingredients: "Alcohol Denat., Cedrus Atlantica Wood Oil, Bergamot Oil, Patchouli, Vetiver, Lavender.",
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
+    category: "men",
+    price: 85,
+    oldPrice: 110,
+    stock: 50,
+    isBest: false,
+    translations: {
+      en: {
+        name: "Atlas Cedar",
+        shortDescription: "A fresh, woody fragrance capturing the essence of the High Atlas.",
+        longDescription:
+          "Inspired by the crisp air and ancient forests of Morocco's High Atlas Mountains, Atlas Cedar combines refreshing bergamot with the noble strength of cedarwood and patchouli. A clean, invigorating scent for the adventurous soul.",
+        ingredients: "Alcohol Denat., Cedrus Atlantica Wood Oil, Bergamot Oil, Patchouli, Vetiver, Lavender.",
+      },
+      fr: {
+        name: "Cèdre de l'Atlas",
+        shortDescription: "Un parfum boisé et frais capturant l'essence du Haut Atlas.",
+        longDescription:
+          "Inspiré par l'air pur et les forêts ancestrales des montagnes du Haut Atlas marocain, Cèdre de l'Atlas combine la bergamote rafraîchissante avec la force noble du bois de cèdre et du patchouli. Un parfum propre et vivifiant pour l'âme aventurière.",
+        ingredients: "Alcool Dénat., Huile de bois de Cedrus Atlantica, Huile de bergamote, Patchouli, Vétiver, Lavande.",
       },
     },
   },
@@ -330,5 +462,5 @@ export function getTranslatedPerfume(perfume: Perfume, language: Language) {
   }
 }
 
-export const bestSellers: Perfume[] = perfumes.filter(p => p.isBest).slice(0, 4);
+export const bestSellers: Perfume[] = perfumes.filter(p => p.isBest).slice(0, 8);
 

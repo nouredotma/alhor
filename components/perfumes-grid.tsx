@@ -55,32 +55,35 @@ const PerfumesGrid = memo(function PerfumesGrid({ perfumes }: PerfumesGridProps)
 
               {/* Content Section */}
               <div className="py-2 md:py-3 flex flex-col grow">
+                {/* Brand Before Name */}
+                <p className="text-[10px] md:text-sm font-bold mb-0.5" style={{ color: 'var(--neutral-500)' }}>
+                  {perfume.brand}
+                </p>
                 <div className="flex mb-1">
                   <h3 className="text-sm md:text-lg font-semibold group-hover:text-primary transition-colors line-clamp-1 w-full font-fauna" style={{ color: 'var(--neutral-900)' }}>
                     {perfume.name}
                   </h3>
                 </div>
 
-                <p className="text-[10px] md:text-[13px] font-light mb-1 line-clamp-2" style={{ color: 'var(--neutral-600)' }}>
-                  {perfume.shortDescription}
-                </p>
+                {/* Short description removed as per user request */}
 
-                {/* Bottom Row */}
-                <div className="mt-auto flex items-center justify-between pt-1 md:pt-2">
-                  <div className="bg-primary text-primary-foreground group-hover:bg-[#CC9F00] transition-all px-3 py-2 md:px-3 md:py-2.5 rounded-xs md:rounded-sm text-[12px] md:text-[13px] font-medium font-fauna">
-                    <span className="md:hidden">View</span>
-                    <span className="hidden md:inline">{t.perfume.viewPerfume}</span>
-                  </div>
-                  <div className="flex flex-col items-end gap-0.5">
+                {/* Prices Row: Old on left, New on right */}
+                <div className="mt-0 flex items-center justify-between mb-2">
+                  <div className="flex items-baseline gap-2">
                     {perfume.oldPrice && (
                       <span className="text-[10px] md:text-sm text-neutral-400 line-through font-light leading-none">
                         {perfume.oldPrice} MAD
                       </span>
                     )}
-                    <span className="text-sm md:text-lg font-bold leading-none font-fauna" style={{ color: 'var(--neutral-900)' }}>
-                      {perfume.price} MAD
-                    </span>
                   </div>
+                  <span className="text-sm md:text-lg font-bold leading-none font-fauna" style={{ color: 'var(--neutral-900)' }}>
+                    {perfume.price} MAD
+                  </span>
+                </div>
+
+                {/* Content-width Rounded Button Under Prices */}
+                <div className="w-fit bg-primary text-primary-foreground group-hover:bg-[#CC9F00] transition-all px-3 md:px-4 py-2 md:py-2.5 rounded-full text-[11px] md:text-sm font-fauna">
+                  {t.perfume.viewPerfume}
                 </div>
               </div>
             </Link>

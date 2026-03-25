@@ -4,13 +4,13 @@ import { useState, useEffect, useMemo, Suspense } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FloatingContact from "@/components/floating-contact"
-import PageHero from "@/components/page-hero"
 import { Container } from "@/components/ui/container"
 import PerfumesGrid from "@/components/perfumes-grid"
 import SearchFilter, { type Filters } from "@/components/search-filter"
 import { perfumes, getTranslatedPerfume, type Perfume } from "@/lib/perfumes-data"
 import { useLanguage } from "@/components/language-provider"
-import { Loader2 } from "lucide-react"
+import { Loader2, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
@@ -99,19 +99,26 @@ function PerfumesContent() {
   }
 
   return (
-    <main className="w-full">
-      <Header />
-      <PageHero 
-        title={t.header.perfumes} 
-        backgroundImage="/2.jpg"
-      />
+    <main className="w-full bg-neutral-50/50 min-h-screen">
+      <Header forceScrolled />
 
-      <section className="py-12 md:py-20" style={{ backgroundColor: 'var(--neutral-50)' }}>
+      {/* Breadcrumb Section */}
+      <div className="pt-44 pb-6 md:pb-8">
+        <Container className="max-w-full mx-auto px-4 md:px-12">
+            <nav className="flex items-center gap-1.5 text-[10px] md:text-sm text-muted-foreground leading-none">
+                <Link href="/" className="hover:text-primary transition-colors">{t.header.home}</Link>
+                <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5 -mt-px" />
+                <span className="text-primary font-medium">{t.header.perfumes}</span>
+            </nav>
+        </Container>
+      </div>
+
+      <section className="pb-12 md:pb-20">
         <Container className="max-w-full mx-auto px-4 md:px-12">
           
-          <div className="flex flex-col lg:flex-row gap-4 items-start">
-            {/* Sidebar Filters */}
-            <div className="w-full lg:w-[280px] shrink-0 lg:sticky lg:top-24">
+          <div className="flex flex-col gap-8">
+            {/* Filters at the top */}
+            <div className="w-full">
               <SearchFilter 
                 onChange={handleFilterChange} 
                 initial={{ 
@@ -124,7 +131,7 @@ function PerfumesContent() {
             </div>
 
             {/* perfumes Grid Main Area */}
-            <div className="w-full lg:flex-1">
+            <div className="w-full">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center py-24">
                   <Loader2 className="h-12 w-12 animate-spin text-primary mb-6" />

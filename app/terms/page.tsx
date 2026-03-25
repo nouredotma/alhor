@@ -3,11 +3,11 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FloatingContact from "@/components/floating-contact"
-import PageHero from "@/components/page-hero"
 import { Container } from "@/components/ui/container"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import { useState } from "react"
 import { useLanguage } from "@/components/language-provider"
+import Link from "next/link"
 export default function TermsPage() {
   const { t } = useLanguage()
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
@@ -56,9 +56,20 @@ export default function TermsPage() {
 
   return (
     <main className="w-full">
-      <Header />
-      <PageHero title={t.terms.pageTitle} backgroundImage="/2.jpg" />
-      <section className="py-20 md:py-28 bg-background">
+      <Header forceScrolled />
+
+      {/* Breadcrumb Section */}
+      <div className="pt-44 pb-6 md:pb-8">
+        <Container className="max-w-full mx-auto px-4 md:px-12">
+            <nav className="flex items-center gap-1.5 text-[10px] md:text-sm text-muted-foreground leading-none">
+                <Link href="/" className="hover:text-primary transition-colors">{t.header.home}</Link>
+                <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5 -mt-px" />
+                <span className="text-primary font-medium">{t.terms.pageTitle}</span>
+            </nav>
+        </Container>
+      </div>
+
+      <section className="pb-20 md:pb-28 bg-background">
         <Container className="max-w-4xl mx-auto px-4">
           <div className="mb-12">
             <p className="text-lg text-muted-foreground leading-relaxed">

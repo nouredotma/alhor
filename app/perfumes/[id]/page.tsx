@@ -9,7 +9,7 @@ import FloatingContact from "@/components/floating-contact"
 import { useCart } from "@/components/cart-provider"
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, ArrowLeft, ShoppingCart, Minus, Plus, Truck, ChevronLeft, ChevronRight } from "lucide-react"
+import { CheckCircle2, ShoppingCart, Minus, Plus, Truck, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { use, useState, useRef, useEffect } from "react"
@@ -94,16 +94,16 @@ export default function PerfumeDetailPage({ params }: { params: Promise<{ id: st
     >
       <Header forceScrolled />
       
-      {/* Breadcrumb / Back Button */}
-      <div className="pt-32 pb-4">
+      {/* Breadcrumb Section */}
+      <div className="pt-44 pb-4 md:pb-6">
         <Container className="max-w-full mx-auto px-4 md:px-12">
-          <Link 
-            href="/perfumes" 
-            className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary transition-colors group"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            {language === 'en' ? 'Back to Perfumes' : 'Retour aux Parfums'}
-          </Link>
+            <nav className="flex items-center gap-1.5 text-[10px] md:text-[11px] lg:text-sm text-muted-foreground leading-none overflow-hidden">
+                <Link href="/" className="hover:text-primary transition-colors shrink-0">{t.header.home}</Link>
+                <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5 shrink-0" />
+                <Link href="/perfumes" className="hover:text-primary transition-colors shrink-0">{t.header.perfumes}</Link>
+                <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5 shrink-0" />
+                <span className="text-primary font-medium truncate">{perfume.name}</span>
+            </nav>
         </Container>
       </div>
 

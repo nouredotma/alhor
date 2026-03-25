@@ -6,9 +6,9 @@ import FloatingContact from "@/components/floating-contact"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import { useLanguage } from "@/components/language-provider"
-import PageHero from "@/components/page-hero"
 import { Container } from "@/components/ui/container"
-import { ArrowRight, Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
+import { ArrowRight, Clock, Mail, MapPin, MessageCircle, Phone, ChevronRight } from "lucide-react"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function ContactPage() {
@@ -86,10 +86,20 @@ export default function ContactPage() {
 
   return (
     <main className="w-full">
-      <Header />
-      <PageHero title={t.contact.pageTitle} backgroundImage="/2.jpg" />
+      <Header forceScrolled />
 
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--neutral-50)' }}>
+      {/* Breadcrumb Section */}
+      <div className="pt-44 pb-6 md:pb-8">
+        <Container className="max-w-full mx-auto px-4 md:px-12">
+            <nav className="flex items-center gap-1.5 text-[10px] md:text-sm text-muted-foreground leading-none">
+                <Link href="/" className="hover:text-primary transition-colors">{t.header.home}</Link>
+                <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5 -mt-px" />
+                <span className="text-primary font-medium">{t.header.contact}</span>
+            </nav>
+        </Container>
+      </div>
+
+      <section className="pb-16 md:pb-24" style={{ backgroundColor: 'var(--neutral-50)' }}>
         <Container className="max-w-full mx-auto px-4 md:px-12">
           {/* Quick Contact Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">

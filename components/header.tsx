@@ -15,31 +15,28 @@ import { useEffect, useState } from "react"
 
 export default function Header({ isStatic = false, forceScrolled = false }: { isStatic?: boolean, forceScrolled?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(forceScrolled)
+  const [hasScrolled, setHasScrolled] = useState(false)
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false)
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
   const pathname = usePathname()
   const { t, languages, language, setLanguage } = useLanguage()
   const { totalItems, toggleCartModal } = useCart()
   
+  const isSolid = hasScrolled || forceScrolled
+
   // Check if we're in the users section
   const isUsersSection = pathname?.startsWith("/users") || isStatic
 
   useEffect(() => {
-    if (forceScrolled) {
-      setScrolled(true)
-      return
-    }
-
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
+      setHasScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [forceScrolled])
+  }, [])
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -80,16 +77,16 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
             ? "sticky top-0 border-b border-gray-200" 
             : cn(
                 "fixed",
-                scrolled ? "border-b border-gray-200" : "bg-transparent"
+                isSolid ? "border-b border-gray-200" : "bg-transparent"
               ),
         )}
-        style={isUsersSection || scrolled ? { backgroundColor: 'var(--neutral-50)' } : {}}
+        style={isUsersSection || isSolid ? { backgroundColor: 'var(--neutral-50)' } : {}}
       >
         {/* Top Bar - Hides on Scroll */}
         <div 
           className={cn(
             "w-full transition-all duration-300 overflow-hidden z-50 relative", 
-            scrolled ? "h-0 opacity-0" : "h-[60px] sm:h-10 opacity-100"
+            hasScrolled ? "h-0 opacity-0" : "h-[60px] sm:h-10 opacity-100"
           )}
           style={{ backgroundColor: 'var(--color-bg-dark)' }}
         >
@@ -142,13 +139,13 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
           </Container>
         </div>
 
-        <Container className="max-w-full mx-auto px-4 md:px-12">
+        <Container className="max-w-full mx-auto px-2 md:px-12">
           {/* Mobile layout - logo left, menu right */}
-          <div className="md:hidden flex h-16 items-center justify-between px-1">
+          <div className="md:hidden flex h-16 items-center justify-between">
             {/* Left: Logo */}
             <Link href="/" className="flex items-center z-10">
               <div className="relative h-20 w-40">
-                <Image src={scrolled || isUsersSection ? "/logo.png" : "/whitelogo.png"} alt="Alhor Parfum Logo" fill className="object-contain" priority sizes="(max-width: 768px) 112px, 128px" />
+                <Image src={isSolid || isUsersSection ? "/logo.png" : "/whitelogo.png"} alt="Alhor Parfum Logo" fill className="object-contain" priority sizes="(max-width: 768px) 112px, 128px" />
               </div>
             </Link>
 
@@ -158,7 +155,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={cn(
                   "relative flex flex-col justify-center items-center w-10 h-10 rounded-lg transition-colors",
-                  scrolled || isUsersSection ? "hover:bg-black/5" : "hover:bg-white/10"
+                  isSolid || isUsersSection ? "hover:bg-black/5" : "hover:bg-white/10"
                 )}
                 aria-label="Toggle menu"
               >
@@ -172,7 +169,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                 >
                   <path
                     d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3 12h18M3 6h18M3 18h18"}
-                    stroke={scrolled || isUsersSection ? "#000000" : "#ffffff"}
+                    stroke={isSolid || isUsersSection ? "#000000" : "#ffffff"}
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -190,7 +187,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
               <div className="flex items-center gap-6 shrink-0">
                 <Link href="/" className="flex items-center">
                   <div className="relative h-28 w-44">
-                    <Image src={scrolled || isUsersSection ? "/logo.png" : "/whitelogo.png"} alt="Alhor Parfum Logo" fill className="object-contain" priority sizes="(max-width: 768px) 96px, 128px" />
+                    <Image src={isSolid || isUsersSection ? "/logo.png" : "/whitelogo.png"} alt="Alhor Parfum Logo" fill className="object-contain" priority sizes="(max-width: 768px) 96px, 128px" />
                   </div>
                 </Link>
               </div>
@@ -201,7 +198,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                   href="/"
                   className={cn(
                     "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                    pathname === "/" ? "text-primary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                    pathname === "/" ? "text-primary" : (isSolid || isUsersSection ? "text-gray-800" : "text-white")
                   )}
                 >
                   {t.header.home}
@@ -214,7 +211,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                     href={link.href}
                     className={cn(
                       "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                      (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-primary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                      (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-primary" : (isSolid || isUsersSection ? "text-gray-800" : "text-white")
                     )}
                   >
                     {link.label}
@@ -228,7 +225,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                   href="/contact"
                   className={cn(
                     "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                    pathname === "/contact" ? "text-primary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                    pathname === "/contact" ? "text-primary" : (isSolid || isUsersSection ? "text-gray-800" : "text-white")
                   )}
                 >
                   {t.header.contact}
@@ -243,7 +240,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                   onClick={() => toggleCartModal()}
                   className={cn(
                     "relative flex items-center justify-center w-8 h-8 md:w-10 md:h-10 transition-colors cursor-pointer",
-                    (scrolled || isUsersSection)
+                    (isSolid || isUsersSection)
                       ? "text-primary"
                       : "text-white"
                   )}
@@ -261,7 +258,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                 <LanguageSwitcher
                   buttonClassName={cn(
                     "transition-colors",
-                    (scrolled || isUsersSection)
+                    (isSolid || isUsersSection)
                       ? "bg-primary/5 hover:bg-primary/10 border border-primary/20 text-gray-800"
                       : "bg-white/10 hover:bg-white/20 text-white"
                   )}
@@ -294,7 +291,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
               >
                 <div className="h-full flex flex-col">
                   {/* Header with close button */}
-                  <div className="flex items-center justify-between px-3 py-4 bg-[#414141]">
+                  <div className="flex items-center justify-between px-3 py-4" style={{ backgroundColor: 'var(--color-bg-dark)' }}>
                     <Link href="/" className="inline-block" onClick={() => setIsMenuOpen(false)}>
                       <div className="relative h-10 w-32">
                         <Image src="/whitelogo.png" alt="Alhor Parfum Logo" fill className="object-contain" priority sizes="(max-width: 768px) 96px, 128px" />

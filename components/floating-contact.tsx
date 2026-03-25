@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useLanguage } from "./language-provider"
 
 // Custom WhatsApp SVG icon
 const WhatsAppIcon = () => (
@@ -20,43 +21,75 @@ export default function FloatingContact() {
   const whatsappNumber = "212669034206"
 
   return (
-    <div className="fixed bottom-2 right-2 z-50 flex flex-col gap-3 items-end">
-      {/* WhatsApp Button */}
-      <Link 
-        href={`https://wa.me/${whatsappNumber}`} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="inline-flex"
-      >
-        <motion.div
-          className="w-12 h-12 md:w-14 md:h-14 text-white bg-green-500 rounded-full flex items-center justify-center shadow-lg relative"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{
-            scale: 1.1,
-          }}
-          whileTap={{ scale: 1 }}
+    <>
+      {/* Right side contact - Mobile & Desktop */}
+      <div className="fixed bottom-2 right-2 z-50 flex flex-col gap-3 items-end">
+        {/* WhatsApp Button */}
+        <Link 
+          href={`https://wa.me/${whatsappNumber}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="inline-flex"
         >
           <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
+            className="w-12 h-12 md:w-14 md:h-14 text-white bg-green-500 rounded-full flex items-center justify-center shadow-lg relative"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            whileHover={{
+              scale: 1.1,
             }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            whileTap={{ scale: 1 }}
           >
-            <WhatsAppIcon />
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <WhatsAppIcon />
+            </motion.div>
+            
+            {/* Red Notification Dot */}
+            <span className="hidden md:block absolute top-0 right-0 h-3.5 w-3.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 md:h-3.5 md:w-3.5 bg-red-500"></span>
+            </span>
           </motion.div>
-          
-          {/* Red Notification Dot */}
-          <span className="hidden md:block absolute top-0 right-0 h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 md:h-3.5 md:w-3.5 bg-red-500"></span>
-          </span>
-        </motion.div>
-      </Link>
-    </div>
+        </Link>
+      </div>
+
+      {/* Left side location - Desktop Only */}
+      <div className="fixed bottom-2 left-2 z-50 hidden md:block">
+        <Link 
+          href="https://www.google.com/maps/place/%D9%85%D8%AA%D8%AC%D8%B1+%D8%A7%D9%84%D8%AD%D8%B1+%D9%84%D9%84%D8%B9%D8%B7%D9%88%D8%B1+%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xaaeedce220e7fe48?sa=X&ved=1t:2428&ictx=111&cshid=1774377594152" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="group"
+        >
+          <motion.div
+            className="relative w-20 h-20 bg-card rounded-lg overflow-hidden border-2 border-primary"
+            whileHover={{ scale: 1.05 }}
+          >
+            {/* Map Preview - scaled to make UI elements smaller */}
+            <div className="absolute inset-0 pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8000.0!2d-7.672775100000001!3d33.564645299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d329ad6984c7%3A0xaaeedce220e7fe48!2z2YXYqtis2LEg2KfZhNit2LEg2YTZhNi52LfZiNixINin2YTYtNix2YLZitip!5e0!3m2!1sfr!2sma!4v1774377811975!5m2!1sfr!2sma"
+                className="w-[200%] h-[200%] absolute top-0 left-0 origin-top-left scale-[0.5]"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            
+            {/* Clickable overlay to ensure navigation works and interactions are disabled inside iframe */}
+            <div className="absolute inset-0 z-10" />
+          </motion.div>
+        </Link>
+      </div>
+    </>
   )
 }
