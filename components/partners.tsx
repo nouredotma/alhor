@@ -136,40 +136,26 @@ function BlurredInfiniteSlider({
     );
 }
 
-const PARTNER_LOGOS = [
-  {
-    src: "/p1.png",
-    alt: "Atago",
-  },
-  {
-    src: "/p2.jpeg",
-    alt: "Testo",
-  },
-  {
-    src: "/p3.png",
-    alt: "Merck",
-  },
-  {
-    src: "/p4.jpeg",
-    alt: "Palintest",
-  },
-  {
-    src: "/p5.jpeg",
-    alt: "Ika",
-  },
+const PARTNER_ITEMS = [
+  { type: 'image' as const, src: "/p1.png", alt: "Atago" },
+  { type: 'text' as const, content: "Alhor Parfum" },
+  { type: 'image' as const, src: "/p2.jpeg", alt: "Testo" },
+  { type: 'text' as const, content: "Essence Pure" },
+  { type: 'image' as const, src: "/p3.png", alt: "Merck" },
+  { type: 'text' as const, content: "Luxury Scent" },
+  { type: 'image' as const, src: "/p4.jpeg", alt: "Palintest" },
+  { type: 'text' as const, content: "Authentic Oils" },
+  { type: 'image' as const, src: "/p5.jpeg", alt: "Ika" },
+  { type: 'text' as const, content: "Premium Quality" },
 ];
 
-
-import { useLanguage } from "@/components/language-provider";
-
 export default function Partners() {
-    const { t } = useLanguage();
-    const [computedGap, setComputedGap] = useState<number>(40);
+    const [computedGap, setComputedGap] = useState<number>(20);
 
     useEffect(() => {
         const calc = () => {
             // match Tailwind's `md` breakpoint (768px)
-            setComputedGap(window.innerWidth < 768 ? 40 : 80);
+            setComputedGap(window.innerWidth < 768 ? 20 : 40);
         };
         calc();
         window.addEventListener('resize', calc);
@@ -179,35 +165,35 @@ export default function Partners() {
     return (
         <section className="py-2 w-full" style={{ backgroundColor: 'var(--neutral-50)' }}>
             <Container className="max-w-full mx-auto px-4 md:px-12">
-                <div className="flex flex-col items-center md:flex-row gap-8">
-                    <div className="shrink-0 text-center md:text-right md:max-w-44 md:border-r md:border-gray-200 md:pr-6">
-                        <p className="text-lg font-fauna tracking-widest font-bold" style={{ color: 'var(--gold-600)' }}>
-                            {t.partners?.title || "Our Partners"}
-                        </p>
-                        <p className="text-sm mt-1" style={{ color: 'var(--neutral-500)' }}>
-                            {t.partners?.description || "Trusted by industry leaders"}
-                        </p>
-                    </div>
-                    <div className="w-full py-6 md:w-auto md:flex-1 min-w-0">
-                                                <BlurredInfiniteSlider
-                                                        speedOnHover={20}
-                                                        speed={40}
-                                                        gap={computedGap}
-                                                        fadeWidth={80}
-                                                >
-                            {PARTNER_LOGOS.map((logo, index) => (
-                                                                 <div key={index} className="flex items-center justify-center h-12 md:h-16 px-0 relative group/logo w-20 md:w-28">
-                                                                        <Image
-                                                                            src={logo.src}
-                                                                            alt={logo.alt}
-                                                                            fill
-                                                                            className="object-contain"
-                                                                            sizes="(max-width: 768px) 80px, 112px"
-                                                                        />
-                                                                </div>
-                            ))}
-                        </BlurredInfiniteSlider>
-                    </div>
+                <div className="w-full py-2 min-w-0">
+                    <BlurredInfiniteSlider
+                        speedOnHover={20}
+                        speed={40}
+                        gap={computedGap}
+                        fadeWidth={100}
+                    >
+                        {PARTNER_ITEMS.map((item, index) => (
+                            <div key={index} className="flex items-center justify-center px-1 group/logo whitespace-nowrap">
+                                {item.type === 'image' ? (
+                                    <div className="relative h-8 w-8 md:h-12 md:w-24 items-center justify-center flex">
+                                        <Image
+                                            src={item.src}
+                                            alt={item.alt}
+                                            fill
+                                            className="object-contain"
+                                            sizes="96px"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="h-8 md:h-12 flex items-center justify-center px-2">
+                                        <span className="text-xs md:text-base font-fauna tracking-wider text-neutral-400 font-bold transition-colors duration-300 group-hover/logo:text-gold-600">
+                                            {item.content}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </BlurredInfiniteSlider>
                 </div>
             </Container>
         </section>

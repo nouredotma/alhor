@@ -573,6 +573,89 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   border-radius: 0.75rem 0.75rem 0 0;
 }
 
+/* Splash screen – perfume animation */
+.perfume {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  --base-scale: 0.65;
+  transform: translate(-50%, -50%) scale(var(--base-scale));
+  animation: perfume-pulse 4s ease-in-out infinite;
+  width: 222px;
+  height: 328px;
+  background: var(--dark-900);
+  border-radius: 10px;
+  border: 1px ridge var(--gold-600);
+  box-shadow: -2px 9px 12px rgba(0, 0, 0, 0.4), 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.perfume::before {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to right,
+      #120F00 0 6%,
+      var(--gold-400) 7% 40%,
+      #000 51% 61%,
+      var(--gold-600) 93%,
+      #120F00 95%
+    ),
+    linear-gradient(
+      90deg,
+      #120F00 6%,
+      var(--gold-200) 7%,
+      var(--gold-100) 40%,
+      #000 51%,
+      var(--gold-600) 61%,
+      var(--gold-800) 93%,
+      #120F00 95%
+    ),
+    radial-gradient(circle closest-side, #3D2F00 10%, var(--gold-600) 104%, transparent 3%),
+    linear-gradient(to right, #120F00 0 6%, var(--gold-400) 7% 40%, #000 51% 61%, var(--gold-600) 93%, #120F00 95%),
+    linear-gradient(to right, #120F00 0 6%, var(--gold-400) 7% 40%, #000 51% 61%, var(--gold-600) 93%, #120F00 95%),
+    linear-gradient(#3D3400, #3D3400),
+    linear-gradient(var(--gold-800), var(--gold-800)),
+    linear-gradient(#120F00, #120F00),
+    linear-gradient(var(--gold-600), var(--gold-600));
+  background-size: 92px 17px, 72px 20px, 10px 10px, 80px 52px, 92px 17px, 80px 3px, 72px 3px, 76px 6px, 82px 8px;
+  background-position: 64px 124px, 74px 101px, 106px 50px, 70px 48px, 63px 148px, 70px 46px, 74px 99px, 73px 121px, 70px 140px;
+  width: 164px;
+  height: 157px;
+  top: -148px;
+}
+
+.perfume::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  width: 203px;
+  height: 292px;
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  background-color: var(--dark-900);
+  border: 1px solid rgba(255, 204, 0, 0.2);
+  border-top-left-radius: 18px 151px;
+  border-top-right-radius: 18px 151px;
+  border-bottom-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(var(--dark-800), var(--dark-800)), linear-gradient(var(--dark-600), #000);
+  background-size: 194px 18px, 190px 2px;
+  background-position: 3px 0px, 3px 18px;
+}
+
+
+@keyframes perfume-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(var(--base-scale));
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(calc(var(--base-scale) * 1.08));
+  }
+}
+
 /* Splash screen – flip-from-bottom word reveal */
 @keyframes splashFlipIn {
   0% {
@@ -611,4 +694,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     gap: 0.3rem !important;
   }
 
+  .perfume {
+    --base-scale: 0.45;
+  }
 }

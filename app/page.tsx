@@ -14,8 +14,8 @@ export default function HomePage() {
     <main className="w-full">
       <Header />
       <Hero />
-      <OurPerfumes />
       <Partners />
+      <OurPerfumes />
       <Testimonials />
       <Footer />
       <FloatingContact />

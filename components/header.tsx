@@ -89,19 +89,22 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
         <div 
           className={cn(
             "w-full transition-all duration-300 overflow-hidden z-50 relative", 
-            isUsersSection ? "bg-primary" : "bg-primary",
             scrolled ? "h-0 opacity-0" : "h-[60px] sm:h-10 opacity-100"
           )}
+          style={{ backgroundColor: 'var(--color-bg-dark)' }}
         >
-          <Container className="max-w-full mx-auto px-4 md:px-12 h-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-between text-[11px] sm:text-xs font-medium text-white/90 py-1.5 sm:py-0">
+          <Container 
+            className="max-w-full mx-auto px-4 md:px-12 h-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-between text-[11px] sm:text-xs font-medium py-1.5 sm:py-0"
+            style={{ color: 'var(--neutral-300)' }}
+          >
             {/* Desktop: Phone & Email Left | Mobile: Row 1 - Phone */}
             <div className="flex items-center justify-start gap-6 mb-1 sm:mb-0">
               <a href="tel:0669034206" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="h-3.5 w-3.5" />
+                <Phone className="h-3.5 w-3.5 text-primary" />
                 <span>06 69 03 42 06</span>
               </a>
               <a href="mailto:alhorparfum@gmail.com" className="hidden sm:flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="h-3.5 w-3.5" />
+                <Mail className="h-3.5 w-3.5 text-primary" />
                 <span>alhorparfum@gmail.com</span>
               </a>
             </div>
@@ -109,12 +112,12 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
             {/* Desktop: Socials Right | Mobile: Row 2 - Email & Socials */}
             <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto">
               <a href="mailto:alhorparfum@gmail.com" className="flex sm:hidden items-center gap-2 hover:text-white transition-colors">
-                <Mail className="h-3.5 w-3.5" />
+                <Mail className="h-3.5 w-3.5 text-primary" />
                 <span>alhorparfum@gmail.com</span>
               </a>
               
               <div className="flex items-center gap-4">
-                <span className="hidden md:inline opacity-60">Follow us:</span>
+                <span className="hidden md:inline opacity-60 text-primary">Follow us:</span>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/Mohamedaminefakih/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                     <Facebook className="h-4 w-4" />
@@ -182,7 +185,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
 
           {/* Desktop layout - logo left, nav center, actions right */}
           <div className="hidden md:block">
-            <div className="flex h-20 items-center justify-between gap-6">
+            <div className="flex h-16 items-center justify-between gap-6">
               {/* Left: Logo */}
               <div className="flex items-center gap-6 shrink-0">
                 <Link href="/" className="flex items-center">
@@ -198,7 +201,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                   href="/"
                   className={cn(
                     "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                    pathname === "/" ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                    pathname === "/" ? "text-primary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
                   )}
                 >
                   {t.header.home}
@@ -211,7 +214,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                     href={link.href}
                     className={cn(
                       "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                      (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                      (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-primary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
                     )}
                   >
                     {link.label}
@@ -225,7 +228,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                   href="/contact"
                   className={cn(
                     "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                    pathname === "/contact" ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                    pathname === "/contact" ? "text-primary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
                   )}
                 >
                   {t.header.contact}

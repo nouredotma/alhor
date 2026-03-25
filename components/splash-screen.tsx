@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 
 export default function SplashScreen() {
   const [visible, setVisible] = useState(true)
@@ -37,7 +36,7 @@ export default function SplashScreen() {
         zIndex: 9999,
         height: "100svh",
         width: "100%",
-        background: "#ffffff",
+        background: "#FAFAF7",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -47,61 +46,7 @@ export default function SplashScreen() {
         pointerEvents: fadingOut ? "none" : "auto",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-        }}
-      >
-        {/* Left column – logo image */}
-        <Image
-          className="splash-image"
-          src="/loaderimage.png"
-          alt="Alhor Parfum"
-          width={200}
-          height={200}
-          priority
-          style={{ objectFit: "contain" }}
-        />
-
-        {/* Right column – three stacked words with flip-in animation */}
-        <div
-          className="splash-words"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.25rem",
-            perspective: "600px",
-          }}
-        >
-          {["ALHOR", "PARFUM", "ORIENTALES"].map((word, i) => (
-            <div
-              key={word}
-              className="splash-word-row"
-              style={{
-                overflow: "hidden",
-              }}
-            >
-              <span
-                className="splash-flip-in splash-word"
-                style={{
-                  fontFamily: "'Fauna One', serif",
-                  fontSize: "1.5rem",
-                  fontWeight: "bold",
-                  color: "#1c1917",
-                  letterSpacing: "0.15em",
-                  lineHeight: 1.2,
-                  display: "inline-block",
-                  animationDelay: `${0.3 + i * 0.3}s`,
-                }}
-              >
-                {word}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+        <div className="perfume"></div>
     </div>
   )
 }
