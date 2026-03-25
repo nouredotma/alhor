@@ -56,7 +56,7 @@ Address: ${formData.address}
 City: ${formData.city}
 Message: ${formData.message}
 
-Products:
+perfumes:
 ${productList}
 
 Total: ${totalPrice} MAD

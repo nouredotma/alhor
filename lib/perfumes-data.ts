@@ -2,14 +2,14 @@ import type { Language } from "./translations"
 
 export type ProductCategory = "men" | "women" | "unisex"
 
-export interface ProductTranslations {
+export interface PerfumeTranslations {
   name: string
   shortDescription: string
   longDescription: string
   ingredients?: string
 }
 
-export interface Product {
+export interface Perfume {
   id: string
   name: string
   brand: string
@@ -25,15 +25,15 @@ export interface Product {
   stock: number
   isBest?: boolean
   translations?: {
-    en?: ProductTranslations
-    fr?: ProductTranslations
+    en?: PerfumeTranslations
+    fr?: PerfumeTranslations
   }
 }
 
-// Single image used across all products for demonstration
-const PRODUCT_IMAGE = "/unnamed.jpg"
+// Single image used across all perfumes for demonstration
+const PERFUME_IMAGE = "/unnamed.jpg"
 
-export const products: Product[] = [
+export const perfumes: Perfume[] = [
   {
     id: "prod-1",
     name: "Oud Wood Intense",
@@ -43,8 +43,8 @@ export const products: Product[] = [
     longDescription:
       "Experience the depth and intensity of pure oud. This masculine scent blends rare spices and woods to create an unforgettable signature aroma, perfect for evening wear and special occasions. The long-lasting formula ensures you leave a memorable impression.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Linalool, Limonene, Coumarin, Eugenol.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
     category: "men",
     price: 180,
     oldPrice: 220,
@@ -76,8 +76,8 @@ export const products: Product[] = [
     longDescription:
       "A celebration of spring flowers, combining jasmine, rose, and lily of the valley. Perfect for everyday elegance, this fragrance slowly reveals its complex floral layers, ending with a soft string of vanilla and musk.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Benzyl Salicylate, Citronellol, Geraniol.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
     category: "women",
     price: 140,
     oldPrice: 160,
@@ -109,8 +109,8 @@ export const products: Product[] = [
     longDescription:
       "An invigorating blend of Sicilian lemon, bergamot, and sweet orange. A clean, fresh scent perfect for any occasion. It provides an energetic and uplifting sensation that lingers comfortably throughout the day.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Limonene, Citral, Linalool.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
     category: "unisex",
     price: 110,
     oldPrice: 135,
@@ -142,8 +142,8 @@ export const products: Product[] = [
     longDescription:
       "A deep, sensual take on the classic rose, laced with dark berry notes and a hint of vanilla. The Midnight Rose offers a captivating allure for the modern woman who embraces elegance and mystery.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Geraniol, Citronellol, Farnesol.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE],
     category: "women",
     price: 165,
     oldPrice: 195,
@@ -175,8 +175,8 @@ export const products: Product[] = [
     longDescription:
       "A woody, aromatic fragrance for the man who defies convention. The profoundly sensual Eau de Parfum, infused with crisp citrus notes, offers an intense and refined trail.",
     ingredients: "Alcohol, Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
     category: "men",
     price: 135,
     oldPrice: 165,
@@ -208,8 +208,8 @@ export const products: Product[] = [
     longDescription:
       "Crafted with hand-picked jasmine blossoms at the break of dawn, this fragrance captures the pure, luminous essence of the flower. It is sophisticated, radiant, and endlessly beautiful.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Benzyl Salicylate, Hexyl Cinnamal, Linalool.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE],
     category: "women",
     price: 130,
     oldPrice: 150,
@@ -241,8 +241,8 @@ export const products: Product[] = [
     longDescription:
       "A mysterious, captivating fragrance for both men and women. Shrouded in an aura of oriental mystery, the woody freshness of sandalwood contrasts with the deep, intoxicating notes of leather and oud.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Citronellol, Geraniol, Cinnamal.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE],
     category: "unisex",
     price: 190,
     oldPrice: 215,
@@ -274,8 +274,8 @@ export const products: Product[] = [
     longDescription:
       "A rich tapestry of golden vanilla and sweet amber, intertwined with smoky woods. A truly grand, enveloping scent designed for both men and women seeking an opulent and sweet everyday fragrance.",
     ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Coumarin, Eugenol, Benzyl Benzoate.",
-    mainImage: PRODUCT_IMAGE,
-    thumbnailImages: [PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE, PRODUCT_IMAGE],
+    mainImage: PERFUME_IMAGE,
+    thumbnailImages: [PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE, PERFUME_IMAGE],
     category: "unisex",
     price: 110,
     oldPrice: 135,
@@ -300,34 +300,35 @@ export const products: Product[] = [
   },
 ]
 
-export function getProductById(id: string): Product | undefined {
-  return products.find((product) => product.id === id)
+export function getPerfumeById(id: string): Perfume | undefined {
+  return perfumes.find((perfume) => perfume.id === id)
 }
 
-export function getTranslatedProduct(product: Product, language: Language) {
-  const translation = product.translations?.[language]
+export function getTranslatedPerfume(perfume: Perfume, language: Language) {
+  const translation = perfume.translations?.[language]
 
   if (!translation) {
-    const englishTranslation = product.translations?.en
+    const englishTranslation = perfume.translations?.en
     if (englishTranslation && language !== "en") {
       return {
-        ...product,
+        ...perfume,
         name: englishTranslation.name,
         shortDescription: englishTranslation.shortDescription,
         longDescription: englishTranslation.longDescription,
-        ingredients: englishTranslation.ingredients || product.ingredients,
+        ingredients: englishTranslation.ingredients || perfume.ingredients,
       }
     }
-    return product
+    return perfume
   }
 
   return {
-    ...product,
+    ...perfume,
     name: translation.name,
     shortDescription: translation.shortDescription,
     longDescription: translation.longDescription,
-    ingredients: translation.ingredients || product.ingredients,
+    ingredients: translation.ingredients || perfume.ingredients,
   }
 }
 
-export const bestSellers: Product[] = products.filter(p => p.isBest).slice(0, 4);
+export const bestSellers: Perfume[] = perfumes.filter(p => p.isBest).slice(0, 4);
+

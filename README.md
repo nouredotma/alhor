@@ -4,14 +4,14 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-v5-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-> Premium perfume products and fragrances — crafted with excellence.
+> Premium perfume perfumes and fragrances — crafted with excellence.
 
-Alhor Parfum is a modern, multi-language e-commerce web application for showcasing and selling premium perfume products. Built with Next.js 16 and designed for an exceptional browsing experience across all devices.
+Alhor Parfum is a modern, multi-language e-commerce web application for showcasing and selling premium perfume perfumes. Built with Next.js 16 and designed for an exceptional browsing experience across all devices.
 
 ## ✨ Features
 
 - **🌍 Multi-language Support**: Fully localized in Arabic (primary), French, and Spanish.
-- **📦 Product Catalog**: Browse and order premium perfume products.
+- **📦 perfume Catalog**: Browse and order premium perfume perfumes.
 - **📱 Premium Responsive Design**: Optimized for all devices with a focus on ease of use.
 - **⚡ Performance First**: Built with Next.js 16 for lightning-fast page loads and SEO.
 - **🔍 Advanced SEO**: Integrated JSON-LD structured data and optimized meta tags.

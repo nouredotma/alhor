@@ -217,7 +217,7 @@ export default function OrdersPage() {
               </div>
             </div>
 
-            {/* Products Table */}
+            {/* perfumes Table */}
             <div className="space-y-4 pt-4">
               <h3 className="text-xs font-bold text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-2 uppercase tracking-wide">
                 <ShoppingCart className="w-3.5 h-3.5 text-gray-400" />

@@ -4,12 +4,12 @@ import { ArrowLeft, ImageIcon, Pencil, Plus, Trash2, X, Upload, Globe, Search, S
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import type {
-  Product,
+  perfume,
   ProductCategory,
   ProductTranslations,
   SpecificationsTable,
-} from "@/lib/products-data";
-import { products as initialProducts } from "@/lib/products-data";
+} from "@/lib/perfumes-data";
+import { perfumes as initialProducts } from "@/lib/perfumes-data";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -235,12 +235,12 @@ function TranslatableInput({
 /* ------------------------------------------------------------------ */
 
 export default function ProductsPage() {
-  const [produits, setProduits] = useState<Product[]>(initialProducts);
+  const [produits, setProduits] = useState<perfume[]>(initialProducts);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [productToDelete, setProductToDelete] = useState<Product | null>(null);
+  const [productToDelete, setProductToDelete] = useState<perfume | null>(null);
 
   /* ---- Form state ---- */
   const [mainImage, setMainImage] = useState("");
@@ -318,7 +318,7 @@ export default function ProductsPage() {
     setShowForm(false);
   };
 
-  const handleEdit = (p: Product) => {
+  const handleEdit = (p: perfume) => {
     setEditingId(p.id);
     setMainImage(p.mainImage);
     setThumbnailImages(p.thumbnailImages.length > 0 ? p.thumbnailImages : [""]);
@@ -372,7 +372,7 @@ export default function ProductsPage() {
     }
   };
 
-  const handleDeleteProduct = (p: Product) => {
+  const handleDeleteProduct = (p: perfume) => {
     setProduits((prev) => prev.filter((x) => x.id !== p.id));
     setProductToDelete(null);
   };
@@ -400,7 +400,7 @@ export default function ProductsPage() {
     const hasSpecs =
       specsEn.rows.length > 0 && specsEn.rows.some((r) => r.some((c) => c.trim()));
 
-    const newProduct: Product = {
+    const newProduct: perfume = {
       id: editingId || `prod-${Date.now()}`,
       name: nameEn,
       shortDescription: shortDescEn,
@@ -718,7 +718,7 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Best Product Checkbox */}
+            {/* Best perfume Checkbox */}
             <div className="flex flex-col gap-2 pt-2">
               <div className="flex items-center space-x-2">
                 <Checkbox 
@@ -736,7 +736,7 @@ export default function ProductsPage() {
                 />
                 <Label htmlFor="isBest" className="text-xs font-semibold text-gray-700 flex items-center gap-1.5 cursor-pointer">
                   <Star className={`w-3.5 h-3.5 ${isBest ? "fill-yellow-400 text-yellow-400" : "text-gray-400"}`} />
-                  Produit "Coup de Coeur" (Best Product)
+                  Produit "Coup de Coeur" (Best perfume)
                 </Label>
               </div>
               <p className="text-[10px] text-gray-400 italic">
@@ -799,7 +799,7 @@ export default function ProductsPage() {
         </button>
       </div>
 
-      {/* Products Table */}
+      {/* perfumes Table */}
       <div className="bg-white border-2 border-gray-200 rounded-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full text-xs">

@@ -30,7 +30,7 @@ const navItems = [
     label: "Base",
     icon: Database,
     children: [
-      { label: "Produits", href: "/admin/dashboard/base/products" },
+      { label: "Produits", href: "/admin/dashboard/base/perfumes" },
       { label: "Commandes", href: "/admin/dashboard/base/orders" },
       { label: "Clients", href: "/admin/dashboard/base/clients" },
       { label: "Fournisseurs", href: "/admin/dashboard/base/suppliers" },

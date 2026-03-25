@@ -2,29 +2,29 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import ProductsGrid from "./products-grid"
+import PerfumesGrid from "./perfumes-grid"
 import { useLanguage } from "@/components/language-provider"
-import { bestSellers, getTranslatedProduct, type Product } from "@/lib/products-data"
+import { bestSellers, getTranslatedPerfume, type Perfume } from "@/lib/perfumes-data"
 import { Loader2 } from "lucide-react"
 
-export default function OurProducts() {
+export default function OurPerfumes() {
   const { t, language } = useLanguage()
-  const [bestProducts, setBestProducts] = useState<Product[]>([])
+  const [bestPerfumes, setBestPerfumes] = useState<Perfume[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const fetchBestProducts = () => {
+    const fetchBestPerfumes = () => {
       setIsLoading(true)
       
-      // Get best products from local data
-      const localProducts = bestSellers
-        .map(product => getTranslatedProduct(product, language))
+      // Get best perfumes from local data
+      const localPerfumes = bestSellers
+        .map(perfume => getTranslatedPerfume(perfume, language))
       
-      setBestProducts(localProducts)
+      setBestPerfumes(localPerfumes)
       setIsLoading(false)
     }
 
-    fetchBestProducts()
+    fetchBestPerfumes()
   }, [language])
 
   if (isLoading) {
@@ -44,21 +44,22 @@ export default function OurProducts() {
       <div className="max-w-full mx-auto px-4 md:px-12">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-lg md:text-3xl font-bold font-fauna" style={{ color: 'var(--neutral-900)' }}>{t.bestOffers.sectionTitle}</h2>
-          <Link href="/products" className="bg-primary hover:bg-[#CC9F00] text-primary-foreground transition-all px-4 py-2.5 rounded-xs md:rounded-sm text-xs md:text-sm font-medium font-fauna">
-            {t.product.viewAllProducts}
+          <Link href="/perfumes" className="bg-primary hover:bg-[#CC9F00] text-primary-foreground transition-all px-4 py-2.5 rounded-xs md:rounded-sm text-xs md:text-sm font-medium font-fauna">
+            {t.perfume.viewAllPerfumes}
           </Link>
         </div>
 
-        {bestProducts.length > 0 ? (
+        {bestPerfumes.length > 0 ? (
           <div className="w-full">
-            <ProductsGrid products={bestProducts} />
+            <PerfumesGrid perfumes={bestPerfumes} />
           </div>
         ) : (
           <div className="text-center py-16">
-            <p className="text-muted-foreground">No products available at the moment.</p>
+            <p className="text-muted-foreground">{t.common.noOffersFound}</p>
           </div>
         )}
       </div>
     </section>
   )
 }
+

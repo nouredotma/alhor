@@ -6,15 +6,15 @@ import Footer from "@/components/footer"
 import FloatingContact from "@/components/floating-contact"
 import PageHero from "@/components/page-hero"
 import { Container } from "@/components/ui/container"
-import ProductsGrid from "@/components/products-grid"
+import PerfumesGrid from "@/components/perfumes-grid"
 import SearchFilter, { type Filters } from "@/components/search-filter"
-import { products, getTranslatedProduct, type Product } from "@/lib/products-data"
+import { perfumes, getTranslatedPerfume, type Perfume } from "@/lib/perfumes-data"
 import { useLanguage } from "@/components/language-provider"
 import { Loader2 } from "lucide-react"
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
-function ProductsContent() {
+function PerfumesContent() {
   const { t, language } = useLanguage()
   const router = useRouter()
   const pathname = usePathname()
@@ -24,7 +24,7 @@ function ProductsContent() {
   const minParam = searchParams.get('min')
   const maxParam = searchParams.get('max')
   
-  const [allProducts, setAllProducts] = useState<Product[]>([])
+  const [allPerfumes, setAllPerfumes] = useState<Perfume[]>([])
   const [filters, setFilters] = useState<Filters>({
     search: searchParam ?? "",
     condition: conditionParam ?? "all",
@@ -34,19 +34,19 @@ function ProductsContent() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const fetchProducts = () => {
+    const fetchPerfumes = () => {
       setIsLoading(true)
-      // Products are local now
-      const localProducts = products.map(p => getTranslatedProduct(p, language))
-      setAllProducts(localProducts)
+      // perfumes are local now
+      const localPerfumes = perfumes.map(p => getTranslatedPerfume(p, language))
+      setAllPerfumes(localPerfumes)
       setIsLoading(false)
     }
 
-    fetchProducts()
+    fetchPerfumes()
   }, [language])
 
-  const filteredProducts = useMemo(() => {
-    return allProducts.filter((p) => {
+  const filteredPerfumes = useMemo(() => {
+    return allPerfumes.filter((p) => {
       // Price filtering
       if (filters.minPrice != null && p.price < filters.minPrice) return false
       if (filters.maxPrice != null && p.price > filters.maxPrice) return false
@@ -65,7 +65,7 @@ function ProductsContent() {
 
       return true
     })
-  }, [allProducts, filters])
+  }, [allPerfumes, filters])
 
   useEffect(() => {
     setFilters(prev => ({ 
@@ -102,7 +102,7 @@ function ProductsContent() {
     <main className="w-full">
       <Header />
       <PageHero 
-        title={t.header.products} 
+        title={t.header.perfumes} 
         backgroundImage="/2.jpg"
       />
 
@@ -123,15 +123,15 @@ function ProductsContent() {
               />
             </div>
 
-            {/* Products Grid Main Area */}
+            {/* perfumes Grid Main Area */}
             <div className="w-full lg:flex-1">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center py-24">
                   <Loader2 className="h-12 w-12 animate-spin text-primary mb-6" />
-                  <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Initializing Inventory...</p>
+                  <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">{t.common.loading}</p>
                 </div>
               ) : (
-                <ProductsGrid products={filteredProducts} />
+                <PerfumesGrid perfumes={filteredPerfumes} />
               )}
             </div>
           </div>
@@ -144,10 +144,11 @@ function ProductsContent() {
   )
 }
 
-export default function ProductsPage() {
+export default function PerfumesPage() {
   return (
     <Suspense fallback={<div className="h-screen flex items-center justify-center"><Loader2 className="h-12 w-12 animate-spin text-primary" /></div>}>
-      <ProductsContent />
+      <PerfumesContent />
     </Suspense>
   )
 }
+

@@ -4,7 +4,7 @@ export const en = {
     home: "Home",
     contact: "Contact",
     language: "Language",
-    products: "Products",
+    perfumes: "Perfumes",
     men: "Men",
     women: "Women",
     unisex: "Unisex",
@@ -26,9 +26,9 @@ export const en = {
     copyright: "© 2026 Alhor Parfum. All rights reserved.",
     terms: "Terms & Conditions",
     privacyPolicy: "Privacy Policy",
-    products: "Products",
+    perfumes: "Perfumes",
     madeBy: "Made by",
-    productNames: {
+    perfumeNames: {
       men: "Men's Perfumes",
       women: "Women's Perfumes",
       unisex: "Unisex Perfumes",
@@ -44,7 +44,7 @@ export const en = {
       "Luxury scents for every taste."
     ],
     phoneButton: "06 69 03 42 06",
-    productsButton: "Discover Our Products",
+    perfumesButton: "Discover Our Perfumes",
   },
 
   // Travel Themes Section
@@ -88,18 +88,18 @@ export const en = {
     transfers: "Transfers",
   },
 
-  // Our Best Products Section
+  // Our Best perfumes Section
   bestOffers: {
     sectionTitle: "Best Sellers",
     sectionDescription: "A curated selection of our most popular and sought-after perfumes.",
     badge: {
-      product: "Best Seller",
+      perfume: "Best Seller",
       tours: "Best Tour!",
       excursions: "Best Excursion!",
       activities: "Best Activity!",
       packages: "Best Package!",
       transfers: "Best Transfer!",
-      default: "Best Product!",
+      default: "Best perfume!",
     },
   },
 
@@ -292,7 +292,7 @@ export const en = {
       tourBooking: "Technical Support",
       customPackage: "Price Quote Request",
       groupTravel: "Maintenance Service",
-      transportation: "Product Information",
+      transportation: "perfume Information",
       other: "Other",
     },
     sendMessage: "Send Message",
@@ -366,26 +366,26 @@ export const en = {
       pageTitle: "My Bookings",
       pageDescription: "View and manage your bookings",
       upcomingBookings: "Upcoming Bookings",
-      upcomingDescription: "Your scheduled tours and activities",
+      upcomingDescription: "Your scheduled perfumes and activities",
       pastBookings: "Past Bookings",
       pastDescription: "Your booking history",
       noUpcoming: "No upcoming bookings",
-      noUpcomingDescription: "Start exploring our products!",
+      noUpcomingDescription: "Start exploring our perfumes!",
       noPast: "No past bookings",
       noPastDescription: "Your completed bookings will appear here.",
-      browseTours: "Browse Products",
+      browsePerfumes: "Browse Perfumes",
       confirmed: "Confirmed",
       viewOffer: "View Offer",
     },
     favorites: {
       pageTitle: "Favorites",
-      pageDescription: "Your saved products",
+      pageDescription: "Your saved perfumes",
       savedItems: "Saved Items",
       savedCount: "You have {count} {items} saved",
       savedItemsEmpty: "Items you add to favorites will appear here",
       noFavorites: "No favorites yet",
-      noFavoritesDescription: "Start exploring and save your favorite products!",
-      exploreTours: "Explore Products",
+      noFavoritesDescription: "Start exploring and save your favorite perfumes!",
+      explorePerfumes: "Explore Perfumes",
       viewDetails: "View Details",
       removeFromFavorites: "Remove from favorites",
     },
@@ -535,7 +535,7 @@ export const en = {
     departureCity: "Departure City",
     availableOn: "Available On",
     search: "Search",
-    searchProducts: "Search Products",
+    searchPerfumes: "Search Perfumes",
     keywords: "Keywords...",
     categoryLabel: "Category",
     selectCategory: "Select a category",
@@ -554,10 +554,10 @@ export const en = {
     }
   },
 
-  // Product Page
-  product: {
-    viewProduct: "View Product",
-    viewAllProducts: "View All Products",
+  // Perfume Page
+  perfume: {
+    viewPerfume: "View Perfume",
+    viewAllPerfumes: "View All Perfumes",
     category: "Category:",
     save: "Save",
     overview: "Overview",
@@ -576,7 +576,7 @@ export const en = {
     cart: "Cart",
     myCart: "My Cart",
     emptyCart: "Your cart is empty",
-    emptyCartDesc: "Browse our products and add items to your cart.",
+    emptyCartDesc: "Browse our perfumes and add items to your cart.",
     next: "Next",
     back: "Back",
     review: "Review Order",

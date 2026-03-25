@@ -56,7 +56,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement
-      if (productsDropdownOpen && !target.closest('.products-dropdown-container')) {
+      if (productsDropdownOpen && !target.closest('.perfumes-dropdown-container')) {
         setProductsDropdownOpen(false)
       }
     }
@@ -66,9 +66,9 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
   }, [productsDropdownOpen])
 
   const productLinks = [
-    { href: "/products?condition=men", label: t.header.men },
-    { href: "/products?condition=women", label: t.header.women },
-    { href: "/products?condition=unisex", label: t.header.unisex },
+    { href: "/perfumes?condition=men", label: t.header.men },
+    { href: "/perfumes?condition=women", label: t.header.women },
+    { href: "/perfumes?condition=unisex", label: t.header.unisex },
   ]
 
   return (
@@ -211,7 +211,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                     href={link.href}
                     className={cn(
                       "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                      (pathname === "/products" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                      (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
                     )}
                   >
                     {link.label}
@@ -352,7 +352,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                             onClick={() => setIsMenuOpen(false)}
                             className={cn(
                               "flex items-center w-full py-4 px-4 transition-all duration-200 text-sm font-medium tracking-wide border-b border-gray-100 font-fauna",
-                              (pathname === "/products" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "bg-primary/5 text-primary" : "text-gray-700 hover:text-primary"
+                              (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "bg-primary/5 text-primary" : "text-gray-700 hover:text-primary"
                             )}
                           >
                             {link.label}

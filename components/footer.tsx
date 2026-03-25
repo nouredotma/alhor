@@ -12,10 +12,10 @@ export default function Footer() {
     { href: "/terms", label: t.footer.terms },
   ];
 
-  const productLinks = [
-    { href: "/products?condition=men", label: t.footer.productNames.men },
-    { href: "/products?condition=women", label: t.footer.productNames.women },
-    { href: "/products?condition=unisex", label: t.footer.productNames.unisex },
+  const perfumeLinks = [
+    { href: "/perfumes?condition=men", label: t.footer.perfumeNames.men },
+    { href: "/perfumes?condition=women", label: t.footer.perfumeNames.women },
+    { href: "/perfumes?condition=unisex", label: t.footer.perfumeNames.unisex },
   ];
 
   return (
@@ -81,13 +81,13 @@ export default function Footer() {
 
           
 
-          {/* Products List */}
+          {/* perfumes List */}
           <div>
             <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
-              {t.footer.products}
+              {t.footer.perfumes}
             </h4>
             <nav className="space-y-2.5">
-              {productLinks.map((link, index) => (
+              {perfumeLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}

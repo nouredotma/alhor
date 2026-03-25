@@ -6,7 +6,7 @@ export const fr: TranslationKeys = {
     home: "Accueil",
     contact: "Contact",
     language: "Langue",
-    products: "Produits",
+    perfumes: "Parfums",
     men: "Hommes",
     women: "Femmes",
     unisex: "Unisexe",
@@ -28,9 +28,9 @@ export const fr: TranslationKeys = {
     copyright: "© 2026 Alhor Parfum Orientales. Tous droits réservés.",
     terms: "Conditions générales",
     privacyPolicy: "Politique de confidentialité",
-    products: "Produits",
+    perfumes: "Parfums",
     madeBy: "Réalisé par",
-    productNames: {
+    perfumeNames: {
       men: "Parfums Homme",
       women: "Parfums Femme",
       unisex: "Parfums Unisexe",
@@ -46,7 +46,7 @@ export const fr: TranslationKeys = {
       "Des senteurs luxueuses pour tous les goûts."
     ],
     phoneButton: "06 69 03 42 06",
-    productsButton: "Découvrir NOS Produits",
+    perfumesButton: "Découvrir NOS Parfums",
   },
 
   // Travel Themes Section
@@ -90,18 +90,18 @@ export const fr: TranslationKeys = {
     transfers: "Transferts",
   },
 
-  // Our Best Products Section
+  // Our Best perfumes Section
   bestOffers: {
     sectionTitle: "Nos Meilleures Ventes",
     sectionDescription: "Une sélection de nos parfums les plus prisés et appréciés.",
     badge: {
-      product: "Meilleure Vente",
+      perfume: "Meilleure Vente",
       tours: "Meilleur Tour !",
       excursions: "Meilleure Excursion !",
       activities: "Meilleure Activité !",
       packages: "Meilleur Forfait !",
       transfers: "Meilleur Transfert !",
-      default: "Meilleur Produit !",
+      default: "Meilleur Parfum !",
     },
   },
 
@@ -294,7 +294,7 @@ export const fr: TranslationKeys = {
       tourBooking: "Support Technique",
       customPackage: "Demande de Devis",
       groupTravel: "Service de Maintenance",
-      transportation: "Informations Produit",
+      transportation: "Informations Parfum",
       other: "Autre",
     },
     sendMessage: "Envoyer le Message",
@@ -537,7 +537,7 @@ export const fr: TranslationKeys = {
     departureCity: "Ville de départ",
     availableOn: "Disponible le",
     search: "Rechercher",
-    searchProducts: "Rechercher des Produits",
+    searchPerfumes: "Rechercher des Parfums",
     keywords: "Mots-clés...",
     categoryLabel: "Catégorie",
     selectCategory: "Choisir une catégorie",
@@ -556,10 +556,10 @@ export const fr: TranslationKeys = {
     }
   },
 
-  // Product Page
-  product: {
-    viewProduct: "Voir le Produit",
-    viewAllProducts: "Voir tous les produits",
+  // perfume Page
+  perfume: {
+    viewPerfume: "Voir le Parfum",
+    viewAllPerfumes: "Voir tous les parfums",
     category: "Catégorie :",
     save: "Économisez",
     overview: "Aperçu",
@@ -578,7 +578,7 @@ export const fr: TranslationKeys = {
     cart: "Panier",
     myCart: "Mon Panier",
     emptyCart: "Votre panier est vide",
-    emptyCartDesc: "Parcourez nos produits et ajoutez des articles à votre panier.",
+    emptyCartDesc: "Parcourez nos parfums et ajoutez des articles à votre panier.",
     next: "Suivant",
     back: "Retour",
     review: "Vérifier la Commande",

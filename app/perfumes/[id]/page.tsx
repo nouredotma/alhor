@@ -1,7 +1,7 @@
 "use client"
 
 import { useLanguage } from "@/components/language-provider"
-import { getProductById, getTranslatedProduct } from "@/lib/products-data"
+import { getPerfumeById, getTranslatedPerfume } from "@/lib/perfumes-data"
 import { notFound } from "next/navigation"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -14,32 +14,32 @@ import Image from "next/image"
 import Link from "next/link"
 import { use, useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
-import OurProducts from "@/components/our-products"
+import OurPerfumes from "@/components/our-perfumes"
 
-export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default function PerfumeDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { t, language } = useLanguage()
   const { addToCart, toggleCartModal } = useCart()
   const resolvedParams = use(params)
-  const productRaw = getProductById(resolvedParams.id)
+  const perfumeRaw = getPerfumeById(resolvedParams.id)
 
-  if (!productRaw) {
+  if (!perfumeRaw) {
     notFound()
   }
 
-  const product = getTranslatedProduct(productRaw, language)
-  const [activeImage, setActiveImage] = useState(product.mainImage)
+  const perfume = getTranslatedPerfume(perfumeRaw, language)
+  const [activeImage, setActiveImage] = useState(perfume.mainImage)
 
   const [quantity, setQuantity] = useState(1)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
-  const allImages = [product.mainImage, ...product.thumbnailImages].filter(Boolean)
+  const allImages = [perfume.mainImage, ...perfume.thumbnailImages].filter(Boolean)
 
   const handleDecreaseQuantity = () => {
     if (quantity > 1) setQuantity(q => q - 1)
   }
 
   const handleIncreaseQuantity = () => {
-    if (quantity < product.stock) setQuantity(q => q + 1)
+    if (quantity < perfume.stock) setQuantity(q => q + 1)
   }
 
   const handlePrevImage = () => {
@@ -98,11 +98,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       <div className="pt-32 pb-4">
         <Container className="max-w-full mx-auto px-4 md:px-12">
           <Link 
-            href="/products" 
+            href="/perfumes" 
             className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back to Products
+            {language === 'en' ? 'Back to Perfumes' : 'Retour aux Parfums'}
           </Link>
         </Container>
       </div>
@@ -119,7 +119,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               >
                 <Image
                   src={activeImage}
-                  alt={product.name}
+                  alt={perfume.name}
                   fill
                   className="object-cover cursor-zoom-in"
                   priority
@@ -168,7 +168,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             : "border border-neutral-200 opacity-70 hover:opacity-100"
                         }`}
                       >
-                        <Image src={img} alt={`${product.name} thumbnail ${idx}`} fill className="object-cover" />
+                        <Image src={img} alt={`${perfume.name} thumbnail ${idx}`} fill className="object-cover" />
                       </button>
                     ))}
                   </div>
@@ -192,63 +192,63 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               )}
             </div>
 
-            {/* Right Column: Product Info & CTA */}
+            {/* Right Column: Perfume Info & CTA */}
             <div className="lg:col-span-7 flex flex-col pt-2 lg:pt-0">
               <div className="flex flex-col gap-4 md:gap-5 lg:max-w-3xl">
                 
-                {/* 1. Brand & Volume */}
-                <div className="flex items-center gap-2 text-sm text-neutral-500 font-medium tracking-wide">
-                  <span>{product.brand}</span>
-                  <span className="w-1 h-1 rounded-full bg-neutral-300" />
-                  <span>{product.volume}</span>
+                {/* 1. Category Badge */}
+                <div className="inline-flex items-center px-4 py-1 rounded-full text-[10px] md:text-xs font-bold bg-primary/10 text-primary border border-primary/20 w-fit capitalize">
+                  {perfume.category}
                 </div>
 
-                {/* 1.5 Product Name & Stock */}
+                {/* 2. Perfume Name & Stock */}
                 <div className="flex items-center justify-between gap-4">
                   <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-neutral-900 tracking-tight font-fauna">
-                    {product.name}
+                    {perfume.name}
                   </h1>
                   <div className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 border border-emerald-100 shrink-0 rounded-xs">
                     <CheckCircle2 className="w-3 h-3" />
-                    <span>{t.product.inStock.replace("{count}", product.stock.toString())}</span>
+                    <span>{t.perfume.inStock.replace("{count}", perfume.stock.toString())}</span>
                   </div>
                 </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-neutral-500 tracking-wider text-[11px] md:text-xs">{t.product.category}</span>
-                    <span className="font-semibold text-neutral-900 capitalize text-[11px] md:text-xs">{product.category}</span>
-                  </div>
+                {/* 3. Brand & Volume */}
+                <div className="flex items-center gap-2 text-sm text-neutral-500 font-medium tracking-wide">
+                  <span>{perfume.brand}</span>
+                  <span className="w-1 h-1 rounded-full bg-neutral-300" />
+                  <span>{perfume.volume}</span>
+                </div>
 
                 {/* 3. Pricing (Old, New, Savings) */}
                 <div className="flex flex-col gap-1 pt-0.5">
-                  {product.oldPrice && (
+                  {perfume.oldPrice && (
                     <span className="text-sm md:text-base font-light text-neutral-400 line-through">
-                      {product.oldPrice} MAD
+                      {perfume.oldPrice} MAD
                     </span>
                   )}
                   <span className="text-2xl md:text-2xl font-extrabold text-neutral-900 tracking-tight font-fauna">
-                    {product.price} MAD
+                    {perfume.price} MAD
                   </span>
-                  {product.oldPrice && (
+                  {perfume.oldPrice && (
                     <div className="inline-flex w-fit  text-green-500 px-0 text-[10px] md:text-xs font-bol">
-                      {t.product.save} {product.oldPrice - product.price} MAD
+                      {t.perfume.save} {perfume.oldPrice - perfume.price} MAD
                     </div>
                   )}
                 </div>
 
                 {/* 4. Short Description */}
                 <p className="text-sm md:text-base text-neutral-600 leading-relaxed font-light">
-                  {product.shortDescription}
+                  {perfume.shortDescription}
                 </p>
 
                 {/* 4.5 Ingredients (Styled as tags) */}
-                {product.ingredients && (
+                {perfume.ingredients && (
                   <div className="flex flex-col gap-2.5 pt-2 pb-1">
                     <h4 className="text-xs font-bold text-neutral-900 tracking-wider">
                       {language === 'en' ? 'Notes & Ingredients' : 'Notes et Ingrédients'}
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {product.ingredients.split(',').map((ingredient, i) => {
+                      {perfume.ingredients.split(',').map((ingredient, i) => {
                         const trimmed = ingredient.trim().replace('.', '')
                         return (
                           <span 
@@ -269,14 +269,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                       <Truck className="w-4 h-4" />
                    </div>
                    <div className="space-y-0.5">
-                      <p className="text-xs md:text-sm font-bold text-green-900">{t.product.nationwideDelivery}</p>
-                      <p className="text-[10px] md:text-xs font-medium text-emerald-600">{t.product.availableInMorocco}</p>
+                      <p className="text-xs md:text-sm font-bold text-green-900">{t.perfume.nationwideDelivery}</p>
+                      <p className="text-[10px] md:text-xs font-medium text-emerald-600">{t.perfume.availableInMorocco}</p>
                    </div>
                 </div>
 
                 {/* 6. Quantity Selector */}
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-bold text-neutral-900 text-[10px] md:text-xs">{t.product.quantity}</span>
+                  <span className="text-xs font-bold text-neutral-900 text-[10px] md:text-xs">{t.perfume.quantity}</span>
                   <div className="flex border border-neutral-200 rounded-xs overflow-hidden bg-white w-fit">
                     <button 
                       onClick={handleDecreaseQuantity}
@@ -290,7 +290,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     </div>
                     <button 
                       onClick={handleIncreaseQuantity}
-                      disabled={quantity >= product.stock}
+                      disabled={quantity >= perfume.stock}
                       className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-neutral-900 hover:bg-neutral-50 disabled:opacity-30 transition-all cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
@@ -304,10 +304,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     className="flex-2 h-12 md:h-14 rounded-xs text-xs md:text-sm font-bold cursor-pointer"
                     onClick={() => {
                       addToCart({
-                        productId: product.id,
-                        name: product.name,
-                        price: product.price,
-                        image: product.mainImage,
+                        productId: perfume.id,
+                        name: perfume.name,
+                        price: perfume.price,
+                        image: perfume.mainImage,
                         quantity,
                       })
                       toggleCartModal(true)
@@ -317,20 +317,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {t.cart.addToCart}
                   </Button>
                   <Button className="flex-1 h-12 md:h-14 rounded-xs text-xs md:text-sm font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white" asChild>
-                    <a href={`https://wa.me/212666166945?text=Hello, I'm interested in ordering ${quantity}x ${product.name}`}>
+                    <a href={`https://wa.me/212666166945?text=Hello, I'm interested in ordering ${quantity}x ${perfume.name}`}>
                       <svg className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
                       </svg>
-                      {t.product.whatsapp}
+                      {t.perfume.whatsapp}
                     </a>
                   </Button>
                 </div>
 
                 {/* 8. Long Description */}
                 <div className="pt-4 border-t border-neutral-200 flex flex-col gap-2">
-                  <h3 className="text-lg font-bold text-neutral-900 tracking-tight font-fauna">{t.product.overview}</h3>
+                  <h3 className="text-lg font-bold text-neutral-900 tracking-tight font-fauna">{t.perfume.overview}</h3>
                   <div className="text-sm md:text-base text-neutral-600 leading-relaxed space-y-4 font-light">
-                    {product.longDescription}
+                    {perfume.longDescription}
                   </div>
                 </div>
 
@@ -367,7 +367,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             >
               <Image
                 src={activeImage}
-                alt={product.name}
+                alt={perfume.name}
                 fill
                 className="object-contain"
                 priority
@@ -384,7 +384,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </button>
                 <button 
                   onClick={handleNextImage}
-                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 text-white transition-all cursor-pointer border border-white/30 backdrop-blur-md z-50 md:absolute md:top-1/2 md:-translate-y-1/2 md:-right-16"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 text-white transition-all cursor-pointer border border-white/30 backdrop-blur-md z-50 md:absolute md:top-1/2 md:-right-16"
                 >
                   <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                 </button>
@@ -394,10 +394,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         </motion.div>
       )}
 
-      <OurProducts />
+      <OurPerfumes />
 
       <Footer />
       <FloatingContact />
     </main>
   )
 }
+
