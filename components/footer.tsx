@@ -8,25 +8,18 @@ export default function Footer() {
 
   const quickLinks = [
     { href: "/", label: t.header.home },
-    { href: "/about", label: t.header.about },
     { href: "/contact", label: t.header.contact },
     { href: "/terms", label: t.footer.terms },
   ];
 
   const productLinks = [
-    { href: "/products?condition=consumables", label: t.footer.productNames.consumables },
-    { href: "/products?condition=water", label: t.footer.productNames.water },
-    { href: "/products?condition=agriculture", label: t.footer.productNames.agriculture },
-    { href: "/products?condition=laboratory", label: t.footer.productNames.laboratory },
-    { href: "/products?condition=medical", label: t.footer.productNames.medical },
-    { href: "/products?condition=furniture", label: t.footer.productNames.furniture },
-    { href: "/products?condition=weighing", label: t.footer.productNames.weighing },
-    { href: "/products?condition=chemicals", label: t.footer.productNames.chemicals },
-    { href: "/products?condition=used", label: t.footer.productNames.used },
+    { href: "/products?condition=men", label: t.footer.productNames.men },
+    { href: "/products?condition=women", label: t.footer.productNames.women },
+    { href: "/products?condition=unisex", label: t.footer.productNames.unisex },
   ];
 
   return (
-    <footer className="w-full bg-[#414141] text-white rounded-t-2xl md:rounded-t-4xl">
+    <footer className="w-full text-white rounded-t-2xl md:rounded-t-4xl" style={{ backgroundColor: 'var(--color-bg-dark)' }}>
       {/* Main Footer */}
       <div className="max-w-full mx-auto px-4 md:px-12 pt-14 pb-10">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-8">
@@ -39,7 +32,7 @@ export default function Footer() {
                 className="h-14 w-auto object-contain"
               />
             </a>
-            <p className="text-xs sm:text-sm font-light text-white/80 leading-relaxed">
+            <p className="text-xs sm:text-sm font-light leading-relaxed" style={{ color: 'var(--neutral-300)' }}>
               {t.footer.brandDescription}
             </p>
             <div className="flex items-center gap-3 pt-1">
@@ -48,7 +41,8 @@ export default function Footer() {
                 aria-label="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-amber-400 transition-colors duration-200"
+                className="hover:text-gold-400 transition-colors duration-200"
+                style={{ color: 'var(--neutral-300)' }}
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -58,7 +52,8 @@ export default function Footer() {
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-amber-400 transition-colors duration-200"
+                className="hover:text-gold-400 transition-colors duration-200"
+                style={{ color: 'var(--neutral-300)' }}
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -68,7 +63,8 @@ export default function Footer() {
                 aria-label="TikTok"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-amber-400 transition-colors duration-200"
+                className="hover:text-gold-400 transition-colors duration-200"
+                style={{ color: 'var(--neutral-300)' }}
               >
                 <svg
                   className="w-5 h-5"
@@ -87,7 +83,7 @@ export default function Footer() {
 
           {/* Products List */}
           <div>
-            <h4 className="text-md font-semibold text-amber-400 mb-2 font-fauna">
+            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
               {t.footer.products}
             </h4>
             <nav className="space-y-2.5">
@@ -95,7 +91,8 @@ export default function Footer() {
                 <a
                   key={index}
                   href={link.href}
-                  className="block text-xs sm:text-sm font-light text-white/80 hover:text-white transition-colors duration-200"
+                  className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
+                  style={{ color: 'var(--neutral-300)' }}
                 >
                   {link.label}
                 </a>
@@ -103,9 +100,9 @@ export default function Footer() {
             </nav>
           </div>
 
-{/* Quick Links */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-md font-semibold text-amber-400 mb-2 font-fauna">
+            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
               {t.footer.explore}
             </h4>
             <nav className="space-y-2.5">
@@ -113,47 +110,54 @@ export default function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block text-xs sm:text-sm font-light text-white/80 hover:text-white transition-colors duration-200"
+                  className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
+                  style={{ color: 'var(--neutral-300)' }}
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
           </div>
+
           {/* Contact Info */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1">
-            <h4 className="text-md font-semibold text-amber-400 mb-2 font-fauna">
+            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
               {t.footer.contactTitle}
             </h4>
             <div className="space-y-2 sm:space-y-4">
               <a 
                 href="tel:0669034206"
-                className="block p-2 sm:p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
+                className="block p-2 sm:p-3 rounded-lg hover:brightness-125 transition-all group"
+                style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}
               >
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-amber-400" />
+                  <Phone className="w-4 h-4" style={{ color: 'var(--gold-400)' }} />
                   <span className="text-xs sm:text-sm font-medium text-white">{t.footer.phone}</span>
                 </div>
-                <span className="text-xs sm:text-sm text-white/80 font-light pl-6 group-hover:text-white transition-colors">06 69 03 42 06</span>
+                <span className="text-xs sm:text-sm font-light pl-6 group-hover:text-white transition-colors" style={{ color: 'var(--neutral-300)' }}>06 69 03 42 06</span>
               </a>
 
               <a 
                 href="mailto:alhorparfum@gmail.com"
-                className="block p-2 sm:p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
+                className="block p-2 sm:p-3 rounded-lg hover:brightness-125 transition-all group"
+                style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}
               >
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-amber-400" />
+                  <Mail className="w-4 h-4" style={{ color: 'var(--gold-400)' }} />
                   <span className="text-xs sm:text-sm font-medium text-white">{t.footer.email}</span>
                 </div>
-                <span className="text-xs sm:text-sm text-white/80 font-light pl-6 group-hover:text-white transition-colors break-all">alhorparfum@gmail.com</span>
+                <span className="text-xs sm:text-sm font-light pl-6 group-hover:text-white transition-colors break-all" style={{ color: 'var(--neutral-300)' }}>alhorparfum@gmail.com</span>
               </a>
 
-              <div className="p-2 sm:p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group">
+              <div 
+                className="p-2 sm:p-3 rounded-lg hover:brightness-125 transition-all group"
+                style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}
+              >
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-amber-400" />
+                  <MapPin className="w-4 h-4" style={{ color: 'var(--gold-400)' }} />
                   <span className="text-xs sm:text-sm font-medium text-white">{t.footer.address}</span>
                 </div>
-                <p className="text-xs sm:text-sm text-white/80 font-light pl-6 group-hover:text-white transition-colors">
+                <p className="text-xs sm:text-sm font-light pl-6 group-hover:text-white transition-colors" style={{ color: 'var(--neutral-300)' }}>
                   {t.footer.addressLine1}, {t.footer.addressLine2}, {t.footer.addressLine3}
                 </p>
               </div>
@@ -163,9 +167,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div style={{ borderTop: '1px solid var(--dark-700)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4 text-[10px] sm:text-sm font-light text-white/80 text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4 text-[10px] sm:text-sm font-light text-center sm:text-left" style={{ color: 'var(--neutral-500)' }}>
             <p>{t.footer.copyright}</p>
             <p>
               Developed & Designed by{" "}
@@ -173,7 +177,8 @@ export default function Footer() {
                 href="https://wa.me/212613774895" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+                className="hover:brightness-125 transition-colors font-medium"
+                style={{ color: 'var(--gold-400)' }}
               >
                 nexusdweb
               </a>

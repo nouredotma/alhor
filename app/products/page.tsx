@@ -106,7 +106,7 @@ function ProductsContent() {
         backgroundImage="/2.jpg"
       />
 
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20" style={{ backgroundColor: 'var(--neutral-50)' }}>
         <Container className="max-w-full mx-auto px-4 md:px-12">
           
           <div className="flex flex-col lg:flex-row gap-4 items-start">

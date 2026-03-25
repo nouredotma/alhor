@@ -59,7 +59,7 @@ export function LanguageSwitcher({
             <button
               key={lang.code}
               onClick={() => {
-                setLanguage(lang.code as "ar" | "fr" | "es")
+                setLanguage(lang.code as "en" | "fr")
                 setIsOpen(false)
               }}
               className={cn(

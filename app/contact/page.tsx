@@ -89,7 +89,7 @@ export default function ContactPage() {
       <Header />
       <PageHero title={t.contact.pageTitle} backgroundImage="/2.jpg" />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--neutral-50)' }}>
         <Container className="max-w-full mx-auto px-4 md:px-12">
           {/* Quick Contact Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">

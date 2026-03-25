@@ -60,13 +60,13 @@ export default function Testimonials() {
   const { t } = useLanguage()
 
   return (
-    <section id="testimonials" className="py-16 sm:py-24 bg-white">
+    <section id="testimonials" className="py-16 sm:py-24" style={{ backgroundColor: 'var(--neutral-50)' }}>
       <div className="max-w-full mx-auto px-4 md:px-12">
         <div className="flex flex-col gap-3 sm:gap-8 mb-3 sm:mb-6">
           <div className="flex justify-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary">
-              <span className="text-lg font-semibold font-fauna">
-                {t.testimonials.title} <span className="text-secondary">{t.testimonials.titleHighlight}</span>
+              <span className="text-sm md:text-lg font-bold font-fauna tracking-wide uppercase" style={{ color: 'var(--neutral-900)' }}>
+                {t.testimonials.title} <span style={{ color: 'var(--gold-400)' }}>{t.testimonials.titleHighlight}</span>
               </span>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <SwiperSlide key={i}>
                 <div className="px-1 py-1 flex flex-col h-full">
-                  <div className="bg-[#414141] rounded-md transition-all duration-300 p-4 h-full flex flex-col border border-white/10 md:min-h-[220px]">
+                  <div className="rounded-md transition-all duration-300 p-4 h-full flex flex-col border border-white/10 md:min-h-[220px]" style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}>
                     {/* Header: Profile Top Left, Google Info Top Right */}
                     <div className="flex justify-between items-start mb-6">
                       <div className="flex items-center gap-3">
@@ -108,7 +108,7 @@ export default function Testimonials() {
                         </div>
                         <div>
                           <h3 className="font-semibold text-white text-sm leading-tight">{t.name}</h3>
-                          <p className="text-white/60 text-[11px] mt-0.5">{t.location}</p>
+                          <p className="text-[11px] mt-0.5" style={{ color: 'var(--neutral-300)' }}>{t.location}</p>
                         </div>
                       </div>
                       
@@ -132,7 +132,7 @@ export default function Testimonials() {
                               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                             />
                           </svg>
-                          <span className="text-[10px] font-bold text-white/40 uppercase tracking-tighter">Google</span>
+                          <span className="text-[10px] font-bold uppercase tracking-tighter" style={{ color: 'var(--neutral-500)' }}>Google</span>
                         </div>
                         <div className="flex">
                           {[...Array(t.rating)].map((_, idx) => (
@@ -144,7 +144,7 @@ export default function Testimonials() {
 
                     {/* Review Text */}
                     <div className="grow flex items-center">
-                      <p className="text-sm leading-relaxed text-white/80 italic">"{t.text}"</p>
+                      <p className="text-sm leading-relaxed italic" style={{ color: 'var(--neutral-300)' }}>"{t.text}"</p>
                     </div>
                   </div>
                 </div>

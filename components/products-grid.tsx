@@ -37,7 +37,8 @@ const ProductsGrid = memo(function ProductsGrid({ products }: ProductsGridProps)
           >
             <Link
               href={`/products/${product.id}`}
-              className="group block relative bg-white transition-all duration-300 h-full flex flex-col"
+              className="group relative transition-all duration-300 h-full flex flex-col"
+              style={{ backgroundColor: 'var(--neutral-50)' }}
             >
               {/* Image Section */}
               <div className="relative aspect-square overflow-hidden bg-slate-50 rounded-xs md:rounded-md rounded-b-none md:rounded-b-none">
@@ -55,18 +56,18 @@ const ProductsGrid = memo(function ProductsGrid({ products }: ProductsGridProps)
               {/* Content Section */}
               <div className="py-2 md:py-3 flex flex-col grow">
                 <div className="flex mb-1">
-                  <h3 className="text-sm md:text-lg font-semibold text-[#414141] group-hover:text-primary transition-colors line-clamp-1 w-full font-fauna">
+                  <h3 className="text-sm md:text-lg font-semibold group-hover:text-primary transition-colors line-clamp-1 w-full font-fauna" style={{ color: 'var(--neutral-900)' }}>
                     {product.name}
                   </h3>
                 </div>
 
-                <p className="text-[10px] md:text-[13px] text-[#414141] font-light mb-1 line-clamp-2">
+                <p className="text-[10px] md:text-[13px] font-light mb-1 line-clamp-2" style={{ color: 'var(--neutral-600)' }}>
                   {product.shortDescription}
                 </p>
 
                 {/* Bottom Row */}
                 <div className="mt-auto flex items-center justify-between pt-1 md:pt-2">
-                  <div className="bg-primary text-white px-3 py-2 md:px-3 md:py-2.5 rounded-xs md:rounded-sm text-[12px] md:text-[13px] font-medium font-fauna">
+                  <div className="bg-primary text-primary-foreground group-hover:bg-[#CC9F00] transition-all px-3 py-2 md:px-3 md:py-2.5 rounded-xs md:rounded-sm text-[12px] md:text-[13px] font-medium font-fauna">
                     <span className="md:hidden">View</span>
                     <span className="hidden md:inline">{t.product.viewProduct}</span>
                   </div>
@@ -76,7 +77,7 @@ const ProductsGrid = memo(function ProductsGrid({ products }: ProductsGridProps)
                         {product.oldPrice} MAD
                       </span>
                     )}
-                    <span className="text-sm md:text-lg font-bold text-[#414141] leading-none font-fauna">
+                    <span className="text-sm md:text-lg font-bold leading-none font-fauna" style={{ color: 'var(--neutral-900)' }}>
                       {product.price} MAD
                     </span>
                   </div>

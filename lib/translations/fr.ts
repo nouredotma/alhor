@@ -1,25 +1,15 @@
-import type { TranslationKeys } from "./ar"
+import type { TranslationKeys } from "./en"
 
 export const fr: TranslationKeys = {
   // Header Navigation
   header: {
     home: "Accueil",
-    tours: "Tours",
-    excursions: "Excursions",
-    activities: "Activités",
-    packages: "Forfaits",
-    transfers: "Transferts",
-    about: "À propos",
     contact: "Contact",
-    blog: "Blog",
-    login: "Connexion",
-    myAccount: "Mon Compte",
     language: "Langue",
-    services: "Produits",
     products: "Produits",
-    usedProducts: "Produits d'Occasion",
-    ourProducts: "Nos Produits",
-    downloadDate: "Date de téléchargement",
+    men: "Hommes",
+    women: "Femmes",
+    unisex: "Unisexe",
   },
 
   // Footer
@@ -41,15 +31,9 @@ export const fr: TranslationKeys = {
     products: "Produits",
     madeBy: "Réalisé par",
     productNames: {
-      consumables: "Consommables et Accessoires",
-      water: "Eau et Environnement",
-      agriculture: "Instruments Agricoles",
-      laboratory: "Instruments Laboratoire",
-      medical: "Médical",
-      furniture: "Mobilier Laboratoire",
-      weighing: "Pesage",
-      chemicals: "Produits Chimiques et Réactifs",
-      used: "Produits d'Occasion"
+      men: "Parfums Homme",
+      women: "Parfums Femme",
+      unisex: "Parfums Unisexe",
     }
   },
 
@@ -269,44 +253,6 @@ export const fr: TranslationKeys = {
     orContinueWith: "Ou continuer avec",
     google: "Google",
     facebook: "Facebook",
-  },
-
-  // About Page
-  about: {
-    pageTitle: "À propos",
-    ourStory: "Notre Histoire",
-    heroTitle: "Univers",
-    heroTitleHighlight: "Instruments",
-    heroDescription1: "Notre objectif principal est d'offrir les parfums orientaux les plus raffinés et des senteurs de luxe à nos clients.",
-    heroDescription2: "Alhor Parfum Orientales est votre destination privilégiée pour les parfums, l'oud et l'encens à Casablanca. Nous proposons une sélection soigneusement choisie pour satisfaire tous les goûts.",
-    startJourney: "Contactez-nous",
-    countries: "Produits",
-    travelers: "Clients",
-    experience: "Expérience",
-    guides: "Experts",
-    features: {
-      hiddenGems: "Équipement de laboratoire scientifique et R&D",
-      personalizedItineraries: "Instruments analytiques pour la recherche",
-      excellenceInDetail: "Options de produits neufs et d'occasion",
-      support247: "Excellent support technique",
-      transparentPricing: "Conceptions de la plus haute qualité",
-      intimateGroupTours: "Focus sur l'efficacité et la productivité",
-    },
-    valuesTitle: "MISSION",
-    valuesSubtitle: "NOTRE MISSION",
-    values: {
-      localExpertise: "Notre Mission",
-      localExpertiseDesc: "Notre objectif est d'offrir à nos clients des produits de la plus haute qualité et de la meilleure conception, accompagnés d'un excellent support technique.",
-      personalizedService: "Efficacité",
-      personalizedServiceDesc: "Aider les chercheurs et les scientifiques à accroître leur productivité grâce à un équipement fiable.",
-      qualityExcellence: "Normes de Qualité",
-      qualityExcellenceDesc: "Les normes les plus élevées pour chaque instrument et service technique que nous fournissons.",
-      passionForTravel: "Progrès Scientifique",
-      passionForTravelDesc: "Une véritable passion pour soutenir l'avancement scientifique et l'éducation.",
-    },
-    ctaTitle: "Prêt à moderniser votre laboratoire ?",
-    ctaDescription: "Laissez-nous vous fournir le meilleur équipement scientifique et support.",
-    getStarted: "Contactez-nous",
   },
 
   // Contact Page
@@ -604,15 +550,9 @@ export const fr: TranslationKeys = {
     upToPrice: "Jusqu'à",
     categories: {
       all: "Toutes les Catégories",
-      laboratory: "Instruments de Laboratoire",
-      consumables: "Consommables & Accessoires",
-      water: "Eau & Environnement",
-      agriculture: "Instruments Agricoles",
-      medical: "Médical",
-      furniture: "Mobilier de Laboratoire",
-      weighing: "Pesage",
-      chemicals: "Produits Chimiques & Réactifs",
-      used: "Produits d'Occasion",
+      men: "Hommes",
+      women: "Femmes",
+      unisex: "Unisexe",
     }
   },
 
@@ -621,9 +561,6 @@ export const fr: TranslationKeys = {
     viewProduct: "Voir le Produit",
     viewAllProducts: "Voir tous les produits",
     category: "Catégorie :",
-    condition: "État :",
-    conditionUsed: "Occasion",
-    conditionNew: "Neuf",
     save: "Économisez",
     overview: "Aperçu",
     technicalSpecifications: "Spécifications Techniques",
@@ -881,7 +818,6 @@ export const fr: TranslationKeys = {
           hero_activities: "Page Activités",
           hero_transfers: "Page Transferts",
           hero_packages: "Page Forfaits",
-          hero_about: "Page À propos",
           hero_contact: "Page Contact",
           hero_blog: "Page Blog",
           hero_terms: "Page Conditions",

@@ -66,14 +66,9 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
   }, [productsDropdownOpen])
 
   const productLinks = [
-    { href: "/products?condition=consumables", label: t.footer.productNames.consumables },
-    { href: "/products?condition=water", label: t.footer.productNames.water },
-    { href: "/products?condition=agriculture", label: t.footer.productNames.agriculture },
-    { href: "/products?condition=laboratory", label: t.footer.productNames.laboratory },
-    { href: "/products?condition=medical", label: t.footer.productNames.medical },
-    { href: "/products?condition=furniture", label: t.footer.productNames.furniture },
-    { href: "/products?condition=weighing", label: t.footer.productNames.weighing },
-    { href: "/products?condition=chemicals", label: t.footer.productNames.chemicals },
+    { href: "/products?condition=men", label: t.header.men },
+    { href: "/products?condition=women", label: t.header.women },
+    { href: "/products?condition=unisex", label: t.header.unisex },
   ]
 
   return (
@@ -82,12 +77,13 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
         className={cn(
           "top-0 z-40 w-full transition-all duration-300",
           isUsersSection 
-            ? "sticky top-0 bg-white border-b border-gray-200" 
+            ? "sticky top-0 border-b border-gray-200" 
             : cn(
                 "fixed",
-                scrolled ? "bg-white border-b border-gray-200" : "bg-transparent"
+                scrolled ? "border-b border-gray-200" : "bg-transparent"
               ),
         )}
+        style={isUsersSection || scrolled ? { backgroundColor: 'var(--neutral-50)' } : {}}
       >
         {/* Top Bar - Hides on Scroll */}
         <div 
@@ -209,86 +205,19 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                 </Link>
 
-                <Link
-                  href="/about"
-                  className={cn(
-                    "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                    pathname === "/about" ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
-                  )}
-                >
-                  {t.header.about}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-
-                {/* Products Dropdown - Premium Grid */}
-                <div 
-                  className="relative products-dropdown-container group"
-                  onMouseEnter={() => setProductsDropdownOpen(true)}
-                  onMouseLeave={() => setProductsDropdownOpen(false)}
-                >
+                {productLinks.map((link) => (
                   <Link
-                    href="/products"
+                    key={link.href}
+                    href={link.href}
                     className={cn(
-                      "flex items-center gap-1 text-sm font-medium transition-all duration-300 relative font-fauna tracking-wider hover:text-secondary py-4",
-                      pathname === "/products" || productLinks.some((link: any) => pathname === link.href) ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
+                      "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
+                      (pathname === "/products" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
                     )}
                   >
-                    {t.header.products}
-                    <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", productsDropdownOpen ? "rotate-180" : "")} />
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                   </Link>
-                  
-                  <AnimatePresence>
-                    {productsDropdownOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 w-[500px] bg-white rounded-md border border-gray-100 shadow-xl overflow-hidden p-2 grid grid-cols-2 gap-1.5"
-                      >
-                        {productLinks.map((link: any) => (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            className={cn(
-                              "flex items-center gap-2.5 p-2 rounded-sm transition-all hover:bg-primary/5 hover:scale-[1.02] group/item",
-                              pathname === link.href ? "bg-primary/5 ring-1 ring-primary/20" : "bg-white"
-                            )}
-                            onClick={() => setProductsDropdownOpen(false)}
-                          >
-                            <div className={cn(
-                              "h-8 w-8 rounded-full flex items-center justify-center transition-colors group-hover/item:bg-primary group-hover/item:text-white",
-                              pathname === link.href ? "bg-primary text-white" : "bg-primary/10 text-primary"
-                            )}>
-                              {/* Icon placeholder logic */}
-                              <ChevronRight className="h-3 w-3" />
-                            </div>
-                            <div className="flex flex-col">
-
-                              <span className={cn(
-                                "text-xs font-medium transition-colors",
-                                pathname === link.href ? "text-primary" : "text-gray-800 group-hover/item:text-primary"
-                              )}>
-                                {link.label}
-                              </span>
-                            </div>
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                <Link
-                  href="/products?condition=used"
-                  className={cn(
-                    "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
-                    pathname === "/products" && typeof window !== 'undefined' && window.location.search.includes('condition=used') ? "text-secondary" : (scrolled || isUsersSection ? "text-gray-800" : "text-white")
-                  )}
-                >
-                  {t.header.usedProducts}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-                </Link>
+                ))}
 
 
 
@@ -411,91 +340,25 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                         </Link>
                       </motion.div>
 
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.08 }}
-                      >
-                        <Link
-                          href="/about"
-                          onClick={() => setIsMenuOpen(false)}
-                          className={cn(
-                            "flex items-center w-full py-4 px-4 transition-all duration-200 text-sm font-medium tracking-wide border-b border-gray-100 font-fauna",
-                            pathname === "/about" ? "bg-primary/5 text-primary" : "text-gray-700 hover:text-primary"
-                          )}
+                      {productLinks.map((link, idx) => (
+                        <motion.div
+                          key={link.href}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.1 + (idx * 0.05) }}
                         >
-                          {t.header.about}
-                        </Link>
-                      </motion.div>
-
-                      {/* Mobile Products Accordion */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
-                      >
-                        <div className="rounded-lg overflow-hidden">
-                          <button
-                            onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                          <Link
+                            href={link.href}
+                            onClick={() => setIsMenuOpen(false)}
                             className={cn(
-                              "flex items-center w-full py-3 px-4 transition-all duration-200 text-sm font-medium tracking-wide group font-fauna",
-                              productLinks.some((link: any) => pathname === link.href) && !mobileProductsOpen
-                                ? "bg-primary/5 text-primary"
-                                : "text-gray-700 hover:bg-primary/5 hover:text-primary"
+                              "flex items-center w-full py-4 px-4 transition-all duration-200 text-sm font-medium tracking-wide border-b border-gray-100 font-fauna",
+                              (pathname === "/products" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "bg-primary/5 text-primary" : "text-gray-700 hover:text-primary"
                             )}
                           >
-                            <span className="flex-1 text-left">{t.header.products}</span>
-                            <ChevronDown className={cn(
-                              "h-4 w-4 transition-transform duration-200",
-                               mobileProductsOpen ? "rotate-180" : "text-gray-400"
-                            )} />
-                          </button>
-
-                          <AnimatePresence>
-                            {mobileProductsOpen && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="bg-white overflow-hidden"
-                              >
-                                {productLinks.map((link: any) => (
-                                  <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={cn(
-                                      "flex items-center py-2.5 pl-8 pr-4 text-sm transition-colors",
-                                      pathname === link.href ? "text-primary font-medium" : "text-gray-600 hover:text-primary"
-                                    )}
-                                    onClick={() => setIsMenuOpen(false)}
-                                  >
-                                    <span className="w-1.5 h-1.5 rounded-full bg-current mr-2 opacity-50"></span>
-                                    {link.label}
-                                  </Link>
-                                ))}
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.12 }}
-                      >
-                        <Link
-                          href="/products?condition=used"
-                          onClick={() => setIsMenuOpen(false)}
-                          className={cn(
-                            "flex items-center w-full py-4 px-4 transition-all duration-200 text-sm font-medium tracking-wide border-b border-gray-100 font-fauna",
-                            pathname === "/products" && typeof window !== 'undefined' && window.location.search.includes('condition=used') ? "bg-primary/5 text-primary" : "text-gray-700 hover:text-primary"
-                          )}
-                        >
-                          {t.header.usedProducts}
-                        </Link>
-                      </motion.div>
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      ))}
 
 
 
@@ -531,11 +394,11 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                         {languages.map((lang) => (
                           <button
                             key={lang.code}
-                            onClick={() => setLanguage(lang.code as "ar" | "fr" | "es")}
+                            onClick={() => setLanguage(lang.code as "en" | "fr")}
                             className={cn(
                               "flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-sm text-sm font-medium transition-all duration-200",
                               lang.code === language
-                                ? "bg-primary text-white shadow-sm"
+                                ? "bg-primary text-primary-foreground shadow-sm"
                                 : "bg-white text-gray-600 border border-gray-200 hover:border-primary/30 hover:bg-primary/5"
                             )}
                           >
@@ -566,7 +429,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
       {/* Mobile Floating Cart Button - Bottom Left */}
       <button
         onClick={() => toggleCartModal()}
-        className="fixed bottom-2 left-2 z-40 md:hidden w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center hover:bg-primary/90 transition-all active:scale-95 cursor-pointer"
+        className="fixed bottom-2 left-2 z-40 md:hidden w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-[#CC9F00] transition-all active:scale-95 cursor-pointer"
         aria-label={t.cart.cart}
       >
         <ShoppingCart className="w-5 h-5" />

@@ -1,36 +1,28 @@
-export { ar, type TranslationKeys } from "./ar"
+export { en, type TranslationKeys } from "./en"
 export { fr } from "./fr"
-export { es } from "./es"
 
-import { ar } from "./ar"
+import { en } from "./en"
 import { fr } from "./fr"
-import { es } from "./es"
 
-export type Language = "ar" | "fr" | "es"
+export type Language = "en" | "fr"
 
 export const translations = {
-  ar,
+  en,
   fr,
-  es,
 } as const
 
 export const languages = [
   {
-    code: "ar" as const,
-    name: "العربية",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg",
+    code: "en" as const,
+    name: "English",
+    flag: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg",
   },
   {
     code: "fr" as const,
     name: "Français",
     flag: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg",
   },
-  {
-    code: "es" as const,
-    name: "Español",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg",
-  },
 ] as const
 
-export const DEFAULT_LANGUAGE: Language = "ar"
+export const DEFAULT_LANGUAGE: Language = "en"
 export const LANGUAGE_STORAGE_KEY = "alhor-language"

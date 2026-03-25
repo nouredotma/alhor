@@ -14,15 +14,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { use, useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-
 import OurProducts from "@/components/our-products"
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -205,7 +196,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="lg:col-span-7 flex flex-col pt-2 lg:pt-0">
               <div className="flex flex-col gap-4 md:gap-5 lg:max-w-3xl">
                 
-                {/* 1. Product Name & Stock */}
+                {/* 1. Brand & Volume */}
+                <div className="flex items-center gap-2 text-sm text-neutral-500 font-medium tracking-wide">
+                  <span>{product.brand}</span>
+                  <span className="w-1 h-1 rounded-full bg-neutral-300" />
+                  <span>{product.volume}</span>
+                </div>
+
+                {/* 1.5 Product Name & Stock */}
                 <div className="flex items-center justify-between gap-4">
                   <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-neutral-900 tracking-tight font-fauna">
                     {product.name}
@@ -216,17 +214,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </div>
                 </div>
 
-                {/* 2. Category & Condition */}
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] md:text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="text-neutral-500 tracking-wider">{t.product.category}</span>
-                    <span className="font-semibold text-neutral-900 capitalize">{product.category}</span>
+                    <span className="text-neutral-500 tracking-wider text-[11px] md:text-xs">{t.product.category}</span>
+                    <span className="font-semibold text-neutral-900 capitalize text-[11px] md:text-xs">{product.category}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-neutral-500 tracking-wider">{t.product.condition}</span>
-                    <span className="font-semibold text-neutral-900">{product.category === 'used' ? t.product.conditionUsed : t.product.conditionNew}</span>
-                  </div>
-                </div>
 
                 {/* 3. Pricing (Old, New, Savings) */}
                 <div className="flex flex-col gap-1 pt-0.5">
@@ -249,6 +240,28 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <p className="text-sm md:text-base text-neutral-600 leading-relaxed font-light">
                   {product.shortDescription}
                 </p>
+
+                {/* 4.5 Ingredients (Styled as tags) */}
+                {product.ingredients && (
+                  <div className="flex flex-col gap-2.5 pt-2 pb-1">
+                    <h4 className="text-xs font-bold text-neutral-900 tracking-wider">
+                      {language === 'en' ? 'Notes & Ingredients' : 'Notes et Ingrédients'}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {product.ingredients.split(',').map((ingredient, i) => {
+                        const trimmed = ingredient.trim().replace('.', '')
+                        return (
+                          <span 
+                            key={i} 
+                            className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] md:text-xs font-medium bg-neutral-100/80 text-neutral-700 border border-neutral-200 hover:bg-neutral-200 hover:border-neutral-300 transition-colors"
+                          >
+                            {trimmed}
+                          </span>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* 5. Delivery Div */}
                 <div className="border-l-4 border-green-500 bg-green-50 p-2.5 flex items-center gap-2">
@@ -320,37 +333,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {product.longDescription}
                   </div>
                 </div>
-
-                {/* 9. Specifications Table */}
-                {product.specificationsTable && (
-                  <div className="pt-8 border-t border-neutral-200 flex flex-col gap-4">
-                    <h3 className="text-lg font-bold text-neutral-900 tracking-tight font-fauna">{t.product.technicalSpecifications}</h3>
-                    <div className="rounded-xs border border-neutral-200 overflow-hidden bg-white">
-                      <Table className="text-[10px] md:text-xs">
-                        <TableHeader className="bg-neutral-50/50">
-                          <TableRow className="hover:bg-transparent">
-                            {product.specificationsTable.headers.map((header, index) => (
-                              <TableHead key={index} className="font-bold text-neutral-900 border-r last:border-r-0 h-10 px-2 md:px-4">
-                                {header}
-                              </TableHead>
-                            ))}
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {product.specificationsTable.rows.map((row, rowIndex) => (
-                            <TableRow key={rowIndex} className="last:border-0">
-                              {row.map((cell, cellIndex) => (
-                                <TableCell key={cellIndex} className="border-r last:border-r-0 text-neutral-600 py-2.5 px-2 md:px-4">
-                                  {cell}
-                                </TableCell>
-                              ))}
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
-                  </div>
-                )}
 
               </div>
             </div>

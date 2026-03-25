@@ -16,31 +16,31 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://alhorparfum.com"),
   title: {
-    default: "متجر الحر للعطور الشرقية | Alhor Parfum — Finest Oriental Scents in Casablanca",
-    template: "%s | متجر الحر للعطور الشرقية",
+    default: "Alhor Parfum — Finest Oriental Scents in Casablanca, Morocco",
+    template: "%s | Alhor Parfum",
   },
   description:
-    "متجر الحر للعطور الشرقية (Alhor Parfum) — متخصص في أرقى العطور الشرقية، العود، والروائح الفاخرة في الدار البيضاء، المغرب. نتميز بالجودة العالية والروائح الراقية.",
+    "Alhor Parfum — Specializing in the finest oriental perfumes, oud, and luxury fragrances in Casablanca, Morocco. We stand out for our high quality and elegant scents.",
   keywords: [
-    "متجر الحر للعطور الشرقية",
     "Alhor Parfum",
     "oriental perfumes Casablanca",
     "oriental scents Morocco",
     "oud Casablanca",
     "luxury perfumes Morocco",
-    "عطور شرقية الدار البيضاء",
-    "متجر عود المغرب",
-    "روائح فاخرة",
     "Alhor fragrances",
+    "perfume store Morocco",
+    "luxury oud",
+    "incense Casablanca",
+    "oriental fragrance shop",
   ],
   authors: [
     {
-      name: "متجر الحر للعطور الشرقية",
+      name: "Alhor Parfum",
       url: "https://alhorparfum.com",
     },
   ],
-  creator: "متجر الحر للعطور الشرقية",
-  publisher: "متجر الحر للعطور الشرقية",
+  creator: "Alhor Parfum",
+  publisher: "Alhor Parfum",
   formatDetection: {
     email: true,
     address: true,
@@ -58,17 +58,17 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "متجر الحر للعطور الشرقية | Alhor Parfum",
+    title: "Alhor Parfum — Finest Oriental Scents",
     description:
-      "متجر الحر للعطور الشرقية متخصص في أرقى العطور الشرقية، العود، والروائح الفاخرة في الدار البيضاء، المغرب.",
+      "Alhor Parfum specializes in the finest oriental perfumes, oud, and luxury fragrances in Casablanca, Morocco.",
     url: "https://alhorparfum.com",
-    siteName: "متجر الحر للعطور الشرقية",
+    siteName: "Alhor Parfum",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "متجر الحر للعطور الشرقية — Finest Oriental Scents",
+        alt: "Alhor Parfum — Finest Oriental Scents",
         type: "image/jpeg",
       },
       {
@@ -78,16 +78,16 @@ export const metadata: Metadata = {
         alt: "Alhor Parfum Logo",
       },
     ],
-    locale: "ar_MA",
-    alternateLocale: ["fr_FR", "es_ES"],
+    locale: "en_US",
+    alternateLocale: ["fr_FR"],
     type: "website",
     countryName: "Morocco",
   },
   twitter: {
     card: "summary_large_image",
-    title: "متجر الحر للعطور الشرقية | Alhor Parfum",
+    title: "Alhor Parfum — Finest Oriental Scents",
     description:
-      "أرقى العطور الشرقية والعود في الدار البيضاء، المغرب.",
+      "The finest oriental perfumes and oud in Casablanca, Morocco.",
     images: ["/og-image.jpg"],
     creator: "@alhorparfum",
     site: "@alhorparfum",
@@ -95,9 +95,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://alhorparfum.com",
     languages: {
-      "ar-MA": "https://alhorparfum.com/ar",
+      "en-US": "https://alhorparfum.com",
       "fr-FR": "https://alhorparfum.com/fr",
-      "es-ES": "https://alhorparfum.com/es",
     },
   },
   robots: {
@@ -130,7 +129,7 @@ const jsonLd = {
     {
       "@type": ["Organization", "Store"],
       "@id": "https://alhorparfum.com/#organization",
-      name: "متجر الحر للعطور الشرقية | Alhor Parfum",
+      name: "Alhor Parfum",
       url: "https://alhorparfum.com",
       logo: {
         "@type": "ImageObject",
@@ -140,7 +139,7 @@ const jsonLd = {
       },
       image: "https://alhorparfum.com/og-image.jpg",
       description:
-        "متجر الحر للعطور الشرقية متخصص في أرقى العطور الشرقية، العود، والروائح الفاخرة في الدار البيضاء، المغرب.",
+        "Alhor Parfum specializes in the finest oriental perfumes, oud, and luxury fragrances in Casablanca, Morocco.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "22 Rue 8",
@@ -182,14 +181,14 @@ const jsonLd = {
         "@type": "Country",
         name: "Morocco",
       },
-      knowsLanguage: ["ar", "fr", "es"],
+      knowsLanguage: ["en", "fr"],
     },
     {
       "@type": "WebSite",
       "@id": "https://alhorparfum.com/#website",
       url: "https://alhorparfum.com",
-      name: "متجر الحر للعطور الشرقية",
-      description: "أرقى العطور الشرقية والروائح الفاخرة في المغرب",
+      name: "Alhor Parfum",
+      description: "The finest oriental perfumes and luxury fragrances in Morocco",
       publisher: {
         "@id": "https://alhorparfum.com/#organization",
       },
@@ -201,7 +200,7 @@ const jsonLd = {
         },
         "query-input": "required name=search_term_string",
       },
-      inLanguage: ["ar-MA", "fr-FR", "es-ES"],
+      inLanguage: ["en-US", "fr-FR"],
     },
     {
       "@type": "BreadcrumbList",
@@ -224,7 +223,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="loading-lock" suppressHydrationWarning>
+    <html lang="en" dir="ltr" className="loading-lock" suppressHydrationWarning>
       <head>
         {/* Preconnect to external resources for performance */}
         <link
@@ -244,7 +243,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#FFCC00" />
 
         {/* Additional SEO meta tags */}
-        <meta name="application-name" content="متجر الحر للعطور الشرقية" />
+        <meta name="application-name" content="Alhor Parfum" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Alhor Parfum" />

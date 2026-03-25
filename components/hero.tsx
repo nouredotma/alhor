@@ -61,7 +61,7 @@ export default function Hero() {
           <div className="flex items-center justify-center gap-2 sm:gap-4 pt-1 sm:pt-2">
             <Button 
               size="lg"
-              className="flex-1 sm:flex-none h-10 sm:h-12 px-2 sm:px-8 rounded-md bg-primary hover:bg-primary/95 text-white transition-all duration-300 font-light text-xs sm:text-base shadow-lg font-fauna"
+              className="flex-1 sm:flex-none h-10 sm:h-12 px-2 sm:px-8 rounded-md bg-primary hover:bg-[#CC9F00] text-primary-foreground transition-all duration-300 font-light text-xs sm:text-base shadow-lg font-fauna"
               asChild
             >
               <a href="/products">
