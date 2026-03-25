@@ -103,6 +103,27 @@ export const en = {
     },
   },
 
+  // What We Offer Section
+  whatWeOffer: {
+    sectionTitle: "What We Offer",
+    delivery: {
+      title: "Home Delivery",
+      description: "Fast and reliable delivery across Morocco.",
+    },
+    cashOnDelivery: {
+      title: "Cash on Delivery",
+      description: "Pay conveniently upon receiving your order.",
+    },
+    quality: {
+      title: "Quality Guaranteed",
+      description: "Authentic and premium perfumes only.",
+    },
+    support: {
+      title: "Fast Support",
+      description: "Our team is always here for your requests.",
+    },
+  },
+
   // Offer Details Page
   offerDetails: {
     availableNow: "Available Now",

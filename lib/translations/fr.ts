@@ -105,6 +105,27 @@ export const fr: TranslationKeys = {
     },
   },
 
+  // What We Offer Section
+  whatWeOffer: {
+    sectionTitle: "Ce Que Nous Offrons",
+    delivery: {
+      title: "Livraison à Domicile",
+      description: "Une livraison rapide et fiable partout au Maroc.",
+    },
+    cashOnDelivery: {
+      title: "Paiement à la Livraison",
+      description: "Payez en toute commodité à la réception de votre commande.",
+    },
+    quality: {
+      title: "Qualité Garantie",
+      description: "Seulement des parfums authentiques et premium.",
+    },
+    support: {
+      title: "Support Rapide",
+      description: "Notre équipe est toujours là pour vos demandes.",
+    },
+  },
+
   // Offer Details Page
   offerDetails: {
     availableNow: "Disponible Maintenant",

@@ -62,13 +62,9 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-16 sm:py-24" style={{ backgroundColor: 'var(--neutral-50)' }}>
       <div className="max-w-full mx-auto px-4 md:px-12">
-        <div className="flex flex-col gap-3 sm:gap-8 mb-3 sm:mb-6">
-          <div className="flex justify-center">
-            <div className="inline-flex items-center px-4 py-1 rounded-full text-xs md:text-sm font-bold bg-primary/10 text-primary border border-primary/20 tracking-wider">
-              {t.testimonials.title} {t.testimonials.titleHighlight}
-            </div>
-          </div>
-        </div>
+        <h2 className="text-lg md:text-3xl font-bold font-fauna mb-4 md:mb-5 text-center md:text-left" style={{ color: 'var(--neutral-900)' }}>
+          {t.testimonials.title} {t.testimonials.titleHighlight}
+        </h2>
 
         <div className="relative">
           <Swiper

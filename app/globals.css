@@ -578,7 +578,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   position: absolute;
   left: 50%;
   top: 50%;
-  --base-scale: 0.65;
+  --base-scale: 0.45;
   transform: translate(-50%, -50%) scale(var(--base-scale));
   animation: perfume-pulse 4s ease-in-out infinite;
   width: 222px;
@@ -695,6 +695,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   }
 
   .perfume {
-    --base-scale: 0.45;
+    --base-scale: 0.35;
   }
 }
