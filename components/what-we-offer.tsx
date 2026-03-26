@@ -30,7 +30,7 @@ export default function WhatWeOffer() {
   ]
 
   return (
-    <section className="w-full py-16" style={{ backgroundColor: 'var(--neutral-50)' }}>
+    <section className="w-full pb-16 pt-8" style={{ backgroundColor: 'var(--neutral-50)' }}>
       <div className="max-w-full mx-auto px-4 md:px-12">
         <h2 className="text-lg md:text-3xl font-bold font-fauna mb-4 md:mb-5 text-center md:text-left" style={{ color: 'var(--neutral-900)' }}>
           {t.whatWeOffer.sectionTitle}

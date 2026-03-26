@@ -68,8 +68,8 @@ export default function Testimonials() {
         <div 
           className="relative"
           style={{
-            maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+            maskImage: 'linear-gradient(to right, transparent, black 1%, black 99%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 1%, black 99%, transparent)',
           }}
         >
           <Carousel
