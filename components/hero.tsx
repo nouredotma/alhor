@@ -90,7 +90,7 @@ export default function Hero() {
             <img
               src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop"
               alt="Alhor Parfum Luxury Bottle"
-              className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2.5rem] ring-1 ring-black/5"
+              className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2.5rem]"
             />
           </div>
         </div>
