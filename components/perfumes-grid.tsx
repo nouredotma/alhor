@@ -6,7 +6,6 @@ import Image from "next/image"
 import { Package } from "lucide-react"
 import type { Perfume } from "@/lib/perfumes-data"
 import { useLanguage } from "@/components/language-provider"
-import { motion } from "framer-motion"
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface PerfumesGridProps {
@@ -52,11 +51,9 @@ const PerfumesGrid = memo(function PerfumesGrid({ perfumes, isLoading }: Perfume
         </div>
       ) : (
         perfumes.map((perfume, index) => (
-          <motion.div
+          <div
             key={perfume.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
+            className="h-full flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-500"
           >
             <Link
               href={`/perfumes/${perfume.id}`}
@@ -113,7 +110,7 @@ const PerfumesGrid = memo(function PerfumesGrid({ perfumes, isLoading }: Perfume
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </div>
         ))
       )}
     </div>
