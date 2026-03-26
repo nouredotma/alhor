@@ -190,7 +190,7 @@ Total: ${totalPrice} MAD
                                     <Plus className="w-2.5 h-2.5 md:w-3 md:h-3" />
                                   </button>
                                 </div>
-                                <span className="text-[11px] md:text-xs font-bold text-gray-700 ml-auto">
+                                <span className="text-[11px] md:text-xs font-bold text-gray-700 ms-auto">
                                   {item.price * item.quantity} MAD
                                 </span>
                               </div>
@@ -323,7 +323,7 @@ Total: ${totalPrice} MAD
                       disabled={!isFormValid}
                       className="w-full h-10 md:h-12 rounded-sm text-xs md:text-sm font-bold cursor-pointer"
                     >
-                      <Package className="w-3.5 h-3.5 md:w-4 md:h-4 mr-2" />
+                      <Package className="w-3.5 h-3.5 md:w-4 md:h-4 me-2" />
                       {t.cart.placeOrder}
                     </Button>
                   )}

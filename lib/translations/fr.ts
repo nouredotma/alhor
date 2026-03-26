@@ -1,4 +1,4 @@
-import type { TranslationKeys } from "./en"
+import type { TranslationKeys } from "./index"
 
 export const fr: TranslationKeys = {
   // Header Navigation
@@ -10,6 +10,7 @@ export const fr: TranslationKeys = {
     men: "Hommes",
     women: "Femmes",
     unisex: "Unisexe",
+    followUs: "Suivez-nous",
   },
 
   // Footer
@@ -30,6 +31,7 @@ export const fr: TranslationKeys = {
     privacyPolicy: "Politique de confidentialité",
     perfumes: "Parfums",
     madeBy: "Réalisé par",
+    developedBy: "Développé & Conçu par",
     perfumeNames: {
       men: "Parfums Homme",
       women: "Parfums Femme",
@@ -579,7 +581,7 @@ export const fr: TranslationKeys = {
     viewAllPerfumes: "Voir tous les parfums",
     category: "Catégorie :",
     save: "Économisez",
-    overview: "Aperçu",
+    overview: "Ingrédients",
     technicalSpecifications: "Spécifications Techniques",
     quantity: "Quantité",
     orderNow: "Commander",

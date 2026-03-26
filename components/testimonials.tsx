@@ -9,6 +9,7 @@ import {
   SliderContainer,
 } from "@/components/ui/carousel"
 import AutoScroll from "embla-carousel-auto-scroll"
+import { cn } from "@/lib/utils"
 
 const testimonials = [
   {
@@ -56,20 +57,23 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
-  const { t } = useLanguage()
+  const { t, isRTL } = useLanguage()
 
   return (
     <section id="testimonials" className="pb-16 pt-8 bg-neutral-50">
       <div className="max-w-full mx-auto px-4 md:px-12">
-        <h2 className="text-lg md:text-3xl font-bold font-fauna mb-4 md:mb-8 text-center md:text-left text-neutral-900">
+        <h2 className={cn(
+          "text-lg md:text-3xl font-bold font-fauna mb-4 md:mb-8 text-center text-neutral-900",
+          isRTL ? "md:text-right" : "md:text-left"
+        )}>
           {t.testimonials.title} {t.testimonials.titleHighlight}
         </h2>
 
         <div 
           className="relative"
           style={{
-            maskImage: 'linear-gradient(to right, transparent, black 1%, black 99%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 1%, black 99%, transparent)',
+            maskImage: `linear-gradient(${isRTL ? "to left" : "to right"}, transparent, black 1%, black 99%, transparent)`,
+            WebkitMaskImage: `linear-gradient(${isRTL ? "to left" : "to right"}, transparent, black 1%, black 99%, transparent)`,
           }}
         >
           <Carousel

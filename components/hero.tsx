@@ -6,7 +6,7 @@ import { Phone } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const { t, isRTL } = useLanguage()
   
   const titleParts = t.hero.title.split("{highlight}")
 
@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="max-w-full mx-auto px-4 md:px-12 py-8 md:py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column: Content */}
-          <div className="flex flex-col space-y-8 text-center lg:text-left order-1 lg:order-1 px-4 lg:px-0">
+          <div className={`flex flex-col space-y-8 text-center lg:text-start order-1 lg:order-1 px-4 lg:px-0${isRTL ? ' font-cairo' : ''}`}>
             <div className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -75,7 +75,7 @@ export default function Hero() {
                       duration: 2, 
                       ease: "easeInOut" 
                     }}
-                    className="inline-block mr-2"
+                    className="inline-block me-2"
                   >
                     <Phone className="h-4 w-4" />
                   </motion.span>
@@ -86,9 +86,9 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="relative aspect-square w-full max-w-sm md:max-w-md lg:max-w-[420px] mx-auto order-2 lg:order-2">
+          <div className="relative aspect-square w-full max-w-sm md:max-w-md lg:max-w-[500px] mx-auto order-2 lg:order-2">
             <img
-              src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop"
+              src="/5.webp"
               alt="Alhor Parfum Luxury Bottle"
               className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2.5rem]"
             />

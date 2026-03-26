@@ -19,7 +19,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false)
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
   const pathname = usePathname()
-  const { t, languages, language, setLanguage } = useLanguage()
+  const { t, languages, language, setLanguage, isRTL } = useLanguage()
   const { totalItems, toggleCartModal } = useCart()
   
   const isSolid = hasScrolled || forceScrolled
@@ -114,7 +114,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
               </a>
               
               <div className="flex items-center gap-4">
-                <span className="hidden md:inline opacity-60 text-primary">Follow us:</span>
+                <span className="hidden md:inline opacity-60 text-primary">{t.header.followUs}:</span>
                 <div className="flex items-center gap-3">
                   <a href="https://www.facebook.com/Mohamedaminefakih/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                     <Facebook className="h-4 w-4" />
@@ -193,12 +193,12 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                 <Link
                   href="/"
                   className={cn(
-                    "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
+                    "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-primary",
                     pathname === "/" ? "text-primary" : (isSolid || isUsersSection ? "text-gray-800" : "text-white")
                   )}
                 >
                   {t.header.home}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                  <span className={cn("absolute -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full", isRTL ? "right-0" : "left-0")}></span>
                 </Link>
 
                 {productLinks.map((link) => (
@@ -206,12 +206,12 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
+                      "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-primary",
                       (pathname === "/perfumes" && typeof window !== 'undefined' && window.location.search.includes(`condition=${link.href.split('=')[1]}`)) ? "text-primary" : (isSolid || isUsersSection ? "text-gray-800" : "text-white")
                     )}
                   >
                     {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                    <span className={cn("absolute -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full", isRTL ? "right-0" : "left-0")}></span>
                   </Link>
                 ))}
 
@@ -220,12 +220,12 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                 <Link
                   href="/contact"
                   className={cn(
-                    "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-secondary",
+                    "text-sm font-medium transition-all duration-300 relative group font-fauna tracking-wider hover:text-primary",
                     pathname === "/contact" ? "text-primary" : (isSolid || isUsersSection ? "text-gray-800" : "text-white")
                   )}
                 >
                   {t.header.contact}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                  <span className={cn("absolute -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full", isRTL ? "right-0" : "left-0")}></span>
                 </Link>
               </nav>
 
@@ -279,11 +279,11 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
               />
 
               <motion.div
-                initial={{ x: "100%" }}
+                initial={{ x: isRTL ? "-100%" : "100%" }}
                 animate={{ x: 0 }}
-                exit={{ x: "100%" }}
+                exit={{ x: isRTL ? "-100%" : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed top-0 right-0 bottom-0 w-[80%] max-w-[320px] z-50 md:hidden overflow-hidden bg-white"
+                className={`fixed top-0 ${isRTL ? 'left-0' : 'right-0'} bottom-0 w-[80%] max-w-[320px] z-50 md:hidden overflow-hidden bg-white`}
               >
                 <div className="h-full flex flex-col">
                   {/* Header with close button */}
@@ -388,7 +388,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
                         {languages.map((lang) => (
                           <button
                             key={lang.code}
-                            onClick={() => setLanguage(lang.code as "en" | "fr")}
+                            onClick={() => setLanguage(lang.code as "ar" | "fr")}
                             className={cn(
                               "flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-sm text-sm font-medium transition-all duration-200",
                               lang.code === language
@@ -423,7 +423,7 @@ export default function Header({ isStatic = false, forceScrolled = false }: { is
       {/* Mobile Floating Cart Button - Bottom Left */}
       <button
         onClick={() => toggleCartModal()}
-        className="fixed bottom-2 left-2 z-40 md:hidden w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-[#CC9F00] transition-all active:scale-95 cursor-pointer"
+        className={`fixed bottom-2 ${isRTL ? 'right-2' : 'left-2'} z-40 md:hidden w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-[#CC9F00] transition-all active:scale-95 cursor-pointer`}
         aria-label={t.cart.cart}
       >
         <ShoppingCart className="w-5 h-5" />

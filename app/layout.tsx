@@ -91,8 +91,8 @@ export const metadata: Metadata = {
         alt: "Alhor Parfum Logo",
       },
     ],
-    locale: "en_US",
-    alternateLocale: ["fr_FR"],
+    locale: "fr_FR",
+    alternateLocale: ["ar_SA"],
     type: "website",
     countryName: "Morocco",
   },
@@ -108,8 +108,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://alhorparfum.com",
     languages: {
-      "en-US": "https://alhorparfum.com",
-      "fr-FR": "https://alhorparfum.com/fr",
+      "fr-FR": "https://alhorparfum.com",
+      "ar-SA": "https://alhorparfum.com/ar",
     },
   },
   robots: {
@@ -194,7 +194,7 @@ const jsonLd = {
         "@type": "Country",
         name: "Morocco",
       },
-      knowsLanguage: ["en", "fr"],
+      knowsLanguage: ["fr", "ar"],
     },
     {
       "@type": "WebSite",
@@ -213,7 +213,7 @@ const jsonLd = {
         },
         "query-input": "required name=search_term_string",
       },
-      inLanguage: ["en-US", "fr-FR"],
+      inLanguage: ["fr-FR", "ar-SA"],
     },
     {
       "@type": "BreadcrumbList",
@@ -236,7 +236,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className="loading-lock" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" className="loading-lock" suppressHydrationWarning>
       <head>
         {/* Preconnect to external resources */}
         <link
@@ -248,6 +248,7 @@ export default function RootLayout({
         {/* Theme color for mobile browsers */}
         <meta name="theme-color" content="#FFCC00" />
         <meta name="msapplication-TileColor" content="#FFCC00" />
+        <meta name="google" content="notranslate" />
 
         {/* Additional SEO meta tags */}
         <meta name="application-name" content="Alhor Parfum" />

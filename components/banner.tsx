@@ -2,15 +2,14 @@
 
 import { animate, motion, useMotionValue } from 'framer-motion';
 import React, { CSSProperties, useEffect, useState } from 'react';
+import { useLanguage } from "@/components/language-provider";
 import useMeasure from '@/lib/hooks/use-measure';
 import Image from "next/image"
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Container } from "@/components/ui/container";
 
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { cn } from "@/lib/utils";
 
 type InfiniteSliderProps = {
     children: React.ReactNode;
@@ -31,6 +30,7 @@ function InfiniteSlider({
     reverse = false,
     className,
 }: InfiniteSliderProps) {
+    const { isRTL } = useLanguage();
     const [currentSpeed, setCurrentSpeed] = useState(speed);
     const [ref, { width, height }] = useMeasure();
     const translation = useMotionValue(0);
@@ -43,8 +43,20 @@ function InfiniteSlider({
         if (size === 0) return;
 
         const contentSize = size + gap;
-        const from = reverse ? -contentSize / 2 : 0;
-        const to = reverse ? 0 : -contentSize / 2;
+        let from = 0;
+        let to = 0;
+
+        const isHorizontal = direction === 'horizontal';
+        // In RTL true, positive horizontal translation reveals content
+        const sign = isHorizontal && isRTL ? 1 : -1;
+
+        if (reverse) {
+            from = sign * (contentSize / 2);
+            to = 0;
+        } else {
+            from = 0;
+            to = sign * (contentSize / 2);
+        }
 
         const distanceToTravel = Math.abs(to - from);
         const duration = distanceToTravel / currentSpeed;
@@ -119,10 +131,11 @@ function BlurredInfiniteSlider({
     containerClassName,
     ...sliderProps
 }: BlurredInfiniteSliderProps) {
+    const { isRTL } = useLanguage();
 
     const maskStyle: CSSProperties = {
-        maskImage: `linear-gradient(to right, transparent, black ${fadeWidth}px, black calc(100% - ${fadeWidth}px), transparent)`,
-        WebkitMaskImage: `linear-gradient(to right, transparent, black ${fadeWidth}px, black calc(100% - ${fadeWidth}px), transparent)`,
+        maskImage: `linear-gradient(${isRTL ? "to left" : "to right"}, transparent, black ${fadeWidth}px, black calc(100% - ${fadeWidth}px), transparent)`,
+        WebkitMaskImage: `linear-gradient(${isRTL ? "to left" : "to right"}, transparent, black ${fadeWidth}px, black calc(100% - ${fadeWidth}px), transparent)`,
     };
 
     return (
@@ -168,6 +181,7 @@ type BannerProps = {
 }
 
 export default function Banner({ items, reverse = false, speed = 40 }: BannerProps) {
+    const { isRTL } = useLanguage();
     const [computedGap, setComputedGap] = useState<number>(10);
 
     useEffect(() => {
@@ -205,7 +219,10 @@ export default function Banner({ items, reverse = false, speed = 40 }: BannerPro
                                     </div>
                                 ) : (
                                     <div className="h-10 md:h-16 flex items-center justify-center px-2">
-                                        <span className="text-xs md:text-base font-fauna tracking-wider text-neutral-400 font-bold transition-colors duration-300 group-hover/logo:text-gold-600">
+                                        <span className={cn(
+                                            "text-xs md:text-base font-fauna tracking-wider text-neutral-400 font-bold transition-colors duration-300 group-hover/logo:text-gold-600",
+                                            isRTL ? "font-noto" : ""
+                                        )}>
                                             {item.content}
                                         </span>
                                     </div>

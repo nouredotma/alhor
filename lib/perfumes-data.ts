@@ -23,7 +23,7 @@ export interface Perfume {
   stock: number
   isBest?: boolean
   translations?: {
-    en?: PerfumeTranslations
+    ar?: PerfumeTranslations
     fr?: PerfumeTranslations
   }
 }
@@ -48,11 +48,11 @@ export const perfumes: Perfume[] = [
     stock: 15,
     isBest: true,
     translations: {
-      en: {
-        name: "Oud Wood Intense",
+      ar: {
+        name: "عود وود إنتنس",
         longDescription:
-          "Experience the depth and intensity of pure oud. This masculine scent blends rare spices and woods to create an unforgettable signature aroma, perfect for evening wear and special occasions. The long-lasting formula ensures you leave a memorable impression.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Linalool, Limonene, Coumarin, Eugenol.",
+          "اكتشف عمق وكثافة العود الخالص. هذا العطر الرجالي يمزج بين التوابل النادرة والأخشاب لخلق رائحة مميزة لا تُنسى، مثالي للسهرات والمناسبات الخاصة. تركيبته طويلة الأمد تضمن لك ترك انطباع لا يُنسى.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، لينالول، ليمونين، كومارين، أوجينول.",
       },
       fr: {
         name: "Oud Wood Intense",
@@ -78,11 +78,11 @@ export const perfumes: Perfume[] = [
     stock: 25,
     isBest: true,
     translations: {
-      en: {
-        name: "Floral Bloom",
+      ar: {
+        name: "زهور الربيع",
         longDescription:
-          "A celebration of spring flowers, combining jasmine, rose, and lily of the valley. Perfect for everyday elegance, this fragrance slowly reveals its complex floral layers, ending with a soft string of vanilla and musk.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Benzyl Salicylate, Citronellol, Geraniol.",
+          "احتفال بزهور الربيع، يجمع بين الياسمين والورد وزنبق الوادي. مثالي للأناقة اليومية، هذا العطر يكشف ببطء عن طبقاته الزهرية المعقدة، وينتهي بلمسة ناعمة من الفانيليا والمسك.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، بنزيل ساليسيلات، سيترونيلول، جيرانيول.",
       },
       fr: {
         name: "Cascade Florale",
@@ -108,11 +108,11 @@ export const perfumes: Perfume[] = [
     stock: 40,
     isBest: true,
     translations: {
-      en: {
-        name: "Citrus Breeze",
+      ar: {
+        name: "نسيم الحمضيات",
         longDescription:
-          "An invigorating blend of Sicilian lemon, bergamot, and sweet orange. A clean, fresh scent perfect for any occasion. It provides an energetic and uplifting sensation that lingers comfortably throughout the day.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Limonene, Citral, Linalool.",
+          "مزيج منعش من الليمون الصقلي والبرغموت والبرتقال الحلو. رائحة نظيفة ومنعشة مثالية لأي مناسبة. يمنحك إحساساً بالحيوية والنشاط يدوم طوال اليوم.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، ليمونين، سيترال، لينالول.",
       },
       fr: {
         name: "Brise d'Agrumes",
@@ -138,11 +138,11 @@ export const perfumes: Perfume[] = [
     stock: 12,
     isBest: true,
     translations: {
-      en: {
-        name: "Midnight Rose",
+      ar: {
+        name: "وردة منتصف الليل",
         longDescription:
-          "A deep, sensual take on the classic rose, laced with dark berry notes and a hint of vanilla. The Midnight Rose offers a captivating allure for the modern woman who embraces elegance and mystery.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Geraniol, Citronellol, Farnesol.",
+          "لمسة عميقة وحسية على الوردة الكلاسيكية، مزينة بنوتات التوت الداكن ولمسة من الفانيليا. تقدم وردة منتصف الليل جاذبية آسرة للمرأة العصرية التي تحتضن الأناقة والغموض.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، جيرانيول، سيترونيلول، فارنيسول.",
       },
       fr: {
         name: "Rose de Minuit",
@@ -168,11 +168,11 @@ export const perfumes: Perfume[] = [
     stock: 50,
     isBest: true,
     translations: {
-      en: {
-        name: "Bleu Intense",
+      ar: {
+        name: "بلو إنتنس",
         longDescription:
-          "A woody, aromatic fragrance for the man who defies convention. The profoundly sensual Eau de Parfum, infused with crisp citrus notes, offers an intense and refined trail.",
-        ingredients: "Alcohol, Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol.",
+          "عطر خشبي عطري للرجل الذي يتحدى المألوف. أو دو بارفوم حسي وعميق، مُعزز بنوتات حمضية منعشة، يقدم أثراً عطرياً مكثفاً وراقياً.",
+        ingredients: "كحول، عطر، ماء، ليمونين، لينالول، سيترونيلول.",
       },
       fr: {
         name: "Bleu Intense",
@@ -198,11 +198,11 @@ export const perfumes: Perfume[] = [
     stock: 10,
     isBest: true,
     translations: {
-      en: {
-        name: "Jasmine Mystique",
+      ar: {
+        name: "ياسمين مستيك",
         longDescription:
-          "Crafted with hand-picked jasmine blossoms at the break of dawn, this fragrance captures the pure, luminous essence of the flower. It is sophisticated, radiant, and endlessly beautiful.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Benzyl Salicylate, Hexyl Cinnamal, Linalool.",
+          "صُنع من أزهار الياسمين المقطوفة يدوياً عند بزوغ الفجر، هذا العطر يلتقط الجوهر النقي والمشرق للزهرة. إنه راقٍ ومشع وجميل بلا حدود.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، بنزيل ساليسيلات، هكسيل سيناميل، لينالول.",
       },
       fr: {
         name: "Jasmin Mystique",
@@ -228,11 +228,11 @@ export const perfumes: Perfume[] = [
     stock: 8,
     isBest: true,
     translations: {
-      en: {
-        name: "Santal Royal",
+      ar: {
+        name: "صندل رويال",
         longDescription:
-          "A mysterious, captivating fragrance for both men and women. Shrouded in an aura of oriental mystery, the woody freshness of sandalwood contrasts with the deep, intoxicating notes of leather and oud.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Citronellol, Geraniol, Cinnamal.",
+          "عطر غامض وآسر للرجال والنساء. محاط بهالة من الغموض الشرقي، تتناقض نضارة خشب الصندل مع النوتات العميقة والمسكرة من الجلد والعود.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، سيترونيلول، جيرانيول، سيناميل.",
       },
       fr: {
         name: "Santal Royal",
@@ -258,11 +258,11 @@ export const perfumes: Perfume[] = [
     stock: 30,
     isBest: true,
     translations: {
-      en: {
-        name: "Vanilla Gold",
+      ar: {
+        name: "ذهب الفانيليا",
         longDescription:
-          "A rich tapestry of golden vanilla and sweet amber, intertwined with smoky woods. A truly grand, enveloping scent designed for both men and women seeking an opulent and sweet everyday fragrance.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Water (Aqua), Coumarin, Eugenol, Benzyl Benzoate.",
+          "نسيج غني من الفانيليا الذهبية والعنبر الحلو، متشابك مع الأخشاب المدخنة. عطر فخم وأنيق حقاً مصمم للرجال والنساء الباحثين عن رائحة يومية فاخرة وحلوة.",
+        ingredients: "كحول منزوع الطبيعة، عطر، ماء، كومارين، أوجينول، بنزيل بنزوات.",
       },
       fr: {
         name: "Or Vanille",
@@ -288,11 +288,11 @@ export const perfumes: Perfume[] = [
     stock: 12,
     isBest: true,
     translations: {
-      en: {
-        name: "Royal Oud",
+      ar: {
+        name: "عود ملكي",
         longDescription:
-          "Royal Oud is the pinnacle of luxury, combining the deep, woody resonance of aged Cambodian Oud with the delicate, honeyed sweetness of Bulgarian Rose. A fragrance designed for those who command presence and appreciate the finer details of oriental perfumery.",
-        ingredients: "Alcohol Denat., Aquilaria Agallocha (Oud) Oil, Rosa Damascena Flower Oil, Santalum Album (Sandalwood) Oil, Ambergris, Benzyl Salicylate.",
+          "العود الملكي هو قمة الفخامة، يجمع بين الصدى الخشبي العميق للعود الكمبودي المعتق مع الحلاوة الرقيقة والعسلية للورد البلغاري. عطر مصمم لمن يفرض حضوره ويقدر أرقى تفاصيل العطور الشرقية.",
+        ingredients: "كحول منزوع الطبيعة، زيت عود أُكيلاريا أغالوشا، زيت زهر الورد الدمشقي، زيت خشب الصندل، عنبر رمادي، بنزيل ساليسيلات.",
       },
       fr: {
         name: "Oud Royal",
@@ -318,11 +318,11 @@ export const perfumes: Perfume[] = [
     stock: 45,
     isBest: false,
     translations: {
-      en: {
-        name: "Desert Rose",
+      ar: {
+        name: "وردة الصحراء",
         longDescription:
-          "Desert Rose captures the ethereal beauty of a flower blooming in the heart of the desert. With top notes of saffron and heart notes of damask rose, it settles into a warm base of vanilla and white musk, perfect for the modern woman.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Saffron Extract, Rose absolute, Vanilla Planifolia, White Musk.",
+          "تلتقط وردة الصحراء الجمال الأثيري لزهرة تتفتح في قلب الصحراء. مع نوتات الزعفران العلوية ونوتات الورد الدمشقي الوسطى، تستقر في قاعدة دافئة من الفانيليا والمسك الأبيض، مثالي للمرأة العصرية.",
+        ingredients: "كحول منزوع الطبيعة، عطر، مستخلص الزعفران، ورد مطلق، فانيليا بلانيفوليا، مسك أبيض.",
       },
       fr: {
         name: "Rose du Désert",
@@ -348,11 +348,11 @@ export const perfumes: Perfume[] = [
     stock: 20,
     isBest: false,
     translations: {
-      en: {
-        name: "Midnight Musk",
+      ar: {
+        name: "مسك منتصف الليل",
         longDescription:
-          "Midnight Musk is a bold statement of masculinity and intrigue. It opens with sharp citrus and moves into a complex heart of leather and black pepper, finishing with a long-lasting, heavy musk that lingers long after the sun goes down.",
-        ingredients: "Alcohol Denat., Fragrance (Parfum), Musk Ketone, Leather Accord, Tobacco Absolute, Black Pepper Oil.",
+          "مسك منتصف الليل هو تعبير جريء عن الرجولة والغموض. يُفتتح بحمضيات حادة وينتقل إلى قلب معقد من الجلد والفلفل الأسود، وينتهي بمسك ثقيل وطويل الأمد يبقى طويلاً بعد غروب الشمس.",
+        ingredients: "كحول منزوع الطبيعة، عطر، كيتون المسك، أكورد الجلد، مطلق التبغ، زيت الفلفل الأسود.",
       },
       fr: {
         name: "Musc de Minuit",
@@ -378,11 +378,11 @@ export const perfumes: Perfume[] = [
     stock: 50,
     isBest: false,
     translations: {
-      en: {
-        name: "Atlas Cedar",
+      ar: {
+        name: "أرز الأطلس",
         longDescription:
-          "Inspired by the crisp air and ancient forests of Morocco's High Atlas Mountains, Atlas Cedar combines refreshing bergamot with the noble strength of cedarwood and patchouli. A clean, invigorating scent for the adventurous soul.",
-        ingredients: "Alcohol Denat., Cedrus Atlantica Wood Oil, Bergamot Oil, Patchouli, Vetiver, Lavender.",
+          "مستوحى من الهواء النقي والغابات القديمة لجبال الأطلس الكبير المغربية، يجمع أرز الأطلس بين البرغموت المنعش وقوة خشب الأرز النبيلة والباتشولي. رائحة نظيفة ومنعشة للروح المغامرة.",
+        ingredients: "كحول منزوع الطبيعة، زيت خشب أرز الأطلس، زيت البرغموت، باتشولي، فيتيفر، لافندر.",
       },
       fr: {
         name: "Cèdre de l'Atlas",
@@ -402,13 +402,13 @@ export function getTranslatedPerfume(perfume: Perfume, language: Language) {
   const translation = perfume.translations?.[language]
 
   if (!translation) {
-    const englishTranslation = perfume.translations?.en
-    if (englishTranslation && language !== "en") {
+    const frTranslation = perfume.translations?.fr
+    if (frTranslation && language !== "fr") {
       return {
         ...perfume,
-        name: englishTranslation.name,
-        longDescription: englishTranslation.longDescription,
-        ingredients: englishTranslation.ingredients || perfume.ingredients,
+        name: frTranslation.name,
+        longDescription: frTranslation.longDescription,
+        ingredients: frTranslation.ingredients || perfume.ingredients,
       }
     }
     return perfume

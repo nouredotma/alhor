@@ -19,11 +19,12 @@ const WhatsAppIcon = () => (
 
 export default function FloatingContact() {
   const whatsappNumber = "212669034206"
+  const { isRTL } = useLanguage()
 
   return (
     <>
       {/* Right side contact - Mobile & Desktop */}
-      <div className="fixed bottom-2 right-2 z-50 flex flex-col gap-3 items-end">
+      <div className={`fixed bottom-2 ${isRTL ? 'left-2' : 'right-2'} z-50 flex flex-col gap-3 items-end`}>
         {/* WhatsApp Button */}
         <Link 
           href={`https://wa.me/${whatsappNumber}`} 
@@ -63,7 +64,7 @@ export default function FloatingContact() {
       </div>
 
       {/* Left side location - Desktop Only */}
-      <div className="fixed bottom-2 left-2 z-50 hidden md:block">
+      <div className={`fixed bottom-2 ${isRTL ? 'right-2' : 'left-2'} z-50 hidden md:block`}>
         <Link 
           href="https://www.google.com/maps/place/%D9%85%D8%AA%D8%AC%D8%B1+%D8%A7%D9%84%D8%AD%D8%B1+%D9%84%D9%84%D8%B9%D8%B7%D9%88%D8%B1+%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xaaeedce220e7fe48?sa=X&ved=1t:2428&ictx=111&cshid=1774377594152" 
           target="_blank" 

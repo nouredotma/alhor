@@ -15,6 +15,7 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void
   t: TranslationKeys
   languages: typeof languages
+  isRTL: boolean
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -30,11 +31,19 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   // Load language from localStorage on mount
   useEffect(() => {
     const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    if (storedLanguage && (storedLanguage === "en" || storedLanguage === "fr")) {
+    if (storedLanguage && (storedLanguage === "ar" || storedLanguage === "fr")) {
       setLanguageState(storedLanguage as Language)
     }
     setIsHydrated(true)
   }, [])
+
+  // Update document dir and lang attributes when language changes
+  useEffect(() => {
+    if (!isHydrated) return
+    const isRTL = language === "ar"
+    document.documentElement.dir = isRTL ? "rtl" : "ltr"
+    document.documentElement.lang = language
+  }, [language, isHydrated])
 
   // Save language to localStorage when it changes
   const setLanguage = (lang: Language) => {
@@ -45,12 +54,15 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   // Get translations for current language
   const t = translations[language]
 
+  const currentLanguage = isHydrated ? language : DEFAULT_LANGUAGE
+
   // Prevent hydration mismatch by using default language until hydrated
   const contextValue: LanguageContextType = {
-    language: isHydrated ? language : DEFAULT_LANGUAGE,
+    language: currentLanguage,
     setLanguage,
     t: isHydrated ? t : translations[DEFAULT_LANGUAGE],
     languages,
+    isRTL: currentLanguage === "ar",
   }
 
   return (

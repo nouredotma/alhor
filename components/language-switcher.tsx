@@ -16,7 +16,7 @@ export function LanguageSwitcher({
   buttonClassName, 
   dropdownClassName 
 }: LanguageSwitcherProps) {
-  const { language, setLanguage, languages } = useLanguage()
+  const { language, setLanguage, languages, isRTL } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -52,14 +52,15 @@ export function LanguageSwitcher({
 
       {isOpen && (
         <div className={cn(
-          "absolute right-0 mt-2 bg-white rounded-md shadow-lg border border-gray-200 py-2 min-w-[160px] z-50 overflow-hidden",
+          "absolute mt-2 bg-white rounded-md shadow-lg border border-gray-200 py-2 min-w-[160px] z-50 overflow-hidden",
+          isRTL ? "left-0" : "right-0",
           dropdownClassName
         )}>
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => {
-                setLanguage(lang.code as "en" | "fr")
+                setLanguage(lang.code as "ar" | "fr")
                 setIsOpen(false)
               }}
               className={cn(

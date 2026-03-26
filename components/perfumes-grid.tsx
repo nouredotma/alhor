@@ -73,7 +73,7 @@ const PerfumesGrid = memo(function PerfumesGrid({ perfumes, isLoading }: Perfume
                   priority={index < 4}
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-0 right-0 bg-green-500 text-white px-2 py-0.5 md:py-1 rounded-none  rounded-bl-md  text-[10px] md:text-xs font-bold z-10 shadow-sm">
+                <div className="absolute top-0 end-0 bg-green-500 text-white px-2 py-0.5 md:py-1 rounded-none  rounded-bl-md  text-[10px] md:text-xs font-bold z-10 shadow-sm">
                   {t.perfume.stock.replace("{count}", perfume.stock.toString())}
                 </div>
               </div>

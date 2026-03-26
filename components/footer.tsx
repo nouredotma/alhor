@@ -2,9 +2,10 @@
 
 import { useLanguage } from "@/components/language-provider";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
 
   const quickLinks = [
     { href: "/", label: t.header.home },
@@ -172,10 +173,13 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid var(--dark-700)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4 text-[10px] sm:text-sm font-light text-center sm:text-left" style={{ color: 'var(--neutral-500)' }}>
+          <div className={cn(
+            "flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4 text-[10px] sm:text-sm font-light text-center",
+            isRTL ? "sm:text-right" : "sm:text-left"
+          )} style={{ color: 'var(--neutral-500)' }}>
             <p>{t.footer.copyright}</p>
             <p>
-              Developed & Designed by{" "}
+              {t.footer.developedBy}{" "}
               <a 
                 href="https://wa.me/212613774895" 
                 target="_blank" 
