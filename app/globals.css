@@ -254,6 +254,11 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }
+
+  .footer-logo {
+    /* Filter to achieve #F0EFE8 (neutral-100) from any logo color */
+    filter: brightness(0) invert(1) sepia(5%) saturate(300%) hue-rotate(5deg) brightness(95%) contrast(90%);
+  }
 }
 
 /* Moved hero section styles to global CSS to fix styling delays and loading issues */

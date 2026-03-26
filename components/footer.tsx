@@ -21,15 +21,15 @@ export default function Footer() {
   return (
     <footer className="w-full text-white rounded-t-2xl md:rounded-t-4xl" style={{ backgroundColor: 'var(--color-bg-dark)' }}>
       {/* Main Footer */}
-      <div className="max-w-full mx-auto px-4 md:px-12 pt-14 pb-10">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 pt-14 pb-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 lg:gap-8">
           {/* Brand Section */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
             <a href="/" className="inline-block">
               <img
                 src="/logo.webp"
                 alt="Alhor Parfum"
-                className="h-14 w-auto object-contain"
+                className="h-14 w-auto object-contain footer-logo"
               />
             </a>
             <p className="text-xs sm:text-sm font-light leading-relaxed" style={{ color: 'var(--neutral-300)' }}>
@@ -81,42 +81,45 @@ export default function Footer() {
 
           
 
-          {/* perfumes List */}
-          <div>
-            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
-              {t.footer.perfumes}
-            </h4>
-            <nav className="space-y-2.5">
-              {perfumeLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
-                  style={{ color: 'var(--neutral-300)' }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+          {/* Perfumes and Quick Links Wrapper */}
+          <div className="contents lg:block lg:space-y-10">
+            {/* perfumes List */}
+            <div>
+              <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
+                {t.footer.perfumes}
+              </h4>
+              <nav className="space-y-2.5">
+                {perfumeLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
+                    style={{ color: 'var(--neutral-300)' }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
-              {t.footer.explore}
-            </h4>
-            <nav className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
-                  style={{ color: 'var(--neutral-300)' }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-md font-semibold mb-2 font-fauna" style={{ color: 'var(--gold-400)' }}>
+                {t.footer.explore}
+              </h4>
+              <nav className="space-y-2.5">
+                {quickLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
+                    style={{ color: 'var(--neutral-300)' }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
           </div>
 
           {/* Contact Info */}
@@ -127,7 +130,7 @@ export default function Footer() {
             <div className="space-y-2 sm:space-y-4">
               <a 
                 href="tel:0669034206"
-                className="block p-2 sm:p-3 rounded-lg hover:brightness-125 transition-all group"
+                className="block p-2 sm:p-3 rounded-md hover:brightness-125 transition-all group"
                 style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}
               >
                 <div className="flex items-center gap-2">
@@ -139,7 +142,7 @@ export default function Footer() {
 
               <a 
                 href="mailto:alhorparfum@gmail.com"
-                className="block p-2 sm:p-3 rounded-lg hover:brightness-125 transition-all group"
+                className="block p-2 sm:p-3 rounded-md hover:brightness-125 transition-all group"
                 style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}
               >
                 <div className="flex items-center gap-2">
@@ -150,7 +153,7 @@ export default function Footer() {
               </a>
 
               <div 
-                className="p-2 sm:p-3 rounded-lg hover:brightness-125 transition-all group"
+                className="p-2 sm:p-3 rounded-md hover:brightness-125 transition-all group"
                 style={{ backgroundColor: 'var(--color-bg-dark-raised)' }}
               >
                 <div className="flex items-center gap-2">
@@ -168,7 +171,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid var(--dark-700)' }}>
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4 text-[10px] sm:text-sm font-light text-center sm:text-left" style={{ color: 'var(--neutral-500)' }}>
             <p>{t.footer.copyright}</p>
             <p>
