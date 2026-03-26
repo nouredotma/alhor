@@ -38,11 +38,11 @@ export default function AdminLoginPage() {
         {/* Logo / Branding */}
         <div className="text-center mb-6">
           <Image
-            src="/whitelogo.png"
+            src="/logo.png"
             alt="Alhor Parfum"
             width={180}
             height={60}
-            className="mx-auto mb-3 object-contain"
+            className="mx-auto mb-3 h-15 w-auto object-contain"
           />
           <p className="text-xs text-white/50 mt-1">
             Connectez-vous pour gérer le tableau de bord

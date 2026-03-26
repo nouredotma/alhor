@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import { LanguageProvider } from "@/components/language-provider";
@@ -11,7 +11,15 @@ import SplashScreen from "@/components/splash-screen";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const cairo = Cairo({
+  subsets: ["latin", "arabic"],
+  variable: "--font-cairo",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alhorparfum.com"),
@@ -225,18 +233,12 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className="loading-lock" suppressHydrationWarning>
       <head>
-        {/* Preconnect to external resources for performance */}
-        <link
-          rel="preconnect"
-          href="https://fonts.cdnfonts.com"
-          crossOrigin="anonymous"
-        />
+        {/* Preconnect to external resources */}
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
 
         {/* Theme color for mobile browsers */}
         <meta name="theme-color" content="#FFCC00" />
@@ -255,7 +257,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${cairo.variable} antialiased`} suppressHydrationWarning>
         <SplashScreen />
         <LanguageProvider>
           <CartProvider>

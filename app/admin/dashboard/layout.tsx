@@ -158,11 +158,11 @@ export default function DashboardLayout({
         <div className="flex flex-col items-start lg:items-center justify-center px-2 h-[60px] border-b border-white/10 relative">
           <Link href="/admin/dashboard" className="flex items-center justify-start lg:justify-center w-full">
             <Image
-              src="/whitelogo.png"
+              src="/logo.png"
               alt="Logo"
               width={140}
-              height={60}
-              className="object-contain"
+              height={48}
+              className="h-12 w-auto object-contain"
             />
           </Link>
           <button
@@ -265,7 +265,7 @@ export default function DashboardLayout({
       <div className="flex-1 flex flex-col min-h-svh">
         {/* Top Bar */}
         <header className="sticky lg:static top-0 z-30 bg-white border-b border-gray-100 px-3 lg:px-8 h-[60px] flex items-center justify-between gap-4">
-          <h2 className="text-lg font-semibold text-gray-800" style={{ fontFamily: "'Fauna One', serif" }}>
+          <h2 className="text-lg font-semibold text-gray-800" style={{ fontFamily: "var(--font-fauna)" }}>
             {(() => {
               if (pathname === "/admin/dashboard") return "Vue d'ensemble";
               

@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
             <a href="/" className="inline-block">
               <img
-                src="/whitelogo.png"
+                src="/logo.png"
                 alt="Alhor Parfum"
                 className="h-14 w-auto object-contain"
               />

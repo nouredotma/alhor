@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
+
 
 export default function SplashScreen() {
   const [visible, setVisible] = useState(true)
@@ -46,7 +48,23 @@ export default function SplashScreen() {
         pointerEvents: fadingOut ? "none" : "auto",
       }}
     >
-        <div className="perfume"></div>
+        <div className="perfume">
+          <div className="perfume-logo">
+            <Image
+              src="/logo.png"
+              alt="Alhor Parfum"
+              width={140}
+              height={140}
+              priority
+              style={{ 
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain',
+                filter: 'brightness(0) invert(1) brightness(0.9) sepia(0.2) saturate(2) hue-rotate(5deg)' // Make it look slightly golden-ish if white, or just silver
+              }}
+            />
+          </div>
+        </div>
     </div>
   )
 }
