@@ -158,7 +158,7 @@ export default function DashboardLayout({
         <div className="flex flex-col items-start lg:items-center justify-center px-2 h-[60px] border-b border-white/10 relative">
           <Link href="/admin/dashboard" className="flex items-center justify-start lg:justify-center w-full">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Logo"
               width={140}
               height={48}

@@ -51,7 +51,7 @@ export default function SplashScreen() {
         <div className="perfume">
           <div className="perfume-logo">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Alhor Parfum"
               width={140}
               height={140}

@@ -14,7 +14,7 @@ const COMPANY = {
   tel: "06 69 03 42 06",
   fixe: "—",
   email: "alhorparfum@gmail.com",
-  logo: "/logo.png",
+  logo: "/logo.webp",
 };
 
 // ── Status palette ────────────────────────────────────────────────────────────

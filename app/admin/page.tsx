@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
         {/* Logo / Branding */}
         <div className="text-center mb-6">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Alhor Parfum"
             width={180}
             height={60}
