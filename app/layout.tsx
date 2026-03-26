@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Cairo } from "next/font/google";
+import { Inter, Cairo, Dancing_Script } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import { LanguageProvider } from "@/components/language-provider";
@@ -19,6 +19,11 @@ const inter = Inter({
 const cairo = Cairo({
   subsets: ["latin", "arabic"],
   variable: "--font-cairo",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-dancing",
 });
 
 export const metadata: Metadata = {
@@ -257,7 +262,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${cairo.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${cairo.variable} ${dancingScript.variable} antialiased`} suppressHydrationWarning>
         <SplashScreen />
         <LanguageProvider>
           <CartProvider>

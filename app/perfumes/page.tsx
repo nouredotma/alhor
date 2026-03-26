@@ -59,7 +59,7 @@ function PerfumesContent() {
       // Search filtering
       if (filters.search) {
         const searchStr = filters.search.toLowerCase()
-        const hay = (p.name + " " + p.shortDescription).toLowerCase()
+        const hay = (p.name).toLowerCase()
         if (!hay.includes(searchStr)) return false
       }
 

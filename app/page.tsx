@@ -13,7 +13,7 @@ import FloatingContact from "@/components/floating-contact"
 export default function HomePage() {
   return (
     <main className="w-full">
-      <Header />
+      <Header forceScrolled />
       <Hero />
       <Banner items={BANNER1_ITEMS} />
       <OurPerfumes />

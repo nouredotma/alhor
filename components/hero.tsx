@@ -2,115 +2,99 @@
 
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
-import { Phone, ChevronDown } from "lucide-react"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { Phone } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function Hero() {
   const { t } = useLanguage()
-  const [currentSubtitle, setCurrentSubtitle] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSubtitle((prev) => (prev + 1) % t.hero.subtitles.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [t.hero.subtitles.length])
+  
+  const titleParts = t.hero.title.split("{highlight}")
 
   return (
-    <section className="relative w-full overflow-hidden rounded-b-2xl md:rounded-b-4xl" style={{ height: "100svh" }}>
-      {/* Background Image - Light overlay added */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <img
-          src="/5.png"
-          alt="Alhor Parfum"
-          className="w-full h-full object-cover select-none"
-        />
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
+    <section className="relative w-full overflow-hidden min-h-svh flex items-center" style={{ backgroundColor: 'var(--neutral-50)' }}>
+      <div className="max-w-full mx-auto px-4 md:px-12 py-8 md:py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Column: Content */}
+          <div className="flex flex-col space-y-8 text-center lg:text-left order-1 lg:order-1 px-4 lg:px-0">
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-2"
+              >
+                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium tracking-wider">
+                  {t.bestOffers.badge.perfume}
+                </div>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground tracking-tight font-fauna leading-[1.3] lg:leading-[1.1]">
+                  {titleParts[0]}
+                  <span className="text-primary lowercase block md:inline-block italic">
+                    {t.hero.highlight}
+                  </span>
+                  {titleParts[1]}
+                </h1>
+              </motion.div>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-xl mx-auto lg:mx-0"
+              >
+                {t.hero.subtitles.join(" ")}
+              </motion.p>
+            </div>
 
-      {/* Content - Centered */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-16 pt-16">
-        <div className="max-w-4xl space-y-2 sm:space-y-4 text-center">
-          <div className="space-y-1">
-            <motion.h1 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-3xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight font-fauna"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap gap-4 justify-center lg:justify-start"
             >
-              {t.hero.title}
-            </motion.h1>
-            
-            <div className="h-6 md:h-8 flex items-center justify-center">
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={currentSubtitle}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-sm md:text-lg text-white/95 font-light leading-relaxed drop-shadow-sm"
-                >
-                  {t.hero.subtitles[currentSubtitle]}
-                </motion.p>
-              </AnimatePresence>
-            </div>
+              <Button 
+                size="lg"
+                className="h-12 md:h-14 px-8 rounded-full bg-primary hover:bg-[#CC9F00] text-primary-foreground transition-all duration-300 text-base font-fauna"
+                asChild
+              >
+                <a href="/perfumes">
+                  {t.hero.perfumesButton}
+                </a>
+              </Button>
+              
+              <Button 
+                size="lg"
+                variant="outline"
+                className="h-12 md:h-14 px-8 rounded-full border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 text-foreground transition-all duration-300 font-light text-base font-fauna"
+                asChild
+              >
+                <a href="tel:0669034206">
+                  <motion.span
+                    animate={{ rotate: [-10, 10, -10], x: [-1, 1, -1] }}
+                    transition={{ 
+                      repeat: Infinity, 
+                      duration: 2, 
+                      ease: "easeInOut" 
+                    }}
+                    className="inline-block mr-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                  </motion.span>
+                  {t.hero.phoneButton}
+                </a>
+              </Button>
+            </motion.div>
           </div>
 
-          <div className="flex items-center justify-center gap-2 sm:gap-4 pt-1 sm:pt-2">
-            <Button 
-              size="lg"
-              className="flex-1 sm:flex-none h-10 sm:h-12 px-2 sm:px-8 rounded-md bg-primary hover:bg-[#CC9F00] text-primary-foreground transition-all duration-300  text-xs sm:text-base shadow-lg font-fauna"
-              asChild
-            >
-              <a href="/perfumes">
-                {t.hero.perfumesButton}
-              </a>
-            </Button>
-            
-            <Button 
-              size="lg"
-              className="flex-1 sm:flex-none h-10 sm:h-12 px-1 sm:px-8 rounded-md bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border-2 border-white/20 transition-all duration-300 font-light text-xs sm:text-base shadow-lg font-fauna"
-              asChild
-            >
-              <a href="tel:0669034206">
-                <motion.span
-                  animate={{ rotate: [-10, 10, -10], x: [-1, 1, -1] }}
-                  transition={{ 
-                    repeat: Infinity, 
-                    duration: 2, 
-                    ease: "easeInOut" 
-                  }}
-                  className="inline-block mr-1 sm:mr-3"
-                >
-                  <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
-                </motion.span>
-                {t.hero.phoneButton}
-              </a>
-            </Button>
+          {/* Right Column: Image */}
+          <div className="relative aspect-square w-full max-w-sm md:max-w-md lg:max-w-[420px] mx-auto order-2 lg:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop"
+              alt="Alhor Parfum Luxury Bottle"
+              className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2.5rem] ring-1 ring-black/5"
+            />
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center z-20 cursor-pointer"
-        onClick={() => {
-          window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-        }}
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="text-white/60 hover:text-white transition-colors"
-        >
-          <ChevronDown className="w-8 h-8 md:w-10 md:h-10" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

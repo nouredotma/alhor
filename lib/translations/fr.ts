@@ -39,11 +39,11 @@ export const fr: TranslationKeys = {
 
   // Hero Section
   hero: {
-    title: "Découvrez l'Excellence des Parfums Orientaux",
+    title: "Ressentez le luxe. Gardez la {highlight}",
+    highlight: "Fragrance",
     subtitles: [
-      "Les fragrances orientales les plus authentiques.",
-      "Une sélection raffinée d'Oud et d'Encens.",
-      "Des senteurs luxueuses pour tous les goûts."
+      "Parfums orientaux soigneusement sélectionnés et huiles d'oud premium.",
+      "Luxe abordable avec livraison partout au Maroc."
     ],
     phoneButton: "06 69 03 42 06",
     perfumesButton: "Découvrir NOS Parfums",
@@ -95,7 +95,7 @@ export const fr: TranslationKeys = {
     sectionTitle: "Nos Meilleures Ventes",
     sectionDescription: "Une sélection de nos parfums les plus prisés et appréciés.",
     badge: {
-      perfume: "Meilleure Vente",
+      perfume: "Matjar Al Hor",
       tours: "Meilleur Tour !",
       excursions: "Meilleure Excursion !",
       activities: "Meilleure Activité !",

@@ -37,11 +37,11 @@ export const en = {
 
   // Hero Section
   hero: {
-    title: "Discover the World of Luxury Fragrances",
+    title: "Feel the Luxury. Keep the {highlight}",
+    highlight: "Fragrance",
     subtitles: [
-      "The finest authentic oriental perfumes.",
-      "A curated selection of oud and incense.",
-      "Luxury scents for every taste."
+      "Handpicked oriental perfumes and premium oud oils that turn heads.",
+      "Affordable luxury with nationwide delivery."
     ],
     phoneButton: "06 69 03 42 06",
     perfumesButton: "Discover Our Perfumes",
@@ -93,7 +93,7 @@ export const en = {
     sectionTitle: "Best Sellers",
     sectionDescription: "A curated selection of our most popular and sought-after perfumes.",
     badge: {
-      perfume: "Best Seller",
+      perfume: "Matjar Al Hor",
       tours: "Best Tour!",
       excursions: "Best Excursion!",
       activities: "Best Activity!",

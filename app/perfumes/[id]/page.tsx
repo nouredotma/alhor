@@ -237,10 +237,7 @@ export default function PerfumeDetailPage({ params }: { params: Promise<{ id: st
                   )}
                 </div>
 
-                {/* 4. Short Description */}
-                <p className="text-sm md:text-base text-neutral-600 leading-relaxed font-light">
-                  {perfume.shortDescription}
-                </p>
+
 
                 {/* 4.5 Ingredients (Styled as tags) */}
                 {perfume.ingredients && (
