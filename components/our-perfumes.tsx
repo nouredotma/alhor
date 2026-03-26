@@ -27,17 +27,7 @@ export default function OurPerfumes() {
     fetchBestPerfumes()
   }, [language])
 
-  if (isLoading) {
-    return (
-      <section className="w-full py-20 bg-white">
-        <div className="max-w-full mx-auto px-4 md:px-12">
-          <div className="flex items-center justify-center py-16">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          </div>
-        </div>
-      </section>
-    )
-  }
+
 
   return (
     <section className="w-full pb-16 pt-8" style={{ backgroundColor: 'var(--neutral-50)' }}>
@@ -49,15 +39,9 @@ export default function OurPerfumes() {
           </Link>
         </div>
 
-        {bestPerfumes.length > 0 ? (
-          <div className="w-full">
-            <PerfumesGrid perfumes={bestPerfumes} />
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-muted-foreground">{t.common.noOffersFound}</p>
-          </div>
-        )}
+        <div className="w-full">
+          <PerfumesGrid perfumes={bestPerfumes} isLoading={isLoading} />
+        </div>
       </div>
     </section>
   )

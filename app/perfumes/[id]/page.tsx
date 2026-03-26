@@ -121,6 +121,7 @@ export default function PerfumeDetailPage({ params }: { params: Promise<{ id: st
                   src={activeImage}
                   alt={perfume.name}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover cursor-zoom-in"
                   priority
                   onClick={() => setIsLightboxOpen(true)}
@@ -168,7 +169,7 @@ export default function PerfumeDetailPage({ params }: { params: Promise<{ id: st
                             : "border border-neutral-200 opacity-70 hover:opacity-100"
                         }`}
                       >
-                        <Image src={img} alt={`${perfume.name} thumbnail ${idx}`} fill className="object-cover" />
+                        <Image src={img} alt={`${perfume.name} thumbnail ${idx}`} fill sizes="80px" className="object-cover" />
                       </button>
                     ))}
                   </div>
@@ -369,6 +370,7 @@ export default function PerfumeDetailPage({ params }: { params: Promise<{ id: st
                 src={activeImage}
                 alt={perfume.name}
                 fill
+                sizes="100vw"
                 className="object-contain"
                 priority
               />

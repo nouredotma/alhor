@@ -132,14 +132,7 @@ function PerfumesContent() {
 
             {/* perfumes Grid Main Area */}
             <div className="w-full">
-              {isLoading ? (
-                <div className="flex flex-col items-center justify-center py-24">
-                  <Loader2 className="h-12 w-12 animate-spin text-primary mb-6" />
-                  <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">{t.common.loading}</p>
-                </div>
-              ) : (
-                <PerfumesGrid perfumes={filteredPerfumes} />
-              )}
+              <PerfumesGrid perfumes={filteredPerfumes} isLoading={isLoading} />
             </div>
           </div>
         </Container>

@@ -16,6 +16,7 @@ type CarouselPlugin = UseCarouselParameters[1]
 
 type CarouselProps = {
   opts?: CarouselOptions
+  options?: CarouselOptions
   plugins?: CarouselPlugin
   orientation?: 'horizontal' | 'vertical'
   setApi?: (api: CarouselApi) => void
@@ -45,6 +46,7 @@ function useCarousel() {
 function Carousel({
   orientation = 'horizontal',
   opts,
+  options,
   setApi,
   plugins,
   className,
@@ -54,6 +56,7 @@ function Carousel({
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
+      ...options,
       axis: orientation === 'horizontal' ? 'x' : 'y',
     },
     plugins,
@@ -171,6 +174,81 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
   )
 }
 
+function SliderContainer({ className, ...props }: React.ComponentProps<'div'>) {
+  const { carouselRef, orientation } = useCarousel()
+
+  return (
+    <div
+      ref={carouselRef}
+      className="overflow-hidden"
+      data-slot="carousel-viewport"
+    >
+      <div
+        className={cn(
+          'flex',
+          orientation === 'horizontal' ? '' : 'flex-col',
+          className,
+        )}
+        {...props}
+      />
+    </div>
+  )
+}
+
+function Slider({ className, ...props }: React.ComponentProps<'div'>) {
+  const { orientation } = useCarousel()
+
+  return (
+    <div
+      role="group"
+      aria-roledescription="slide"
+      data-slot="carousel-item"
+      className={cn(
+        'min-w-0 shrink-0 grow-0',
+        orientation === 'horizontal' ? '' : '',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+function SliderDotButton({ className }: React.ComponentProps<'div'>) {
+  const { api } = useCarousel()
+  const [selectedIndex, setSelectedIndex] = React.useState(0)
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([])
+
+  const onSelect = React.useCallback((api: CarouselApi) => {
+    if (!api) return
+    setSelectedIndex(api.selectedScrollSnap())
+  }, [])
+
+  React.useEffect(() => {
+    if (!api) return
+    setScrollSnaps(api.scrollSnapList())
+    api.on('select', onSelect)
+    api.on('reInit', onSelect)
+    return () => {
+      api?.off('select', onSelect)
+    }
+  }, [api, onSelect])
+
+  return (
+    <div className={cn('flex items-center gap-1', className)}>
+      {scrollSnaps.map((_, index) => (
+        <button
+          key={index}
+          className={cn(
+            'h-2 w-2 rounded-full transition-all cursor-pointer',
+            index === selectedIndex ? 'bg-primary w-4' : 'bg-muted',
+          )}
+          onClick={() => api?.scrollTo(index)}
+        />
+      ))}
+    </div>
+  )
+}
+
 function CarouselPrevious({
   className,
   variant = 'outline',
@@ -238,4 +316,7 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  Slider,
+  SliderContainer,
+  SliderDotButton,
 }

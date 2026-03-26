@@ -242,8 +242,8 @@ export const en = {
     location: "Location",
     rating: "Rating",
     reviews: "reviews",
-    noOffersFound: "No offers found",
-    noOffersDescription: "We couldn't find any offers matching your criteria. Try adjusting your filters or searching for something else.",
+    noOffersFound: "No perfumes found",
+    noOffersDescription: "We couldn't find any perfumes matching your criteria. Try adjusting your filters or searching for something else.",
     custom: "Custom",
   },
 

@@ -244,8 +244,8 @@ export const fr: TranslationKeys = {
     location: "Lieu",
     rating: "Note",
     reviews: "avis",
-    noOffersFound: "Aucune offre trouvée",
-    noOffersDescription: "Nous n'avons trouvé aucune offre correspondant à vos critères. Essayez d'ajuster vos filtres ou de rechercher autre chose.",
+    noOffersFound: "Aucun parfum trouvé",
+    noOffersDescription: "Nous n'avons trouvé aucun parfum correspondant à vos critères. Essayez d'ajuster vos filtres ou de rechercher autre chose.",
     custom: "Sur mesure",
   },
 

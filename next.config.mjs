@@ -18,10 +18,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'morthai.vercel.app',
-      },
-      {
-        protocol: 'https',
         hostname: 'upload.wikimedia.org',
       },
       {
@@ -61,14 +57,6 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
-      },
-      {
-        protocol: 'http',
-        hostname: 'api.marrakeshtravelservices.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'api.marrakeshtravelservices.com',
       },
     ],
   },

@@ -94,6 +94,7 @@ export default function SearchFilter({ onChange, initial }: Props) {
                     src={opt.image}
                     alt={opt.name}
                     fill
+                    sizes="(max-width: 768px) 96px, 144px"
                     className="object-contain"
                     priority
                   />
